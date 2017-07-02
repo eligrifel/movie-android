@@ -1,0 +1,86 @@
+package view;
+
+
+
+
+
+import java.util.ArrayList;
+
+import android.content.Context;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
+
+
+
+/**
+ * Created by eli on 5/30/2015.
+ */
+public class MyPagerAdapter extends FragmentPagerAdapter  {
+    private ArrayList<String> tabName;
+    int NumberOfPagers=3;
+    Context _context;
+    private FragmentManager mFragmentManager;
+    
+    public MyPagerAdapter(FragmentManager fm,Context context) {
+        super(fm);
+        mFragmentManager = fm;
+                _context=context;
+        tabName = new ArrayList<>();
+        tabName.add("Category");
+        tabName.add("Leased movies");
+        tabName.add("Top rated");
+
+    }
+
+
+
+
+    @Override
+    public Fragment getItem(int position) {
+
+        switch (position) {
+            case 0:
+                // Top Rated fragment activity
+
+                return new Tab1();
+
+            case 1:
+                // Top Rated fragment activity
+                return new Tab2();
+            case 2:
+                // Games fragment activity
+                return new Tab3();
+            case 3:
+                // Movies fragment activity
+                return new Tab3();
+        }
+        return null;
+    }
+
+    @Override
+    public int getCount() {
+        return NumberOfPagers;
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+//        Drawable drawable = ContextCompat.getDrawable(_context,R.drawable.tabhome);
+//        drawable.setBounds(0,0,60,60);
+//        ImageSpan imageSpan = new ImageSpan(drawable);
+//        SpannableString spannableString = new SpannableString("hello ");
+//        spannableString.setSpan(imageSpan,0,spannableString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+//        return  spannableString;
+       return (tabName.get(position).toString());
+    }
+
+    public Fragment getActiveFragment(ViewPager container, int position) {
+    	String name = makeFragmentName(container.getId(), position);
+    	return  mFragmentManager.findFragmentByTag(name);
+    	}
+
+    	private static String makeFragmentName(int viewId, int index) {
+    	    return "android:switcher:" + viewId + ":" + index;
+    	}
+}

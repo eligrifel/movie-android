@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="gray">#d3d3d3 </color>
+    <color name="listview_gray">#f2f2f2</color>
+    <color name="red_background">#ffFF2E2E</color>
+    
+</resources>
