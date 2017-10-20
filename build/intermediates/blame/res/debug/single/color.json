@@ -1,38 +1,74 @@
 [
     {
-        "merged": "C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\color\\switch_thumb_material_light.xml",
-        "source": "C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\color\\switch_thumb_material_light.xml"
+        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/color/switch_thumb_material_dark.xml",
+        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/color/switch_thumb_material_dark.xml"
     },
     {
-        "merged": "C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_material_dark.xml",
-        "source": "C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\color\\abc_primary_text_material_dark.xml"
+        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\color\\abc_secondary_text_material_dark.xml",
+        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\color\\abc_secondary_text_material_dark.xml"
     },
     {
-        "merged": "C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_disable_only_material_dark.xml",
-        "source": "C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\color\\abc_primary_text_disable_only_material_dark.xml"
+        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/color/abc_search_url_text.xml",
+        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/color/abc_search_url_text.xml"
     },
     {
-        "merged": "C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\color\\switch_thumb_material_dark.xml",
-        "source": "C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\color\\switch_thumb_material_dark.xml"
+        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/color/abc_primary_text_material_light.xml",
+        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/color/abc_primary_text_material_light.xml"
     },
     {
-        "merged": "C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\color\\abc_search_url_text.xml",
-        "source": "C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\color\\abc_search_url_text.xml"
+        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/color/switch_thumb_material_light.xml",
+        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/color/switch_thumb_material_light.xml"
     },
     {
-        "merged": "C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_disable_only_material_light.xml",
-        "source": "C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\color\\abc_primary_text_disable_only_material_light.xml"
+        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_disable_only_material_dark.xml",
+        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\color\\abc_primary_text_disable_only_material_dark.xml"
     },
     {
-        "merged": "C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\color\\abc_secondary_text_material_light.xml",
-        "source": "C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\color\\abc_secondary_text_material_light.xml"
+        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/color/abc_secondary_text_material_light.xml",
+        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/color/abc_secondary_text_material_light.xml"
     },
     {
-        "merged": "C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_material_light.xml",
-        "source": "C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\color\\abc_primary_text_material_light.xml"
+        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/color/abc_secondary_text_material_dark.xml",
+        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/color/abc_secondary_text_material_dark.xml"
     },
     {
-        "merged": "C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\color\\abc_secondary_text_material_dark.xml",
-        "source": "C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\color\\abc_secondary_text_material_dark.xml"
+        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\color\\switch_thumb_material_light.xml",
+        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\color\\switch_thumb_material_light.xml"
+    },
+    {
+        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/color/abc_primary_text_disable_only_material_light.xml",
+        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/color/abc_primary_text_disable_only_material_light.xml"
+    },
+    {
+        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\color\\switch_thumb_material_dark.xml",
+        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\color\\switch_thumb_material_dark.xml"
+    },
+    {
+        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_disable_only_material_light.xml",
+        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\color\\abc_primary_text_disable_only_material_light.xml"
+    },
+    {
+        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\color\\abc_secondary_text_material_light.xml",
+        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\color\\abc_secondary_text_material_light.xml"
+    },
+    {
+        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_material_dark.xml",
+        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\color\\abc_primary_text_material_dark.xml"
+    },
+    {
+        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\color\\abc_search_url_text.xml",
+        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\color\\abc_search_url_text.xml"
+    },
+    {
+        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_material_light.xml",
+        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\color\\abc_primary_text_material_light.xml"
+    },
+    {
+        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/color/abc_primary_text_material_dark.xml",
+        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/color/abc_primary_text_material_dark.xml"
+    },
+    {
+        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/color/abc_primary_text_disable_only_material_dark.xml",
+        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/color/abc_primary_text_disable_only_material_dark.xml"
     }
 ]
