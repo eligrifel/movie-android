@@ -20,7 +20,7 @@ public class LoginActivity extends Activity {
     private TextView email;
     private Button login;
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
         context = this;
@@ -53,8 +53,8 @@ public class LoginActivity extends Activity {
     private void authenticate(String username, String password){
         if (username.equals("a@a.com") && password.equals("a")){
             Intent intent = new Intent(this,Main.class);
-            String message = "something";
-            intent.putExtra(EXTRA_MESSAGE, message);
+            //String message = "something";
+            //intent.putExtra(EXTRA_MESSAGE, message);
             startActivity(intent);
         }
         else{
