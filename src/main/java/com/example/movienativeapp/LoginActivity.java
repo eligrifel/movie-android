@@ -14,6 +14,7 @@ import android.widget.TextView;
  */
 
 public class LoginActivity extends Activity {
+    public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
     private Context context;
     private TextView password;
     private TextView email;
@@ -51,8 +52,10 @@ public class LoginActivity extends Activity {
 
     private void authenticate(String username, String password){
         if (username.equals("a@a.com") && password.equals("a")){
-            Intent intent = new Intent(context,MovieActivity.class);
-            context.startActivity(intent);
+            Intent intent = new Intent(this,Main.class);
+            String message = "something";
+            intent.putExtra(EXTRA_MESSAGE, message);
+            startActivity(intent);
         }
         else{
             this.password.setText("");
