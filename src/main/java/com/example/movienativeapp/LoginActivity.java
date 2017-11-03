@@ -19,13 +19,14 @@ public class LoginActivity extends Activity {
     private TextView password;
     private TextView email;
     private Button login;
+
     @Override
-    protected void onCreate( Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
         context = this;
-        password =  (TextView) findViewById(R.id.password);
-        email =  (TextView) findViewById(R.id.email);
+        password = (TextView) findViewById(R.id.password);
+        email = (TextView) findViewById(R.id.email);
         login = (Button) findViewById(R.id.loginButton);
         login.setVisibility(View.INVISIBLE);
 
@@ -33,7 +34,7 @@ public class LoginActivity extends Activity {
         password.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!password.getText().equals("") &&  !email.getText().equals("")){
+                if (!password.getText().equals("") && !email.getText().equals("")) {
                     login.setVisibility(View.VISIBLE);
                 }
             }
@@ -43,14 +44,43 @@ public class LoginActivity extends Activity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                authenticate("a@a.com","a");
+                authenticate("lionelmina", "lionelmina");
             }
         });
 
 
     }
 
-    private void authenticate(String username, String password){
+    private void authenticate(String username, String password) {
+        class login implements Runnable {
+            String _username;
+            String _password;
+
+            login(String username, String password) {
+                _username = username;
+                _password = password;
+            }
+
+
+            public void run() {
+                ServerDummy testserver = new ServerDummy();
+                testserver.connctToServer(_username,_password);
+            }
+        }
+
+        Thread t = new Thread(new login(username,password));
+        t.start();
+
+
+
+
+
+
+
+
+
+
+
         if (username.equals("a@a.com") && password.equals("a")){
             Intent intent = new Intent(this,Main.class);
             //String message = "something";
