@@ -14,6 +14,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Map;
 
 /**
  * Created by eli on 24/07/2015.
@@ -106,9 +107,10 @@ public class ServerDummy {
         Log.d("review sends", "review sends by:" + userName);
     }
 
-    public int connctToServer(String username, String password) {
+    public JSONObject connctToServer(String username, String password) {
         StringBuilder sb = new StringBuilder();
         URL url;
+
         String auth = username + ":" + password;
         final String basicAuth = "Basic " + Base64.encodeToString(auth.getBytes(), Base64.NO_WRAP);
         try {
@@ -130,7 +132,15 @@ public class ServerDummy {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        sb.toString();
+        JSONObject json=null;
+        try {
+            json = new JSONObject(sb.toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         Log.d("auth",sb.toString()+"here");
-        return 0;
+        return json;
     }
 }

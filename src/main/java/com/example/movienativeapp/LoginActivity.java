@@ -5,9 +5,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * Created by lionel on 20/10/2017.
@@ -19,6 +23,8 @@ public class LoginActivity extends Activity {
     private TextView password;
     private TextView email;
     private Button login;
+
+    JSONObject json;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +50,8 @@ public class LoginActivity extends Activity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                authenticate("lionelmina", "lionelmina");
+
+                authenticate(email.getText().toString(), password.getText().toString());
             }
         });
 
@@ -69,7 +76,36 @@ public class LoginActivity extends Activity {
         }
 
         Thread t = new Thread(new login(username,password));
-        t.start();
+       // t.start();
+
+        String[] arra1=new String[3];
+        arra1[0]="test";
+        arra1[1]=username;
+        arra1[2]=password;
+
+        JsonListener listener = new JsonListener() {
+            @Override
+            public JSONObject onRecive(JSONObject json) {
+
+               JSONObject myJsonObject=json;
+
+                for(int i=0;i<myJsonObject.length()-1;i++)
+                {
+                    try {
+                        System.out.println(" this is the json array"+myJsonObject.names().getString(i).toString()+" "+ myJsonObject.get(myJsonObject.names().getString(i)));
+                    } catch (JSONException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+
+                }
+
+                return null;
+            }
+        };
+        ListenerHolder con_server = new ListenerHolder(arra1);
+        con_server.addListener(listener);
+        con_server.getJson(arra1);
 
 
 
@@ -80,8 +116,7 @@ public class LoginActivity extends Activity {
 
 
 
-
-        if (username.equals("a@a.com") && password.equals("a")){
+        if (username.equals("a") && password.equals("a")){
             Intent intent = new Intent(this,Main.class);
             //String message = "something";
             //intent.putExtra(EXTRA_MESSAGE, message);
