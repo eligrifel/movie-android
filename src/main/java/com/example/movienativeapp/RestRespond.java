@@ -23,8 +23,8 @@ import java.util.Map;
  * Created by eli on 24/07/2015.
  */
 public class RestRespond {
-private String username;
-    private String password;
+    static String _username;
+    static String _password;
     public RestRespond() {
 
     }
@@ -115,6 +115,8 @@ private String username;
     }
 
     public ArrayList connctToServer(String username, String password) {
+        _username=username;
+        _password=password;
         StringBuilder sb = new StringBuilder();
         URL url;
         ArrayList map = null;
@@ -157,8 +159,11 @@ private String username;
 
     public Callback getData(String[] args){ //args parms @methodurl,@parmsourl
         String[] _args = new String[3];
-        username="lionelmina";
-        password="lionelmina";
+
+
+       String username=_username;
+       String  password=_password;
+
         String auth = username + ":" + password;
         final String basicAuth = "Basic " + Base64.encodeToString(auth.getBytes(), Base64.NO_WRAP);
         String request_method= args[0];
