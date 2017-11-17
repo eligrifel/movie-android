@@ -90,11 +90,11 @@ public void loginCallback(Callback callback){
     String[] _args = callback.get_data();
    HashMap<String,String> map = dataLists.get(0);
     String S_username=_args[1];
-    String S_password =_args[2];
+   // String S_password =_args[2];
     String clientUserName=map.get("user_name");
-    String clientPassowrd = map.get("password");
+   // String clientPassowrd = map.get("password");
 
-    if((S_username.equals(clientUserName)&&(S_password.equals(clientPassowrd))))
+    if((S_username.equals(clientUserName)))
     {
         Intent intent = new Intent(this,Main.class);
         //String message = "something";
