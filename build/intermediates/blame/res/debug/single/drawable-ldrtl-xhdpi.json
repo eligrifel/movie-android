@@ -1,34 +1,18 @@
 [
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-xhdpi\\abc_ic_ab_back_mtrl_am_alpha.png",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-ldrtl-xhdpi\\abc_ic_ab_back_mtrl_am_alpha.png"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-xhdpi\\abc_spinner_mtrl_am_alpha.9.png",
+        "source": "C:\\android\\movie-android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-ldrtl-xhdpi\\abc_spinner_mtrl_am_alpha.9.png"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/drawable-ldrtl-xhdpi/abc_ic_ab_back_mtrl_am_alpha.png",
-        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/drawable-ldrtl-xhdpi/abc_ic_ab_back_mtrl_am_alpha.png"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-xhdpi\\abc_ic_menu_cut_mtrl_alpha.png",
+        "source": "C:\\android\\movie-android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-ldrtl-xhdpi\\abc_ic_menu_cut_mtrl_alpha.png"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-xhdpi\\abc_spinner_mtrl_am_alpha.9.png",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-ldrtl-xhdpi\\abc_spinner_mtrl_am_alpha.9.png"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-xhdpi\\abc_ic_menu_copy_mtrl_am_alpha.png",
+        "source": "C:\\android\\movie-android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-ldrtl-xhdpi\\abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/drawable-ldrtl-xhdpi/abc_ic_menu_cut_mtrl_alpha.png",
-        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/drawable-ldrtl-xhdpi/abc_ic_menu_cut_mtrl_alpha.png"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/drawable-ldrtl-xhdpi/abc_ic_menu_copy_mtrl_am_alpha.png",
-        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/drawable-ldrtl-xhdpi/abc_ic_menu_copy_mtrl_am_alpha.png"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-xhdpi\\abc_ic_menu_copy_mtrl_am_alpha.png",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-ldrtl-xhdpi\\abc_ic_menu_copy_mtrl_am_alpha.png"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/drawable-ldrtl-xhdpi/abc_spinner_mtrl_am_alpha.9.png",
-        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/drawable-ldrtl-xhdpi/abc_spinner_mtrl_am_alpha.9.png"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-xhdpi\\abc_ic_menu_cut_mtrl_alpha.png",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-ldrtl-xhdpi\\abc_ic_menu_cut_mtrl_alpha.png"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-xhdpi\\abc_ic_ab_back_mtrl_am_alpha.png",
+        "source": "C:\\android\\movie-android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-ldrtl-xhdpi\\abc_ic_ab_back_mtrl_am_alpha.png"
     }
 ]

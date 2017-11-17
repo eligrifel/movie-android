@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/incremental/mergeDebugResources/merged.dir/values-hdpi-v4/values-hdpi-v4.xml",
+        "outputFile": "C:\\android\\movie-android\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-hdpi-v4\\values-hdpi-v4.xml",
         "map": [
             {
                 "to": {
@@ -12,33 +12,7 @@
                     "endOffset": 325
                 },
                 "from": {
-                    "file": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/values-hdpi/values-hdpi.xml",
-                    "position": {
-                        "startLine": 4,
-                        "startColumn": 4,
-                        "startOffset": 297,
-                        "endLine": 8,
-                        "endColumn": 13,
-                        "endOffset": 567
-                    }
-                }
-            }
-        ]
-    },
-    {
-        "outputFile": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-hdpi-v4\\values-hdpi-v4.xml",
-        "map": [
-            {
-                "to": {
-                    "startLine": 2,
-                    "startColumn": 4,
-                    "startOffset": 55,
-                    "endLine": 6,
-                    "endColumn": 13,
-                    "endOffset": 325
-                },
-                "from": {
-                    "file": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\values-hdpi\\values-hdpi.xml",
+                    "file": "C:\\android\\movie-android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\values-hdpi\\values-hdpi.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,

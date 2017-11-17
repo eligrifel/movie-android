@@ -1,7 +1,7 @@
-#Fri Oct 20 18:37:55 IDT 2017
-base.0=/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_5b8c3ff5b12b43f943a31b43bdd90fa1dbbdaff6
-renamed.1=classes.dex
-renamed.0=classes2.dex
-file.1=/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_cf17c3b93fdee1d4f5777b692a89e7e29f99d64c/classes.dex
-base.1=/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_cf17c3b93fdee1d4f5777b692a89e7e29f99d64c
-file.0=/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_5b8c3ff5b12b43f943a31b43bdd90fa1dbbdaff6/classes.dex
+#Fri Nov 17 10:23:16 IST 2017
+base.0=C\:\\android\\movie-android\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_9368b19ce2e82cef8cc6ef19abcd92045a8513c0
+renamed.1=classes2.dex
+renamed.0=classes.dex
+file.1=C\:\\android\\movie-android\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_c56df9b28f800b0e9af8ec0b3f5b2efd1adfe00b\\classes.dex
+base.1=C\:\\android\\movie-android\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_c56df9b28f800b0e9af8ec0b3f5b2efd1adfe00b
+file.0=C\:\\android\\movie-android\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_9368b19ce2e82cef8cc6ef19abcd92045a8513c0\\classes.dex

@@ -1,28 +1,18 @@
 package com.example.movienativeapp;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.datatype.Duration;
-
-import listAdapters.CommentListAdapter;
 import listAdapters.MoviesListAdapter;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import view.MyPagerAdapter;
-import view.SlidingTabLayout;
-import view.Tab1;
-import view.Tab1.OncategoryViewListener;
-import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -30,26 +20,19 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 
 
 import com.example.movienativeapp.Main.SamplePagerItem;
 import com.worklight.wlclient.api.WLClient;
-import com.worklight.wlclient.api.WLFailResponse;
-import com.worklight.wlclient.api.WLProcedureInvocationData;
-import com.worklight.wlclient.api.WLResponse;
-import com.worklight.wlclient.api.WLResponseListener;
 
 public class MovieActivity extends ActionBarActivity{
 
 	
 	private boolean connected=false;
 	private WLClient myClient;
-	private ServerDummy serverDummy;
+	private RestRespond restRespond;
 	private Context context;
 	Handler handler;
 	
@@ -67,7 +50,7 @@ public class MovieActivity extends ActionBarActivity{
        
 
         setContentView(R.layout.activity_main);
-        serverDummy = new ServerDummy();
+        restRespond = new RestRespond();
        
         handler = new Handler();
         context = this;
@@ -144,7 +127,7 @@ private void preperMovieArrays(String method) {
 
 	JSONObject json=null;
 	try {
-		 json = serverDummy.getJsonFromSerever(method);
+		 json = restRespond.getJsonFromSerever(method);
 	} catch (JSONException e) {
 		e.printStackTrace();
 	}
@@ -153,7 +136,7 @@ private void preperMovieArrays(String method) {
 
 	JSONObject json1=null;
 	try {
-		 json1 = serverDummy.getJsonFromSerever("getFMoviesPath");
+		 json1 = restRespond.getJsonFromSerever("getFMoviesPath");
 	} catch (JSONException e) {
 		e.printStackTrace();
 	}
@@ -162,7 +145,7 @@ private void preperMovieArrays(String method) {
 
 	JSONObject json2=null;
 	try {
-		 json2 = serverDummy.getJsonFromSerever("getRating");
+		 json2 = restRespond.getJsonFromSerever("getRating");
 	} catch (JSONException e) {
 		e.printStackTrace();
 	}

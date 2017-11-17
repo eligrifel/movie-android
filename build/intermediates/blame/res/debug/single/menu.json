@@ -1,18 +1,10 @@
 [
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/menu/main.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/src/main/res/menu/main.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\menu\\main.xml",
+        "source": "C:\\android\\movie-android\\src\\main\\res\\menu\\main.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\menu\\main.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\src\\main\\res\\menu\\main.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\menu\\single_movie_option.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\src\\main\\res\\menu\\single_movie_option.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/menu/single_movie_option.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/src/main/res/menu/single_movie_option.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\menu\\single_movie_option.xml",
+        "source": "C:\\android\\movie-android\\src\\main\\res\\menu\\single_movie_option.xml"
     }
 ]

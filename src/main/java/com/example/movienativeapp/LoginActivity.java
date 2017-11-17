@@ -4,14 +4,15 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by lionel on 20/10/2017.
@@ -59,77 +60,51 @@ public class LoginActivity extends Activity {
     }
 
     private void authenticate(String username, String password) {
-        class login implements Runnable {
-            String _username;
-            String _password;
 
-            login(String username, String password) {
-                _username = username;
-                _password = password;
-            }
-
-
-            public void run() {
-                ServerDummy testserver = new ServerDummy();
-                testserver.connctToServer(_username,_password);
-            }
-        }
-
-        Thread t = new Thread(new login(username,password));
-       // t.start();
 
         String[] arra1=new String[3];
-        arra1[0]="test";
+        arra1[0]="login";
         arra1[1]=username;
         arra1[2]=password;
 
-        JsonListener listener = new JsonListener() {
+        RequestInterface Serverlistener = new RequestInterface() {
             @Override
-            public JSONObject onRecive(JSONObject json) {
+            public JSONObject onRecive(Callback callback) {
 
-               JSONObject myJsonObject=json;
 
-                for(int i=0;i<myJsonObject.length()-1;i++)
-                {
-                    try {
-                        System.out.println(" this is the json array"+myJsonObject.names().getString(i).toString()+" "+ myJsonObject.get(myJsonObject.names().getString(i)));
-                    } catch (JSONException e) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
-                    }
-
-                }
-
+               //JSONObject myJsonObject=json;
+              //  Log.d("printArray",a.get("user_name").toString());
+                loginCallback(callback);
                 return null;
             }
         };
-        ListenerHolder con_server = new ListenerHolder(arra1);
-        con_server.addListener(listener);
-        con_server.getJson(arra1);
-
-
-
-
-
-
-
-
-
-
-        if (username.equals("a") && password.equals("a")){
-            Intent intent = new Intent(this,Main.class);
-            //String message = "something";
-            //intent.putExtra(EXTRA_MESSAGE, message);
-            startActivity(intent);
-        }
-        else{
-            this.password.setText("");
-            this.email.setText("");
-        }
+        RequestListenerHolder con_server = new RequestListenerHolder(arra1);
+        con_server.addListener(Serverlistener);
+        con_server.getLogin(arra1);
 
 
     }
 
+public void loginCallback(Callback callback){
+    ArrayList<HashMap<String, String>> dataLists = callback.get_dataList();
+    String[] _args = callback.get_data();
+   HashMap<String,String> map = dataLists.get(0);
+    String S_username=_args[1];
+    String S_password =_args[2];
+    String clientUserName=map.get("user_name");
+    String clientPassowrd = map.get("password");
 
+    if((S_username.equals(clientUserName)&&(S_password.equals(clientPassowrd))))
+    {
+        Intent intent = new Intent(this,Main.class);
+        //String message = "something";
+        //intent.putExtra(EXTRA_MESSAGE, message);
+       startActivity(intent);
+    }
+    else{
+        this.password.setText("");
+        this.email.setText("");
+    }
+}
 
 }

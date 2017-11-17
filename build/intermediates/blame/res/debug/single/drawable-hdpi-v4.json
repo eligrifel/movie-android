@@ -1,82 +1,42 @@
 [
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/drawable-hdpi-v4/border.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/src/main/res/drawable-hdpi/border.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\border.xml",
+        "source": "C:\\android\\movie-android\\src\\main\\res\\drawable-hdpi\\border.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pic8.jpg",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\src\\main\\res\\drawable-hdpi\\pic8.jpg"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pic6.jpg",
+        "source": "C:\\android\\movie-android\\src\\main\\res\\drawable-hdpi\\pic6.jpg"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/drawable-hdpi-v4/selector.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/src/main/res/drawable-hdpi/selector.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pic2.jpg",
+        "source": "C:\\android\\movie-android\\src\\main\\res\\drawable-hdpi\\pic2.jpg"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/drawable-hdpi-v4/pic6.jpg",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/src/main/res/drawable-hdpi/pic6.jpg"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pic7.jpg",
+        "source": "C:\\android\\movie-android\\src\\main\\res\\drawable-hdpi\\pic7.jpg"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pic7.jpg",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\src\\main\\res\\drawable-hdpi\\pic7.jpg"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pic1.jpg",
+        "source": "C:\\android\\movie-android\\src\\main\\res\\drawable-hdpi\\pic1.jpg"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pic4.jpg",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\src\\main\\res\\drawable-hdpi\\pic4.jpg"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pic4.jpg",
+        "source": "C:\\android\\movie-android\\src\\main\\res\\drawable-hdpi\\pic4.jpg"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pic1.jpg",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\src\\main\\res\\drawable-hdpi\\pic1.jpg"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\selector.xml",
+        "source": "C:\\android\\movie-android\\src\\main\\res\\drawable-hdpi\\selector.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/drawable-hdpi-v4/pic3.jpg",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/src/main/res/drawable-hdpi/pic3.jpg"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pic8.jpg",
+        "source": "C:\\android\\movie-android\\src\\main\\res\\drawable-hdpi\\pic8.jpg"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pic3.jpg",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\src\\main\\res\\drawable-hdpi\\pic3.jpg"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pic5.jpg",
+        "source": "C:\\android\\movie-android\\src\\main\\res\\drawable-hdpi\\pic5.jpg"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/drawable-hdpi-v4/pic8.jpg",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/src/main/res/drawable-hdpi/pic8.jpg"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pic6.jpg",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\src\\main\\res\\drawable-hdpi\\pic6.jpg"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/drawable-hdpi-v4/pic2.jpg",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/src/main/res/drawable-hdpi/pic2.jpg"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/drawable-hdpi-v4/pic5.jpg",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/src/main/res/drawable-hdpi/pic5.jpg"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/drawable-hdpi-v4/pic1.jpg",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/src/main/res/drawable-hdpi/pic1.jpg"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/drawable-hdpi-v4/pic4.jpg",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/src/main/res/drawable-hdpi/pic4.jpg"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pic2.jpg",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\src\\main\\res\\drawable-hdpi\\pic2.jpg"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pic5.jpg",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\src\\main\\res\\drawable-hdpi\\pic5.jpg"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\border.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\src\\main\\res\\drawable-hdpi\\border.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/drawable-hdpi-v4/pic7.jpg",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/src/main/res/drawable-hdpi/pic7.jpg"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\selector.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\src\\main\\res\\drawable-hdpi\\selector.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pic3.jpg",
+        "source": "C:\\android\\movie-android\\src\\main\\res\\drawable-hdpi\\pic3.jpg"
     }
 ]

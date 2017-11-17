@@ -1,4 +1,0 @@
-#Fri Oct 20 18:37:55 IDT 2017
-base.0=/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/transforms/dex/debug/folders/1000/5/slice_4
-renamed.0=classes.dex
-file.0=/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/transforms/dex/debug/folders/1000/5/slice_4/classes.dex

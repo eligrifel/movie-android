@@ -8,20 +8,26 @@ import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
+import com.example.movienativeapp.JsonToArraylist;
 import com.example.movienativeapp.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class CommentListAdapter implements ListAdapter {
 	private Context _context;
+	JsonToArraylist jToArray;
+	private HashMap<String,String> _map;
+    ArrayList<String> users;
+    ArrayList<String> comments;
 
-	private JSONObject _json;
-
-	public CommentListAdapter(JSONObject json, Context context) {
+	public CommentListAdapter(ArrayList<ArrayList<String>> user_comment_array, Context context) {
 		_context = context;
-		_json = json;
-
+		users = user_comment_array.get(0);
+		comments = user_comment_array.get(1);
 	}
 
 	@Override
@@ -39,8 +45,8 @@ public class CommentListAdapter implements ListAdapter {
 	@Override
 	public int getCount() {
 		// TODO Auto-generated method stub
-		return _json.length();
-		//return _json.length();
+		return users.size();
+
 	}
 
 	@Override
@@ -73,19 +79,12 @@ public class CommentListAdapter implements ListAdapter {
 //	                itemView =inflater.inflate(R.layout.singlerowcomments, parent,false);
 //	                TextView name = (TextView)itemView.findViewById(R.id.name);
 //	                TextView comment = (TextView)itemView.findViewById(R.id.comment);
-//	                try {
-//						name.setText(_json.names().getString(position).toString());
+//                    name.setText(users.get(position));
 //
-//						comment.setText(" "+(_json.get(_json.names().getString(position))));
-//
-//					} catch (JSONException e) {
-//
-//						e.printStackTrace();
-//					}
+//                    comment.setText(comments.get(position));
 //
 //
-//
-//	            }
+//                }
 
 
 		//return itemView;
@@ -94,7 +93,6 @@ public class CommentListAdapter implements ListAdapter {
 		View itemView = convertView;
 		ViewHolder viewHolder = null;
 		boolean firsttime = false;
-		System.out.println("position is" + position);
 
 		if (itemView == null) {
 
@@ -115,16 +113,11 @@ public class CommentListAdapter implements ListAdapter {
 		} else {
 			viewHolder = (ViewHolder) itemView.getTag();
 		}
-		try {
-			viewHolder.text.setText(_json.names().getString(position).toString());
+        viewHolder.text.setText(users.get(position).toString());
 
-			viewHolder.comment.setText(" "+(_json.get(_json.names().getString(position))));
+        viewHolder.comment.setText(comments.get(position).toString());
 
-		} catch (JSONException e) {
-
-			e.printStackTrace();
-		}
-//
+        //
 //			viewHolder.text.setText(_movies[position].toString());
 //			viewHolder.comment.setText(Float.valueOf(_rating[position]));
 //			if (movieImages[position] != null)
@@ -145,7 +138,7 @@ public class CommentListAdapter implements ListAdapter {
 		@Override
 		public int getViewTypeCount () {
 			// TODO Auto-generated method stub
-			return _json.length();
+			return users.size();
 		}
 
 		@Override

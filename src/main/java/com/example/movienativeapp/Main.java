@@ -5,6 +5,7 @@ package com.example.movienativeapp;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import listAdapters.CommentListAdapter;
@@ -13,17 +14,11 @@ import listAdapters.MoviesListAdapter;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.worklight.wlclient.api.WLClient;
-import com.worklight.wlclient.api.WLFailResponse;
-import com.worklight.wlclient.api.WLProcedureInvocationData;
-import com.worklight.wlclient.api.WLResponse;
-import com.worklight.wlclient.api.WLResponseListener;
-
 import view.MyPagerAdapter;
 import view.SlidingTabLayout;
 import view.Tab1;
 import view.Tab1.OncategoryViewListener;
-import android.app.Activity;
+
 import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
@@ -31,10 +26,10 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -57,7 +52,7 @@ public class Main extends ActionBarActivity implements OncategoryViewListener{
 	private Toast toast;
 	private Context context;
 	Handler handler;
-	private JSONObject json;
+	//private JSONObject json;
 	private  FragmentManager fragmentManager;
 	private MyPagerAdapter mypageradapter;
     List<SamplePagerItem> mTabs;
@@ -66,25 +61,27 @@ public class Main extends ActionBarActivity implements OncategoryViewListener{
     private String[] moviesArray;
     private String[] moviesPathArray;
     private String[] TopRatedRating;
-	final ListenerHolder holderr = new ListenerHolder();
-
+	final RequestListenerHolder serverRec = new RequestListenerHolder();
+	private  RequestInterface callback;
+	String method ;
+	ArrayList <HashMap<String ,String>> _ServerArrayList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       
-
+       handleCallBack();
         setContentView(R.layout.main);
+
 //       //test listener and reciver
 //
-//        holderr.addListener(new JsonListener() {
+//        serverRec.addListener(new JsonListener() {
 //
 //			@Override
 //			public JSONObject onRecive(JSONObject json) {
-//				holderr.removeListener();
+//				serverRec.removeListener();
 //				return null;
 //			}
 //		});
-//        holderr.getJson("getData");
+//        serverRec.getJson("getData");
         handler = new Handler();
         context = this;
         actionBar = getSupportActionBar();
@@ -193,7 +190,7 @@ public class Main extends ActionBarActivity implements OncategoryViewListener{
 		Tab1 category1  =  (Tab1)(mypageradapter.getActiveFragment(mViewPager, 0));
 		getCategoryArray();
 
-		getComments();
+		getComments(1);
 		preperMovieArrays("getFMovies");
 
 //		myClient = WLClient.createInstance(this);
@@ -227,77 +224,16 @@ public class Main extends ActionBarActivity implements OncategoryViewListener{
     
     
     
-    public void getComments()
+    public void getComments(int movieId)
 	{
+        String[] args = new String[3];
+        args[0]="GET";
+        args[1]= "reviews";
+        args[2]= String.valueOf(movieId);
+    	serverRec.addListener(callback);
+		serverRec.getReviewByMovieId(args);
 
-    	holderr.addListener(new JsonListener() {
-			@Override
-			public JSONObject onRecive(JSONObject myJsonObject) {
-				json=myJsonObject;
-				for(int i=0;i<myJsonObject.length()-1;i++)
-				{
-					try {
-						System.out.println(" this is the json array "+myJsonObject.names().getString(i).toString()+" "+ myJsonObject.get(myJsonObject.names().getString(i)));
-					} catch (JSONException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
 
-				}
-				handler.post(new Runnable() {
-
-					@Override
-					public void run() {
-
-						ListView myListView = (ListView) findViewById(R.id.comments_list);
-
-						myListView.setAdapter(new CommentListAdapter(json, context));
-
-					}
-				});
-
-				return null;
-			}
-		});
-		holderr.getJson("getData");
-
-//		myClient.invokeProcedure(new WLProcedureInvocationData("adapter", "getData"), new WLResponseListener() {
-//
-//			@Override
-//			public void onSuccess(final WLResponse arg0) {
-//				System.out.println("in success");
-//				//manage json pbject
-//				JSONObject myjason = arg0.getResponseJSON();
-//				json = myjason;
-//				for (int i = 0; i < myjason.length() - 1; i++) {
-//					try {
-//						System.out.println(" this is the json array " + myjason.names().getString(i).toString() + " " + myjason.get(myjason.names().getString(i)));
-//					} catch (JSONException e) {
-//						// TODO Auto-generated catch block
-//						e.printStackTrace();
-//					}
-//
-//				}
-//				handler.post(new Runnable() {
-//
-//					@Override
-//					public void run() {
-//						ListView myListView = (ListView) findViewById(R.id.comments_list);
-//						myListView.setAdapter(new CommentListAdapter(json, context));
-//					}
-//				});
-//
-//			}
-//
-//			@Override
-//			public void onFailure(WLFailResponse arg0) {
-////
-//				System.out.println("in fail");
-//			}
-//		});
-//
-//
-//
 		
 	}
     public void getMovieLIst(final String[] movies,final String[] path,final String[] toprating ,final int list)
@@ -341,7 +277,7 @@ public class Main extends ActionBarActivity implements OncategoryViewListener{
 
 	public void getCategoryArray() {
 
-		ServerDummy serverDummy = new ServerDummy();
+		RestRespond restRespond = new RestRespond();
 		JSONObject myjason = null;
 //myClient.invokeProcedure(new WLProcedureInvocationData("adapter", "getCat"), new WLResponseListener() {
 //
@@ -354,7 +290,7 @@ public class Main extends ActionBarActivity implements OncategoryViewListener{
 //
 //				//manage json pbject
 		try {
-			myjason = serverDummy.getJsonFromSerever("getCat");
+			myjason = restRespond.getJsonFromSerever("getCat");
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
@@ -412,7 +348,7 @@ public class Main extends ActionBarActivity implements OncategoryViewListener{
 		
 		
 		final String [] movies;
-		ServerDummy serverDummy = new ServerDummy();
+		RestRespond restRespond = new RestRespond();
 		
 //		myClient.invokeProcedure(new WLProcedureInvocationData("adapter", method), new WLResponseListener(){
 //
@@ -424,13 +360,15 @@ public class Main extends ActionBarActivity implements OncategoryViewListener{
 //			@Override
 //			public void onSuccess(WLResponse arg0) {
 				//JSONObject json = arg0.getResponseJSON();
+		JSONObject json=null;
 		try {
 
-			 json = serverDummy.getJsonFromSerever(method);
+			 json = restRespond.getJsonFromSerever(method);
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
 			//	final String [] movies;
+
 				moviesArray=new ParsingJson(json, "m").getElement();
 //
 //
@@ -447,7 +385,7 @@ public class Main extends ActionBarActivity implements OncategoryViewListener{
 //						JSONObject json1 = arg0.getResponseJSON();
 		JSONObject json1=null;
 		try {
-			 json1 = serverDummy.getJsonFromSerever("getFMoviesPath");
+			 json1 = restRespond.getJsonFromSerever("getFMoviesPath");
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
@@ -467,7 +405,7 @@ public class Main extends ActionBarActivity implements OncategoryViewListener{
 //								JSONObject json1 = arg0.getResponseJSON();
 		JSONObject json2=null;
 		try {
-			 json2 = serverDummy.getJsonFromSerever("getRating");
+			 json2 = restRespond.getJsonFromSerever("getRating");
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
@@ -488,6 +426,48 @@ public class Main extends ActionBarActivity implements OncategoryViewListener{
 		
 		
 	}
+    private void handleCallBack() {
+
+        callback= new RequestInterface() {
+            @Override
+            public JSONObject onRecive(Callback callback) {
+                final ArrayList<HashMap<String,String>> mapList;
+
+                method = callback.get_data()[1];
+                mapList = callback.get_dataList();
+                Log.d("callback","here in callback return on main");
+
+                switch(method)
+                {
+                    case "reviews":
+                    {
+                        JsonToArraylist parcer = new JsonToArraylist();
+                       ArrayList users= parcer.getFieldArray(mapList,"user_name");
+                       ArrayList comments= parcer.getFieldArray(mapList,"comment");
+                        final ArrayList<ArrayList<String>> pairs = new ArrayList<>();
+                        pairs.add(users);
+                        pairs.add(comments);
+                        Log.d("callback","reviews callback method");
+                        handler.post(new Runnable() {
+
+                            @Override
+                            public void run() {
+                                JSONObject json = new JSONObject();
+                                ListView myListView = (ListView) findViewById(R.id.comments_list);
+
+                                myListView.setAdapter(new CommentListAdapter(pairs, context));
+
+                            }
+                        });
+                    }
+                    break;
+                }
+
+
+                return null;
+            }
+        };
+    }
 
 
 }

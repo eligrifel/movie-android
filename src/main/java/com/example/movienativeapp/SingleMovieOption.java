@@ -2,28 +2,16 @@ package com.example.movienativeapp;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 
-
-
-
-
-import listAdapters.CommentListAdapter;
-
-import org.json.JSONException;
 import org.json.JSONObject;
-
-import view.Tab1;
 
 import com.example.movienativeapp.Main.SamplePagerItem;
 import com.worklight.wlclient.api.WLClient;
-import com.worklight.wlclient.api.WLFailResponse;
-import com.worklight.wlclient.api.WLProcedureInvocationData;
-import com.worklight.wlclient.api.WLResponse;
-import com.worklight.wlclient.api.WLResponseListener;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -41,16 +29,19 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import listAdapters.CommentListAdapter;
+
 public class SingleMovieOption extends ActionBarActivity {
+    private Callback callback;
 	private boolean connected=false;
 	private WLClient myClient;
 	TextView _movieName;
 	String _imagePath;
 	private Context context;
 	Handler handler;
-	final ListenerHolder holderr = new ListenerHolder();
+	final RequestListenerHolder serverRec = new RequestListenerHolder();
 	private JSONObject json;
-	
+	private RequestInterface Interface;
     List<SamplePagerItem> mTabs;
     ActionBar actionBar;
    
@@ -63,6 +54,7 @@ public class SingleMovieOption extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_single_movie_option);
+        handleCallBack();
 		_movieName=(TextView) findViewById(R.id.TVmovieName);
 		handler = new Handler();
         context = this;
@@ -149,20 +141,10 @@ public class SingleMovieOption extends ActionBarActivity {
 	 public void getComments()
 		{
 			System.out.println("comment has being pressed");
-			holderr.addListener(new JsonListener() {
+			serverRec.addListener(new RequestInterface() {
 				@Override
-				public JSONObject onRecive(final JSONObject myJsonObject) {
-					json=myJsonObject;
-					for(int i=0;i<myJsonObject.length()-1;i++)
-					{
-						try {
-							System.out.println(" this is the json array "+myJsonObject.names().getString(i).toString()+" "+ myJsonObject.get(myJsonObject.names().getString(i)));
-						} catch (JSONException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
+				public JSONObject onRecive(final Callback myJsonObject) {
 
-					}
 					handler.post(new Runnable() {
 
 						@Override
@@ -170,7 +152,7 @@ public class SingleMovieOption extends ActionBarActivity {
 
 							ListView myListView = (ListView) findViewById(R.id.LV_comments);
 
-							myListView.setAdapter(new CommentListAdapter(myJsonObject, context));
+							//myListView.setAdapter(new CommentListAdapter(myJsonObject, context));
 
 						}
 					});
@@ -178,7 +160,7 @@ public class SingleMovieOption extends ActionBarActivity {
 					return null;
 				}
 			});
-			holderr.getJson("getData");
+			serverRec.getJson("getData");
 	    	
 //			myClient.invokeProcedure(new WLProcedureInvocationData("adapter", "getData"), new WLResponseListener() {
 //
@@ -234,6 +216,7 @@ public class SingleMovieOption extends ActionBarActivity {
 				
 				
 				getComments();
+                getComments(1);
 				
 				
 				
@@ -243,5 +226,58 @@ public class SingleMovieOption extends ActionBarActivity {
 
 
 		}
-	
+	public void getComments(int movieId)
+	{
+		String[] args = new String[3];
+		args[0]="GET";
+		args[1]= "reviews";
+		args[2]= String.valueOf(movieId);
+		serverRec.addListener(Interface);
+		serverRec.getReviewByMovieId(args);
+
+
+
+	}
+    private void handleCallBack() {
+
+        Interface= new RequestInterface() {
+            @Override
+            public JSONObject onRecive(Callback callback) {
+                final ArrayList<HashMap<String,String>> mapList;
+
+               String method = callback.get_data()[1];
+                mapList = callback.get_dataList();
+                Log.d("callback","here in callback return on main");
+
+                switch(method)
+                {
+                    case "reviews":
+                    {
+                        JsonToArraylist parcer = new JsonToArraylist();
+                        ArrayList users= parcer.getFieldArray(mapList,"user_name");
+                        ArrayList comments= parcer.getFieldArray(mapList,"comment");
+                        final ArrayList<ArrayList<String>> pairs = new ArrayList<>();
+                        pairs.add(users);
+                        pairs.add(comments);
+                        Log.d("callback","reviews callback method");
+                        handler.post(new Runnable() {
+
+                            @Override
+                            public void run() {
+                                JSONObject json = new JSONObject();
+                                ListView myListView = (ListView) findViewById(R.id.comments_list);
+
+                                myListView.setAdapter(new CommentListAdapter(pairs, context));
+
+                            }
+                        });
+                    }
+                    break;
+                }
+
+
+                return null;
+            }
+        };
+    }
 }

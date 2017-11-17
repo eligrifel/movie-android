@@ -1,390 +1,198 @@
 [
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/singlerowcomments.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/src/main/res/layout/singlerowcomments.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_up_container.xml",
+        "source": "C:\\android\\movie-android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_action_bar_up_container.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_media.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\notification_template_media.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\main.xml",
+        "source": "C:\\android\\movie-android\\src\\main\\res\\layout\\main.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_toolbar.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_screen_toolbar.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_view.xml",
+        "source": "C:\\android\\movie-android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_search_view.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/abc_search_view.xml",
-        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/layout/abc_search_view.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
+        "source": "C:\\android\\movie-android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_list_menu_item_radio.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_close_item_material.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_action_mode_close_item_material.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
+        "source": "C:\\android\\movie-android\\src\\main\\res\\layout\\activity_main.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_checkbox.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_list_menu_item_checkbox.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\category.xml",
+        "source": "C:\\android\\movie-android\\src\\main\\res\\layout\\category.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_multichoice_material.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\select_dialog_multichoice_material.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_time.xml",
+        "source": "C:\\android\\movie-android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\notification_template_part_time.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\notification_media_cancel_action.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\notification_media_cancel_action.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple.xml",
+        "source": "C:\\android\\movie-android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_screen_simple.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\comment_fragment.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\src\\main\\res\\layout\\comment_fragment.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\abc_simple_dropdown_hint.xml",
+        "source": "C:\\android\\movie-android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_simple_dropdown_hint.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/comment_fragment.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/src/main/res/layout/comment_fragment.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_big_media_narrow.xml",
+        "source": "C:\\android\\movie-android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\notification_template_big_media_narrow.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/abc_list_menu_item_radio.xml",
-        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/layout/abc_list_menu_item_radio.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_checkbox.xml",
+        "source": "C:\\android\\movie-android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_list_menu_item_checkbox.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\support_simple_spinner_dropdown_item.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\support_simple_spinner_dropdown_item.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
+        "source": "C:\\android\\movie-android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_activity_chooser_view_list_item.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/abc_screen_content_include.xml",
-        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/layout/abc_screen_content_include.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_item_layout.xml",
+        "source": "C:\\android\\movie-android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_popup_menu_item_layout.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/notification_template_part_chronometer.xml",
-        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/layout/notification_template_part_chronometer.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_lines.xml",
+        "source": "C:\\android\\movie-android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\notification_template_lines.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/abc_dialog_title_material.xml",
-        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/layout/abc_dialog_title_material.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_close_item_material.xml",
+        "source": "C:\\android\\movie-android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_action_mode_close_item_material.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/notification_template_part_time.xml",
-        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/layout/notification_template_part_time.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
+        "source": "C:\\android\\movie-android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_action_mode_bar.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/abc_list_menu_item_icon.xml",
-        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/layout/abc_list_menu_item_icon.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\view_pager.xml",
+        "source": "C:\\android\\movie-android\\src\\main\\res\\layout\\view_pager.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_view.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_search_view.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\single_row_movie_list.xml",
+        "source": "C:\\android\\movie-android\\src\\main\\res\\layout\\single_row_movie_list.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_lines.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\notification_template_lines.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_media.xml",
+        "source": "C:\\android\\movie-android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\notification_template_media.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/notification_media_action.xml",
-        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/layout/notification_media_action.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_toolbar.xml",
+        "source": "C:\\android\\movie-android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_screen_toolbar.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_up_container.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_action_bar_up_container.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
+        "source": "C:\\android\\movie-android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/category.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/src/main/res/layout/category.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\tab_custom.xml",
+        "source": "C:\\android\\movie-android\\src\\main\\res\\layout\\tab_custom.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_action_menu_layout.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_singlechoice_material.xml",
+        "source": "C:\\android\\movie-android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\select_dialog_singlechoice_material.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\abc_simple_dropdown_hint.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_simple_dropdown_hint.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\notification_media_action.xml",
+        "source": "C:\\android\\movie-android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\notification_media_action.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\category.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\src\\main\\res\\layout\\category.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_layout.xml",
+        "source": "C:\\android\\movie-android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_list_menu_item_layout.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\activity_single_movie_option.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\src\\main\\res\\layout\\activity_single_movie_option.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_material.xml",
+        "source": "C:\\android\\movie-android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_alert_dialog_material.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_content_include.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_screen_content_include.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_item_material.xml",
+        "source": "C:\\android\\movie-android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\select_dialog_item_material.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_big_media.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\notification_template_big_media.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_title_item.xml",
+        "source": "C:\\android\\movie-android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_action_bar_title_item.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/abc_list_menu_item_layout.xml",
-        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/layout/abc_list_menu_item_layout.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\abc_dialog_title_material.xml",
+        "source": "C:\\android\\movie-android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_dialog_title_material.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_expanded_menu_layout.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\abc_select_dialog_material.xml",
+        "source": "C:\\android\\movie-android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_select_dialog_material.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\view_pager.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\src\\main\\res\\layout\\view_pager.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\movie_fragment.xml",
+        "source": "C:\\android\\movie-android\\src\\main\\res\\layout\\movie_fragment.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/abc_action_bar_view_list_nav_layout.xml",
-        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/layout/abc_action_bar_view_list_nav_layout.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\login.xml",
+        "source": "C:\\android\\movie-android\\src\\main\\res\\layout\\login.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/login.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/src/main/res/layout/login.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple_overlay_action_mode.xml",
+        "source": "C:\\android\\movie-android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/select_dialog_singlechoice_material.xml",
-        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/layout/select_dialog_singlechoice_material.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\activity_single_movie_option.xml",
+        "source": "C:\\android\\movie-android\\src\\main\\res\\layout\\activity_single_movie_option.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\src\\main\\res\\layout\\activity_main.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_big_media.xml",
+        "source": "C:\\android\\movie-android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\notification_template_big_media.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/notification_template_media.xml",
-        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/layout/notification_template_media.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
+        "source": "C:\\android\\movie-android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_time.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\notification_template_part_time.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
+        "source": "C:\\android\\movie-android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_expanded_menu_layout.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\singlerowcomments.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\src\\main\\res\\layout\\singlerowcomments.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_chronometer.xml",
+        "source": "C:\\android\\movie-android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\notification_template_part_chronometer.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_action_mode_bar.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
+        "source": "C:\\android\\movie-android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_list_menu_item_icon.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/single_raw_category.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/src/main/res/layout/single_raw_category.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\single_raw_category.xml",
+        "source": "C:\\android\\movie-android\\src\\main\\res\\layout\\single_raw_category.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/abc_screen_simple_overlay_action_mode.xml",
-        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/layout/abc_screen_simple_overlay_action_mode.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_item_layout.xml",
+        "source": "C:\\android\\movie-android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_action_menu_item_layout.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/abc_action_bar_title_item.xml",
-        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/layout/abc_action_bar_title_item.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\singlerowcomments.xml",
+        "source": "C:\\android\\movie-android\\src\\main\\res\\layout\\singlerowcomments.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\abc_select_dialog_material.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_select_dialog_material.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view.xml",
+        "source": "C:\\android\\movie-android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_activity_chooser_view.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/main.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/src/main/res/layout/main.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",
+        "source": "C:\\android\\movie-android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_action_menu_layout.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_title_item.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_action_bar_title_item.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\support_simple_spinner_dropdown_item.xml",
+        "source": "C:\\android\\movie-android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\support_simple_spinner_dropdown_item.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/abc_action_menu_layout.xml",
-        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/layout/abc_action_menu_layout.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\comment_fragment.xml",
+        "source": "C:\\android\\movie-android\\src\\main\\res\\layout\\comment_fragment.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_big_media_narrow.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\notification_template_big_media_narrow.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_multichoice_material.xml",
+        "source": "C:\\android\\movie-android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\select_dialog_multichoice_material.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/notification_media_cancel_action.xml",
-        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/layout/notification_media_cancel_action.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\notification_media_cancel_action.xml",
+        "source": "C:\\android\\movie-android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\notification_media_cancel_action.xml"
     },
     {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/abc_action_mode_close_item_material.xml",
-        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/layout/abc_action_mode_close_item_material.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/select_dialog_item_material.xml",
-        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/layout/select_dialog_item_material.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_singlechoice_material.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\select_dialog_singlechoice_material.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_material.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_alert_dialog_material.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/abc_alert_dialog_material.xml",
-        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/layout/abc_alert_dialog_material.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/view_pager.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/src/main/res/layout/view_pager.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/abc_select_dialog_material.xml",
-        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/layout/abc_select_dialog_material.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/movie_fragment.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/src/main/res/layout/movie_fragment.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/activity_single_movie_option.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/src/main/res/layout/activity_single_movie_option.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_item_material.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\select_dialog_item_material.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/notification_template_big_media_narrow.xml",
-        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/layout/notification_template_big_media_narrow.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\main.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\src\\main\\res\\layout\\main.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\tab_custom.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\src\\main\\res\\layout\\tab_custom.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\single_row_movie_list.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\src\\main\\res\\layout\\single_row_movie_list.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\abc_dialog_title_material.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_dialog_title_material.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/abc_popup_menu_item_layout.xml",
-        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/layout/abc_popup_menu_item_layout.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/abc_simple_dropdown_hint.xml",
-        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/layout/abc_simple_dropdown_hint.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\notification_media_action.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\notification_media_action.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/abc_action_menu_item_layout.xml",
-        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/layout/abc_action_menu_item_layout.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/abc_search_dropdown_item_icons_2line.xml",
-        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/layout/abc_search_dropdown_item_icons_2line.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/notification_template_big_media.xml",
-        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/layout/notification_template_big_media.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_layout.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_list_menu_item_layout.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/select_dialog_multichoice_material.xml",
-        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/layout/select_dialog_multichoice_material.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_chronometer.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\notification_template_part_chronometer.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_list_menu_item_icon.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_screen_simple.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\single_raw_category.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\src\\main\\res\\layout\\single_raw_category.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/support_simple_spinner_dropdown_item.xml",
-        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/layout/support_simple_spinner_dropdown_item.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_activity_chooser_view_list_item.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple_overlay_action_mode.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_activity_chooser_view.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_item_layout.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_action_menu_item_layout.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/abc_action_bar_up_container.xml",
-        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/layout/abc_action_bar_up_container.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/abc_expanded_menu_layout.xml",
-        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/layout/abc_expanded_menu_layout.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view_list_item.xml",
-        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/layout/abc_activity_chooser_view_list_item.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_item_layout.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_popup_menu_item_layout.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/tab_custom.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/src/main/res/layout/tab_custom.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/abc_screen_toolbar.xml",
-        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/layout/abc_screen_toolbar.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view.xml",
-        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/layout/abc_activity_chooser_view.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/activity_main.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/src/main/res/layout/activity_main.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/abc_screen_simple.xml",
-        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/layout/abc_screen_simple.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_list_menu_item_radio.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/abc_action_mode_bar.xml",
-        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/layout/abc_action_mode_bar.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/abc_list_menu_item_checkbox.xml",
-        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/layout/abc_list_menu_item_checkbox.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\build\\intermediates\\res\\merged\\debug\\layout\\movie_fragment.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/C:\\Users\\eli\\Dropbox\\webpc\\V1\\movieNativeApp\\src\\main\\res\\layout\\movie_fragment.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/notification_template_lines.xml",
-        "source": "/Users/lionel/.android/build-cache/59a5a698f345b93c84d96fd9a33ec707ab8a93a2/output/res/layout/notification_template_lines.xml"
-    },
-    {
-        "merged": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/build/intermediates/res/merged/debug/layout/single_row_movie_list.xml",
-        "source": "/Users/lionel/Documents/Root/myProjects/Test/movie-android/src/main/res/layout/single_row_movie_list.xml"
+        "merged": "C:\\android\\movie-android\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_content_include.xml",
+        "source": "C:\\android\\movie-android\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_screen_content_include.xml"
     }
 ]

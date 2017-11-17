@@ -169,7 +169,7 @@ public class MovieListActivity extends FragmentActivity {
 					@Override
 					public void run() {						
 						ListView myListView = (ListView)findViewById(R.id.comments_list);
-						myListView.setAdapter(new CommentListAdapter(json,context));
+						//myListView.setAdapter(new CommentListAdapter(json,context));
 					}
 				});
 									 
@@ -183,7 +183,7 @@ public class MovieListActivity extends FragmentActivity {
 		});
 		
 	}
-	
+
 	public void getMovieLIst()
 	{
 myClient.invokeProcedure(new WLProcedureInvocationData("adapter", "getData"), new WLResponseListener() {
