@@ -65,7 +65,7 @@ test.start();
     public void getLogin(String[] args) {
         final String _command= _args[0];
         final String _username=_args[1];
-        final String _password=_args[2];
+       final String _password=_args[2];
 Log.d("listeer",_args[1].toString()+_args[2].toString());
         Thread test = new Thread(new Runnable() {
             @Override
