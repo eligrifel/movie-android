@@ -121,7 +121,7 @@ private String username;
         String auth = username + ":" + password;
         final String basicAuth = "Basic " + Base64.encodeToString(auth.getBytes(), Base64.NO_WRAP);
         try {
-            url = new URL("http://192.168.1.15:8080/users");
+            url = new URL("http://10.0.0.23:8090/users");
 
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestProperty("Authorization", basicAuth);
@@ -157,8 +157,8 @@ private String username;
 
     public Callback getData(String[] args){ //args parms @methodurl,@parmsourl
         String[] _args = new String[3];
-        username="e";
-        password="l";
+        username="lionelmina";
+        password="lionelmina";
         String auth = username + ":" + password;
         final String basicAuth = "Basic " + Base64.encodeToString(auth.getBytes(), Base64.NO_WRAP);
         String request_method= args[0];
@@ -171,7 +171,7 @@ private String username;
         StringBuilder sb = new StringBuilder();
 
     Callback callback;
-    String BaseUrl = "http://192.168.1.15:8080/";
+    String BaseUrl = "http://10.0.0.23:8090/";
         String RestUrl=BaseUrl+_args[1].toString()+"/"+_args[2];
         Object json;
         ArrayList map = null;

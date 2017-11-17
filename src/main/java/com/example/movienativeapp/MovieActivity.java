@@ -25,13 +25,13 @@ import android.widget.TextView;
 
 
 import com.example.movienativeapp.Main.SamplePagerItem;
-import com.worklight.wlclient.api.WLClient;
+//import com.worklight.wlclient.api.WLClient;
 
 public class MovieActivity extends ActionBarActivity{
 
 	
 	private boolean connected=false;
-	private WLClient myClient;
+//	private WLClient myClient;
 	private RestRespond restRespond;
 	private Context context;
 	Handler handler;
