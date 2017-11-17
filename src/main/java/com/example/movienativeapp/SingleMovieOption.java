@@ -215,8 +215,8 @@ public class SingleMovieOption extends ActionBarActivity {
 				
 				
 				
-				getComments();
-                getComments(1);
+				//getComments();
+               getComments(1);
 				
 				
 				
@@ -260,23 +260,20 @@ public class SingleMovieOption extends ActionBarActivity {
                         pairs.add(users);
                         pairs.add(comments);
                         Log.d("callback","reviews callback method");
-                        handler.post(new Runnable() {
 
-                            @Override
-                            public void run() {
-                                JSONObject json = new JSONObject();
-                                ListView myListView = (ListView) findViewById(R.id.comments_list);
+
+                                ListView myListView = (ListView) findViewById(R.id.LV_comments);
 
                                 myListView.setAdapter(new CommentListAdapter(pairs, context));
 
-                            }
-                        });
+
+
                     }
                     break;
                 }
 
 
-                return null;
+              return  null;
             }
         };
     }
