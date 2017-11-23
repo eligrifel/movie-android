@@ -10,7 +10,7 @@ import java.util.List;
 import org.json.JSONObject;
 
 import com.example.movienativeapp.Main.SamplePagerItem;
-import com.worklight.wlclient.api.WLClient;
+//import com.worklight.wlclient.api.WLClient;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -34,7 +34,7 @@ import listAdapters.CommentListAdapter;
 public class SingleMovieOption extends ActionBarActivity {
     private Callback callback;
 	private boolean connected=false;
-	private WLClient myClient;
+//	private WLClient myClient;
 	TextView _movieName;
 	String _imagePath;
 	private Context context;

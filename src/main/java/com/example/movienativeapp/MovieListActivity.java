@@ -7,11 +7,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.tl.uic.model.JsonBase;
-import com.worklight.wlclient.api.WLClient;
-import com.worklight.wlclient.api.WLFailResponse;
-import com.worklight.wlclient.api.WLProcedureInvocationData;
-import com.worklight.wlclient.api.WLResponse;
-import com.worklight.wlclient.api.WLResponseListener;
+//import com.worklight.wlclient.api.WLClient;
+//import com.worklight.wlclient.api.WLFailResponse;
+//import com.worklight.wlclient.api.WLProcedureInvocationData;
+//import com.worklight.wlclient.api.WLResponse;
+//import com.worklight.wlclient.api.WLResponseListener;
 
 import fragments.CommentFrag;
 import fragments.MovieFrag;
@@ -37,7 +37,7 @@ import android.widget.Toast;
 public class MovieListActivity extends FragmentActivity {
 	private int[]  picArray ={R.drawable.pic1,R.drawable.pic2,R.drawable.pic3,R.drawable.pic4,R.drawable.pic5,R.drawable.pic6,R.drawable.pic7,R.drawable.pic8,}; 
 	private boolean connected=false;
-	private WLClient myClient;
+//	private WLClient myClient;
 	private Toast toast;
 	private Context context;
 	Handler handler;
@@ -85,22 +85,22 @@ public class MovieListActivity extends FragmentActivity {
 	
 	private void connect() {
 		context = this;
-		myClient = WLClient.createInstance(this);
-		myClient.connect(new WLResponseListener() {
-
-			@Override
-			public void onSuccess(WLResponse arg0) {
-				// TODO Auto-generated method stub
-			connected=true;
-				
-			}
-
-			@Override
-			public void onFailure(WLFailResponse arg0) {
-				// TODO Auto-generated method stub
-
-			}
-		});
+//		myClient = WLClient.createInstance(this);
+//		myClient.connect(new WLResponseListener() {
+//
+//			@Override
+//			public void onSuccess(WLResponse arg0) {
+//				// TODO Auto-generated method stub
+//			connected=true;
+//
+//			}
+//
+//			@Override
+//			public void onFailure(WLFailResponse arg0) {
+//				// TODO Auto-generated method stub
+//
+//			}
+//		});
 		
 	}
 	
@@ -146,81 +146,81 @@ public class MovieListActivity extends FragmentActivity {
 	
 	public void getComments()
 	{
-		myClient.invokeProcedure(new WLProcedureInvocationData("adapter", "getData"), new WLResponseListener() {
-			
-			@Override
-			public void onSuccess(final WLResponse arg0) {
-				System.out.println("in success");
-				//manage json pbject 
-				JSONObject myjason = arg0.getResponseJSON();
-				json=myjason;
-				for(int i=0;i<myjason.length()-1;i++)
-				{
-					try {
-						System.out.println(" this is the json array "+myjason.names().getString(i).toString()+" "+ myjason.get(myjason.names().getString(i)));
-					} catch (JSONException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					
-				}
-				handler.post(new Runnable() {
-					
-					@Override
-					public void run() {						
-						ListView myListView = (ListView)findViewById(R.id.comments_list);
-						//myListView.setAdapter(new CommentListAdapter(json,context));
-					}
-				});
-									 
-			}
-			
-			@Override
-			public void onFailure(WLFailResponse arg0) {
-//			 
-				
-			}
-		});
+//		myClient.invokeProcedure(new WLProcedureInvocationData("adapter", "getData"), new WLResponseListener() {
+//
+//			@Override
+//			public void onSuccess(final WLResponse arg0) {
+//				System.out.println("in success");
+//				//manage json pbject
+//				JSONObject myjason = arg0.getResponseJSON();
+//				json=myjason;
+//				for(int i=0;i<myjason.length()-1;i++)
+//				{
+//					try {
+//						System.out.println(" this is the json array "+myjason.names().getString(i).toString()+" "+ myjason.get(myjason.names().getString(i)));
+//					} catch (JSONException e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();
+//					}
+//
+//				}
+//				handler.post(new Runnable() {
+//
+//					@Override
+//					public void run() {
+//						ListView myListView = (ListView)findViewById(R.id.comments_list);
+//						//myListView.setAdapter(new CommentListAdapter(json,context));
+//					}
+//				});
+//
+//			}
+//
+//			@Override
+//			public void onFailure(WLFailResponse arg0) {
+////
+//
+//			}
+//		});
 		
 	}
 
 	public void getMovieLIst()
 	{
-myClient.invokeProcedure(new WLProcedureInvocationData("adapter", "getData"), new WLResponseListener() {
-			
-			@Override
-			public void onSuccess(final WLResponse arg0) {
-				System.out.println("in success");
-				//manage json pbject 
-				JSONObject myjason = arg0.getResponseJSON();
-				json=myjason;
-				for(int i=0;i<myjason.length()-1;i++)
-				{
-					try {
-						System.out.println(" this is the json array "+myjason.names().getString(i).toString()+" "+ myjason.get(myjason.names().getString(i)));
-					} catch (JSONException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					
-				}
-				handler.post(new Runnable() {
-					
-					@Override
-					public void run() {						
-						ListView myListView1 = (ListView)findViewById(R.id.movies_listview_list);
-//						myListView1.setAdapter(new MoviesListAdapter(json,context));
-					}
-				});
-									 
-			}
-			
-			@Override
-			public void onFailure(WLFailResponse arg0) {
-			 
-				
-			}
-		});
+//myClient.invokeProcedure(new WLProcedureInvocationData("adapter", "getData"), new WLResponseListener() {
+//
+//			@Override
+//			public void onSuccess(final WLResponse arg0) {
+//				System.out.println("in success");
+//				//manage json pbject
+//				JSONObject myjason = arg0.getResponseJSON();
+//				json=myjason;
+//				for(int i=0;i<myjason.length()-1;i++)
+//				{
+//					try {
+//						System.out.println(" this is the json array "+myjason.names().getString(i).toString()+" "+ myjason.get(myjason.names().getString(i)));
+//					} catch (JSONException e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();
+//					}
+//
+//				}
+//				handler.post(new Runnable() {
+//
+//					@Override
+//					public void run() {
+//						ListView myListView1 = (ListView)findViewById(R.id.movies_listview_list);
+////						myListView1.setAdapter(new MoviesListAdapter(json,context));
+//					}
+//				});
+//
+//			}
+//
+//			@Override
+//			public void onFailure(WLFailResponse arg0) {
+//
+//
+//			}
+//		});
 		
 	}
 
