@@ -70,6 +70,7 @@ public JsonToArraylist()
                     e.printStackTrace();
                 }
                 mapList.add(map);
+                map = new HashMap<String, String>();
             }
         }
         return mapList;
@@ -140,16 +141,16 @@ return  keys;
 
     }
 //get list of field params
-public ArrayList getFieldArray (ArrayList<HashMap<String,String>> hash_list,String field ){
+public String[] getFieldArray (ArrayList<HashMap<String,String>> hash_list,String field ){
     int size = hash_list.size();
     String key=field;
-    ArrayList<String> result = new ArrayList<>();
+    String [] result = new String[size];
     HashMap<String,String> map ;
     for (int i=0;i<size;i++)
     {
      map=hash_list.get(i);
                 if(map.get(field)!=null)
-            result.add(map.get(field));
+            result[i]=map.get(field);
 
     }
 

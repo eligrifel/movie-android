@@ -23,6 +23,7 @@ import java.util.Map;
  * Created by eli on 24/07/2015.
  */
 public class RestRespond {
+    private String BaseUrl="http://192.168.2.5:8080/";
     static String _username;
     static String _password;
     public RestRespond() {
@@ -123,7 +124,7 @@ public class RestRespond {
         String auth = username + ":" + password;
         final String basicAuth = "Basic " + Base64.encodeToString(auth.getBytes(), Base64.NO_WRAP);
         try {
-            url = new URL("http://192.168.1.15:8080/users");
+            url = new URL(BaseUrl+"users");
 
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestProperty("Authorization", basicAuth);
@@ -158,6 +159,7 @@ public class RestRespond {
     }
 
     public Callback getData(String[] args){ //args parms @methodurl,@parmsourl
+
         String[] _args = new String[3];
        String username=_username;
        String  password=_password;
@@ -173,8 +175,7 @@ public class RestRespond {
         StringBuilder sb = new StringBuilder();
 
     Callback callback;
-    String BaseUrl = "http://192.168.1.15:8080/";
-        String RestUrl=BaseUrl+_args[1].toString()+"/"+_args[2];
+        String RestUrl= (_args[2]==null)?BaseUrl+_args[1].toString():BaseUrl+_args[1].toString()+"/"+_args[2];
         Object json;
         ArrayList map = null;
         try {
@@ -187,21 +188,21 @@ public class RestRespond {
             String output;
             while ((output = br.readLine()) != null) {
                 sb.append(output);
-                if(sb.charAt(0)=='{')
-                {
-                    json=new JSONObject(sb.toString());
-                }
-                else
-                {
-                    json=new JSONArray(sb.toString());
-                }
-               // json = new JSONObject(sb.toString());
-                JsonToArraylist jParcer= new JsonToArraylist(json);
-                map= jParcer.JasonToMap();
-                Log.d("here","hwew");
+
+
 
             }
-
+            if(sb.charAt(0)=='{')
+            {
+                json=new JSONObject(sb.toString());
+            }
+            else
+            {
+                json=new JSONArray(sb.toString());
+            }
+            // json = new JSONObject(sb.toString());
+            JsonToArraylist jParcer= new JsonToArraylist(json);
+            map= jParcer.JasonToMap();
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {

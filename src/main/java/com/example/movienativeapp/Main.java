@@ -44,6 +44,7 @@ import android.widget.AdapterView.OnItemClickListener;
 
 
 public class Main extends ActionBarActivity implements OncategoryViewListener{
+    ListView categoryLIst;
 	private String [] category_array;
 	private  ViewPager mViewPager;
 	private int[]  picArray ={R.drawable.pic1,R.drawable.pic2,R.drawable.pic3,R.drawable.pic4,R.drawable.pic5,R.drawable.pic6,R.drawable.pic7,R.drawable.pic8,}; 
@@ -69,6 +70,7 @@ public class Main extends ActionBarActivity implements OncategoryViewListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
        handleCallBack();
+        serverRec.addListener(callback);
         setContentView(R.layout.main);
 
 //       //test listener and reciver
@@ -188,7 +190,8 @@ public class Main extends ActionBarActivity implements OncategoryViewListener{
 
 
 		Tab1 category1  =  (Tab1)(mypageradapter.getActiveFragment(mViewPager, 0));
-		getCategoryArray();
+		///getCategoryArray();
+        serverRec.getCategoryList();
 
 		getComments(1);
 		preperMovieArrays("getFMovies");
@@ -230,7 +233,7 @@ public class Main extends ActionBarActivity implements OncategoryViewListener{
         args[0]="GET";
         args[1]= "reviews";
         args[2]= String.valueOf(movieId);
-    	serverRec.addListener(callback);
+
 		serverRec.getReviewByMovieId(args);
 
 
@@ -277,7 +280,7 @@ public class Main extends ActionBarActivity implements OncategoryViewListener{
 
 	public void getCategoryArray() {
 
-		RestRespond restRespond = new RestRespond();
+        RestRespond restRespond = new RestRespond();
 		JSONObject myjason = null;
 //myClient.invokeProcedure(new WLProcedureInvocationData("adapter", "getCat"), new WLResponseListener() {
 //
@@ -435,16 +438,16 @@ public class Main extends ActionBarActivity implements OncategoryViewListener{
 
                 method = callback.get_data()[1];
                 mapList = callback.get_dataList();
-                Log.d("callback","here in callback return on main");
+                Log.d("callback","here in callback return on main"+ method);
 
                 switch(method)
                 {
                     case "reviews":
                     {
                         JsonToArraylist parcer = new JsonToArraylist();
-                       ArrayList users= parcer.getFieldArray(mapList,"user_name");
-                       ArrayList comments= parcer.getFieldArray(mapList,"comment");
-                        final ArrayList<ArrayList<String>> pairs = new ArrayList<>();
+                      String[] users= parcer.getFieldArray(mapList,"user_name");
+                       String[] comments= parcer.getFieldArray(mapList,"comment");
+                        final ArrayList<String[]> pairs = new ArrayList<>();
                         pairs.add(users);
                         pairs.add(comments);
                         Log.d("callback","reviews callback method");
@@ -461,6 +464,37 @@ public class Main extends ActionBarActivity implements OncategoryViewListener{
                         });
                     }
                     break;
+					case "movies/categories":
+					{
+						JsonToArraylist parcer = new JsonToArraylist();
+						final String[] category_array= parcer.getFieldArray(mapList,"category_name");
+
+						 categoryLIst = (ListView) findViewById(R.id.catagory_list);
+runOnUiThread(new Runnable() {
+	@Override
+	public void run() {
+		categoryLIst.setAdapter(new ArrayAdapter<String>(context, R.layout.single_raw_category, R.id.category_names, category_array));
+
+		categoryLIst.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+									int position, long id) {
+				System.out.println("pressss " + category_array[position]);
+				Intent category = new Intent(context, MovieActivity.class);
+				category.putExtra("category", category_array[position]);
+				context.startActivity(category);
+
+			}
+		});
+
+	}
+});
+
+
+
+					}
+					break;
                 }
 
 

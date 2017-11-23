@@ -1,7 +1,10 @@
 package com.example.movienativeapp;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
+import listAdapters.CommentListAdapter;
 import listAdapters.MoviesListAdapter;
 
 import org.json.JSONException;
@@ -15,11 +18,13 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -35,7 +40,7 @@ public class MovieActivity extends ActionBarActivity{
 	private RestRespond restRespond;
 	private Context context;
 	Handler handler;
-	
+	String method;
     List<SamplePagerItem> mTabs;
     ActionBar actionBar;
    
@@ -43,13 +48,14 @@ public class MovieActivity extends ActionBarActivity{
     private String[] moviesArray;
     private String[] moviesPathArray;
     private String[] TopRatedRating;
+	final RequestListenerHolder _serverRec = new RequestListenerHolder();
+	private  RequestInterface _listener;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       
-
         setContentView(R.layout.activity_main);
+        handleCallBack();
         restRespond = new RestRespond();
        
         handler = new Handler();
@@ -110,8 +116,8 @@ public class MovieActivity extends ActionBarActivity{
     private void connect() {
 		context = this;
 
-			preperMovieArrays("getFMovies");
-
+			//preperMovieArrays("getFMovies");
+       _serverRec.getAllMovies();
 
 	}
 
@@ -120,7 +126,7 @@ public class MovieActivity extends ActionBarActivity{
 
 
 private void preperMovieArrays(String method) {
-		
+
 		
 		final String [] movies;
 		
@@ -190,7 +196,46 @@ public void getMovieLIst(final String[] movies,final String[] path,final String[
 							 
 		}
 
+    private void handleCallBack() {
+        final ArrayList<HashMap<String,String>> mapList;
 
+
+        _listener= new RequestInterface() {
+            @Override
+            public JSONObject onRecive(Callback callback) {
+                final ArrayList<HashMap<String,String>> mapList;
+
+                method = callback.get_data()[1];
+                mapList = callback.get_dataList();
+                Log.d("callback","here in callback return on main"+ method);
+
+                switch(method)
+                {
+
+                    case "movies":
+                    {
+                        JsonToArraylist parcer = new JsonToArraylist();
+                        final String[] movie_name= parcer.getFieldArray(mapList,"movie_name");
+                        final String[] pic_links= parcer.getFieldArray(mapList,"pic_link");
+                        final String[] rating= parcer.getFieldArray(mapList,"rating");
+
+                        getMovieLIst(movie_name,pic_links,rating,R.id.general_list_view);
+
+
+
+
+
+                    }
+                    break;
+                }
+
+
+                return null;
+            }
+        };
+
+        _serverRec.addListener(_listener);
+    }
 
 
 }

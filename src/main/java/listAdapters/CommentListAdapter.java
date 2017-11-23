@@ -21,10 +21,10 @@ public class CommentListAdapter implements ListAdapter {
 	private Context _context;
 	JsonToArraylist jToArray;
 	private HashMap<String,String> _map;
-    ArrayList<String> users;
-    ArrayList<String> comments;
+    String[] users;
+   String[] comments;
 
-	public CommentListAdapter(ArrayList<ArrayList<String>> user_comment_array, Context context) {
+	public CommentListAdapter(ArrayList<String[]> user_comment_array, Context context) {
 		_context = context;
 		users = user_comment_array.get(0);
 		comments = user_comment_array.get(1);
@@ -45,7 +45,7 @@ public class CommentListAdapter implements ListAdapter {
 	@Override
 	public int getCount() {
 		// TODO Auto-generated method stub
-		return users.size();
+		return users.length;
 
 	}
 
@@ -70,26 +70,7 @@ public class CommentListAdapter implements ListAdapter {
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 
-//			 View itemView = convertView;
-//
-//	            // make sure we have view to work with
-//	            if (itemView==null)
-//	            {
-//	            	LayoutInflater inflater = LayoutInflater.from(_context);
-//	                itemView =inflater.inflate(R.layout.singlerowcomments, parent,false);
-//	                TextView name = (TextView)itemView.findViewById(R.id.name);
-//	                TextView comment = (TextView)itemView.findViewById(R.id.comment);
-//                    name.setText(users.get(position));
-//
-//                    comment.setText(comments.get(position));
-//
-//
-//                }
 
-
-		//return itemView;
-
-		/////
 		View itemView = convertView;
 		ViewHolder viewHolder = null;
 		boolean firsttime = false;
@@ -113,9 +94,9 @@ public class CommentListAdapter implements ListAdapter {
 		} else {
 			viewHolder = (ViewHolder) itemView.getTag();
 		}
-        viewHolder.text.setText(users.get(position).toString());
+        viewHolder.text.setText(users[position]);
 
-        viewHolder.comment.setText(comments.get(position).toString());
+        viewHolder.comment.setText(comments[position]);
 
         //
 //			viewHolder.text.setText(_movies[position].toString());
@@ -138,7 +119,7 @@ public class CommentListAdapter implements ListAdapter {
 		@Override
 		public int getViewTypeCount () {
 			// TODO Auto-generated method stub
-			return users.size();
+			return users.length;
 		}
 
 		@Override

@@ -254,9 +254,9 @@ public class SingleMovieOption extends ActionBarActivity {
                     case "reviews":
                     {
                         JsonToArraylist parcer = new JsonToArraylist();
-                        ArrayList users= parcer.getFieldArray(mapList,"user_name");
-                        ArrayList comments= parcer.getFieldArray(mapList,"comment");
-                        final ArrayList<ArrayList<String>> pairs = new ArrayList<>();
+                        String[] users= parcer.getFieldArray(mapList,"user_name");
+                        String[] comments= parcer.getFieldArray(mapList,"comment");
+                        final ArrayList<String[]> pairs = new ArrayList<>();
                         pairs.add(users);
                         pairs.add(comments);
                         Log.d("callback","reviews callback method");

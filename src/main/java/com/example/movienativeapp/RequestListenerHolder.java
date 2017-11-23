@@ -173,6 +173,61 @@ Log.d("listeer",_args[1].toString()+_args[2].toString());
 
         test.start();
     }
+public  void getCategoryList(){
+    _args = new String[3];
+    _args[0]="GET";
+    _args[1]="movies/categories";
+    final String controller_path= _args[1];
+
+
+    Thread getCat = new Thread(new Runnable() {
+        @Override
+        public void run() {
+            RestRespond restRespond = new RestRespond();
+            ArrayList<HashMap<String, String>> map = null;
+            Callback callback;
+            callback = restRespond.getData(_args);
+            map=callback.get_dataList();
+
+
+
+            if (map != null) {
+                for (RequestInterface hl : listeners)
+                    hl.onRecive(callback);
+            }
+        }
+    });
+
+    getCat.start();
+}
+
+    public  void getAllMovies(){
+        _args = new String[3];
+        _args[0]="GET";
+        _args[1]="movies";
+        final String controller_path= _args[1];
+
+
+        Thread queryData = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                RestRespond restRespond = new RestRespond();
+                ArrayList<HashMap<String, String>> map = null;
+                Callback callback;
+                callback = restRespond.getData(_args);
+                map=callback.get_dataList();
+
+
+
+                if (map != null) {
+                    for (RequestInterface hl : listeners)
+                        hl.onRecive(callback);
+                }
+            }
+        });
+
+        queryData.start();
+    }
 
 }
 
