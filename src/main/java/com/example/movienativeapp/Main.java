@@ -47,7 +47,7 @@ public class Main extends ActionBarActivity implements OncategoryViewListener{
     ListView categoryLIst;
 	private String [] category_array;
 	private  ViewPager mViewPager;
-	private int[]  picArray ={R.drawable.pic1,R.drawable.pic2,R.drawable.pic3,R.drawable.pic4,R.drawable.pic5,R.drawable.pic6,R.drawable.pic7,R.drawable.pic8,}; 
+	//private int[]  picArray ={R.drawable.pic1,R.drawable.pic2,R.drawable.pic3,R.drawable.pic4,R.drawable.pic5,R.drawable.pic6,R.drawable.pic7,R.drawable.pic8,};
 	private boolean connected=false;
 	//private WLClient myClient;
 	private Toast toast;
@@ -98,7 +98,7 @@ public class Main extends ActionBarActivity implements OncategoryViewListener{
         colorizetabsetting();
 
          mViewPager = (ViewPager) findViewById(R.id.ViewPager);
-          mypageradapter  = new MyPagerAdapter(getSupportFragmentManager(), this);
+          mypageradapter  = new MyPagerAdapter(getSupportFragmentManager(), this,true);//true if admin pannel
         mViewPager.setAdapter(mypageradapter);
        mViewPager.setOffscreenPageLimit(3);
        
@@ -180,6 +180,8 @@ public class Main extends ActionBarActivity implements OncategoryViewListener{
         mTabs.add(new SamplePagerItem("Category", Color.WHITE,Color.WHITE));
         mTabs.add(new SamplePagerItem("leasedMovies", Color.WHITE,Color.WHITE));
         mTabs.add(new SamplePagerItem("top Rated", Color.WHITE,Color.WHITE));
+        mTabs.add(new SamplePagerItem("admin panel", Color.WHITE,Color.WHITE));
+
 
     }
     
@@ -189,7 +191,7 @@ public class Main extends ActionBarActivity implements OncategoryViewListener{
 		//testing
 
 
-		Tab1 category1  =  (Tab1)(mypageradapter.getActiveFragment(mViewPager, 0));
+	//	Tab1 category1  =  (Tab1)(mypageradapter.getActiveFragment(mViewPager, 0));
 		///getCategoryArray();
         serverRec.getCategoryList();
 
