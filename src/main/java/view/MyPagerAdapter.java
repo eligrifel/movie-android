@@ -19,9 +19,10 @@ import android.support.v4.view.ViewPager;
  */
 public class MyPagerAdapter extends FragmentPagerAdapter  {
     private ArrayList<String> tabName;
-    int NumberOfPagers=3;
+    int NumberOfPagers=4;
     Context _context;
     private FragmentManager mFragmentManager;
+
     
     public MyPagerAdapter(FragmentManager fm,Context context) {
         super(fm);
@@ -34,7 +35,22 @@ public class MyPagerAdapter extends FragmentPagerAdapter  {
 
     }
 
+//constructor for admin panel
+public MyPagerAdapter(FragmentManager fm,Context context,boolean is_admin) {
 
+    super(fm);
+    mFragmentManager = fm;
+    _context=context;
+    tabName = new ArrayList<>();
+    tabName.add("Category");
+    tabName.add("Leased movies");
+    tabName.add("Top rated");
+    if(is_admin)
+    {
+        tabName.add("admin panel");
+    }
+
+}
 
 
     @Override
@@ -54,7 +70,10 @@ public class MyPagerAdapter extends FragmentPagerAdapter  {
                 return new Tab3();
             case 3:
                 // Movies fragment activity
-                return new Tab3();
+                return new Tab4();
+            case 4:
+                // Movies fragment activity
+                return new Tab4();
         }
         return null;
     }
@@ -66,12 +85,7 @@ public class MyPagerAdapter extends FragmentPagerAdapter  {
 
     @Override
     public CharSequence getPageTitle(int position) {
-//        Drawable drawable = ContextCompat.getDrawable(_context,R.drawable.tabhome);
-//        drawable.setBounds(0,0,60,60);
-//        ImageSpan imageSpan = new ImageSpan(drawable);
-//        SpannableString spannableString = new SpannableString("hello ");
-//        spannableString.setSpan(imageSpan,0,spannableString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-//        return  spannableString;
+
        return (tabName.get(position).toString());
     }
 
