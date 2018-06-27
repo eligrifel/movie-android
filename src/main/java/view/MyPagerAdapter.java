@@ -19,7 +19,7 @@ import android.support.v4.view.ViewPager;
  */
 public class MyPagerAdapter extends FragmentPagerAdapter  {
     private ArrayList<String> tabName;
-    int NumberOfPagers=4;
+    int NumberOfPagers=3;
     Context _context;
     private FragmentManager mFragmentManager;
 
@@ -70,10 +70,10 @@ public MyPagerAdapter(FragmentManager fm,Context context,boolean is_admin) {
                 return new Tab3();
             case 3:
                 // Movies fragment activity
-                return new Tab4();
+                return new AdminFragmentTab();
             case 4:
                 // Movies fragment activity
-                return new Tab4();
+                return new AdminFragmentTab();
         }
         return null;
     }

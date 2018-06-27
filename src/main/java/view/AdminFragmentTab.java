@@ -5,16 +5,23 @@ package view;
 /**
  * Created by eli on 5/30/2015.
  */
+import com.example.movienativeapp.R;
 import com.example.movienativeapp.R.layout;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class Tab4 extends Fragment {
+import fragments.insert_movie_fragment;
 
+public class AdminFragmentTab extends Fragment {
+   FragmentManager fm ;
+    FragmentTransaction fragmentTransaction ;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -23,5 +30,6 @@ public class Tab4 extends Fragment {
 
         return rootView;
     }
+
 
 }
