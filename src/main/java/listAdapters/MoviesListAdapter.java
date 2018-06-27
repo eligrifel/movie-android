@@ -123,7 +123,8 @@ public class MoviesListAdapter implements ListAdapter{
                
                 	
 					viewHolder.text.setText(_movies[position].toString());
-					viewHolder.ratingBar.setRating(Float.valueOf(_rating[position]));
+		float temp=Float.parseFloat(_rating[position]); temp= temp/2;
+					viewHolder.ratingBar.setRating(Float.valueOf(temp));
 				if(movieImages[position]!=null)
 					viewHolder.image.setImageBitmap(movieImages[position]);
 				else

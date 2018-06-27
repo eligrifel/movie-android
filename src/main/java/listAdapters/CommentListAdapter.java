@@ -98,13 +98,7 @@ public class CommentListAdapter implements ListAdapter {
 
         viewHolder.comment.setText(comments[position]);
 
-        //
-//			viewHolder.text.setText(_movies[position].toString());
-//			viewHolder.comment.setText(Float.valueOf(_rating[position]));
-//			if (movieImages[position] != null)
-//				viewHolder.image.setImageBitmap(movieImages[position]);
-//			else
-//				new DownloadAsyncTask(position).execute(viewHolder);
+
 
 			return itemView;
 
