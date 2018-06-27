@@ -24,6 +24,7 @@ import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -35,7 +36,7 @@ import android.widget.Toast;
 
 
 public class MovieListActivity extends FragmentActivity {
-	private int[]  picArray ={R.drawable.pic1,R.drawable.pic2,R.drawable.pic3,R.drawable.pic4,R.drawable.pic5,R.drawable.pic6,R.drawable.pic7,R.drawable.pic8,}; 
+	//private int[]  picArray ={R.drawable.pic1,R.drawable.pic2,R.drawable.pic3,R.drawable.pic4,R.drawable.pic5,R.drawable.pic6,R.drawable.pic7,R.drawable.pic8,};
 	private boolean connected=false;
 //	private WLClient myClient;
 	private Toast toast;
@@ -55,7 +56,7 @@ public class MovieListActivity extends FragmentActivity {
 		setContentView(R.layout.activity_main);
 		 handler = new Handler(getMainLooper());
 		 connect();
-		 
+
 	}
 
 

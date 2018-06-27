@@ -23,7 +23,7 @@ import java.util.Map;
  * Created by eli on 24/07/2015.
  */
 public class RestRespond {
-    private String BaseUrl="http://10.111.223.185:8080/";
+    private String BaseUrl="http://192.168.2.8:8080/";
     static String _username;
     static String _password;
     public RestRespond() {
@@ -158,7 +158,7 @@ public class RestRespond {
         return map;
     }
 
-    public Callback getData(String[] args){ //args parms @methodurl,@parmsourl
+    public Callback getData(String[] args){ //args parms @methodurl,@url,@parameters
 
         String[] _args = new String[3];
        String username=_username;

@@ -7,13 +7,12 @@
  
     >
  <LinearLayout
-        android:layout_weight="7"
-
+        android:layout_weight="10"
         android:orientation="vertical"
         android:id="@+id/fragment"
         android:layout_width="0dp"
         android:layout_height="match_parent">
-        
+
      <ListView
         android:id="@+id/general_list_view"
         android:layout_width="match_parent"
@@ -22,60 +21,18 @@
         android:divider="@android:color/transparent"
         android:elevation="7dp"
         android:translationZ="7dp"
-     	
-      
-         
-     
-    
+
+
+
+
+
     android:padding="7dp"
-        
+
          >
          </ListView>
 
 
-    </LinearLayout>
-    
-    
-
-    <LinearLayout
-        android:layout_weight="3"
-        android:orientation="vertical"
-        android:id="@+id/buttons"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-
-        >
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Bcomment"
-            android:id="@+id/button"
-            android:onClick="loadF1"
-            />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="fr2"
-            android:id="@+id/button2"
-            android:onClick="loadF2"
-            />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New Button"
-            android:id="@+id/button3" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New Button2"
-            android:id="@+id/button4" />
-    </LinearLayout>
-
+ </LinearLayout>
 
 
 </LinearLayout>

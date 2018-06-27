@@ -20,23 +20,32 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import fragments.write_review;
 import listAdapters.CommentListAdapter;
 
 public class SingleMovieOption extends ActionBarActivity {
     private Callback callback;
 	private boolean connected=false;
 //	private WLClient myClient;
+	String movie_id;
 	TextView _movieName;
 	String _imagePath;
+	RatingBar _movieRating;
 	private Context context;
 	Handler handler;
 	final RequestListenerHolder serverRec = new RequestListenerHolder();
@@ -49,6 +58,12 @@ public class SingleMovieOption extends ActionBarActivity {
     private String[] moviesArray;
     private String[] moviesPathArray;
     private String[] TopRatedRating;
+
+	//fragment property
+
+	FragmentManager fm ;
+	FragmentTransaction fragmentTransaction ;
+
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +71,7 @@ public class SingleMovieOption extends ActionBarActivity {
 		setContentView(R.layout.activity_single_movie_option);
         handleCallBack();
 		_movieName=(TextView) findViewById(R.id.TVmovieName);
+		_movieRating=(RatingBar) findViewById(R.id.ratingBar1);
 		handler = new Handler();
         context = this;
         actionBar = getSupportActionBar();
@@ -67,14 +83,48 @@ public class SingleMovieOption extends ActionBarActivity {
         Bundle moviebundle ;
         moviebundle = getIntent().getExtras();
         String moviename = moviebundle.getString("name");
+		movie_id=moviebundle.getString("movie_id");
         String pathString = moviebundle.getString("path");
+		float rating= moviebundle.getFloat("rating");
+		System.out.println("movie rating is "+ rating);
+		_movieRating.setRating(rating);
         System.out.println("movie choosen is "+ moviename);
         _movieName.setText(moviename.toString());
         System.out.println("psth of movie is....."+pathString);
         _imagePath = pathString;
         new DownloadAsyncTask().execute(_movieImage);
         connect();
+		setListeners();
 	}
+
+	private void setListeners() {
+		findViewById(R.id.give_review);
+
+	}
+	public void onGiveRevieClick(View view) {
+		fragments.write_review rfragment = new write_review();
+	    fm = getSupportFragmentManager();
+		fragmentTransaction = fm.beginTransaction();
+		fragmentTransaction.add(R.id.test, rfragment,"review");
+		fragmentTransaction.commit();
+	}
+
+	public void updateReview(View view) {
+//remove fragment
+		fragments.write_review fragment = (fragments.write_review)fm.findFragmentByTag("review");
+		FragmentTransaction transaction= fm.beginTransaction();
+		if(fragment!=null)
+		{
+transaction.remove(fragment);
+
+		transaction.commit();
+            Toast.makeText(getApplication(),"your review has updated",Toast.LENGTH_LONG).show();
+
+		}
+	}
+
+
+
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -94,7 +144,8 @@ public class SingleMovieOption extends ActionBarActivity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-	
+
+
 	private class DownloadAsyncTask extends AsyncTask<ImageView, Void, ImageView> {
 		private Bitmap bit;
 		
@@ -216,10 +267,7 @@ public class SingleMovieOption extends ActionBarActivity {
 				
 				
 				//getComments();
-               getComments(1);
-				
-				
-				
+               getComments(Integer.parseInt(movie_id));
 
 
 				

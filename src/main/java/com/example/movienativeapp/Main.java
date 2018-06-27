@@ -5,27 +5,33 @@ package com.example.movienativeapp;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
+import fragments.insert_movie_fragment;
 import listAdapters.CommentListAdapter;
 import listAdapters.MoviesListAdapter;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import listAdapters.category_list_adapter;
 import view.MyPagerAdapter;
 import view.SlidingTabLayout;
 import view.Tab1;
 import view.Tab1.OncategoryViewListener;
 
+import android.app.ActivityManager;
 import android.app.FragmentManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
@@ -44,6 +50,10 @@ import android.widget.AdapterView.OnItemClickListener;
 
 
 public class Main extends ActionBarActivity implements OncategoryViewListener{
+	//fragment property
+
+	android.support.v4.app.FragmentManager fm ;
+	FragmentTransaction fragmentTransaction ;
     ListView categoryLIst;
 	private String [] category_array;
 	private  ViewPager mViewPager;
@@ -73,32 +83,22 @@ public class Main extends ActionBarActivity implements OncategoryViewListener{
         serverRec.addListener(callback);
         setContentView(R.layout.main);
 
-//       //test listener and reciver
-//
-//        serverRec.addListener(new JsonListener() {
-//
-//			@Override
-//			public JSONObject onRecive(JSONObject json) {
-//				serverRec.removeListener();
-//				return null;
-//			}
-//		});
-//        serverRec.getJson("getData");
+
         handler = new Handler();
         context = this;
         actionBar = getSupportActionBar();
         actionBar.setElevation(0);
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffFF2E2E")));
-        
-        
-        
+
+
+		testmethod();
         
         
         //tabcolorize
         colorizetabsetting();
 
          mViewPager = (ViewPager) findViewById(R.id.ViewPager);
-          mypageradapter  = new MyPagerAdapter(getSupportFragmentManager(), this,true);//true if admin pannel
+          mypageradapter  = new MyPagerAdapter(getSupportFragmentManager(), this,false);//true if admin pannel
         mViewPager.setAdapter(mypageradapter);
        mViewPager.setOffscreenPageLimit(3);
        
@@ -128,7 +128,25 @@ public class Main extends ActionBarActivity implements OncategoryViewListener{
 
     }
 
+	private void testmethod() {
 
+		UserRequest request = new UserRequest();
+		Log.d("test","here in test func");
+		RequestInterface interfaceCallback = new RequestInterface() {
+			@Override
+			public JSONObject onRecive(Callback callback) {
+			ArrayList<HashMap<String,String>> map=callback.get_dataList();
+			//Log.d("test",map.toString());
+		    HashMap user= map.get(0);
+				String user_id= (String) user.get("id");
+				Log.d("test","user id is "+user_id);
+				return null;
+			}
+		};
+
+		//request.addListener(interfaceCallback);
+		request.getCurrentUser(interfaceCallback);
+	}
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -148,7 +166,12 @@ public class Main extends ActionBarActivity implements OncategoryViewListener{
         if (id == R.id.action_settings) {
             return true;
         }
-
+if(id==R.id.go_to_admin_panel)
+{
+	Intent intent = new Intent(this,AdminActivity.class);
+	startActivity(intent);
+return false;
+}
         return super.onOptionsItemSelected(item);
     }
 
@@ -163,6 +186,25 @@ public class Main extends ActionBarActivity implements OncategoryViewListener{
 	public void ondetoched() {
 		connect();
 	}
+
+
+	public void insert_movie(View view) {
+		Log.d("check","insertMovie");
+		fragments.insert_movie_fragment rfragment = new insert_movie_fragment();
+		fm = getSupportFragmentManager();
+		Log.d("login",fm.getFragments().toString());
+		fragmentTransaction = fm.beginTransaction();
+		fragmentTransaction.add(R.id.admin_container, rfragment);
+		fragmentTransaction.addToBackStack(null);
+		fragmentTransaction.commit();
+		ActivityManager am = (ActivityManager) this.getSystemService(ACTIVITY_SERVICE);
+		List<ActivityManager.RunningTaskInfo> taskInfo = am.getRunningTasks(1);
+		Log.d("topActivity", "CURRENT Activity ::" + taskInfo.get(0).topActivity.getClassName());
+
+
+	}
+
+
 
 	static class SamplePagerItem {
         private final CharSequence mTitle;
@@ -470,12 +512,15 @@ public class Main extends ActionBarActivity implements OncategoryViewListener{
 					{
 						JsonToArraylist parcer = new JsonToArraylist();
 						final String[] category_array= parcer.getFieldArray(mapList,"category_name");
+						final String []  category_id_array=parcer.getFieldArray(mapList,"id");
 
 						 categoryLIst = (ListView) findViewById(R.id.catagory_list);
 runOnUiThread(new Runnable() {
 	@Override
 	public void run() {
-		categoryLIst.setAdapter(new ArrayAdapter<String>(context, R.layout.single_raw_category, R.id.category_names, category_array));
+
+		//categoryLIst.setAdapter(new ArrayAdapter<String>(context, R.layout.single_raw_category, R.id.category_names, category_array));
+		categoryLIst.setAdapter(new category_list_adapter( category_array,category_id_array,R.layout.single_raw_category,context));
 
 		categoryLIst.setOnItemClickListener(new OnItemClickListener() {
 
@@ -485,6 +530,7 @@ runOnUiThread(new Runnable() {
 				System.out.println("pressss " + category_array[position]);
 				Intent category = new Intent(context, MovieActivity.class);
 				category.putExtra("category", category_array[position]);
+				category.putExtra("category_id",category_id_array[position]);
 				context.startActivity(category);
 
 			}

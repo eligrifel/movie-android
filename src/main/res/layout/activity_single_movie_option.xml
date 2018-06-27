@@ -5,6 +5,7 @@
   	android:orientation="vertical"
     tools:context="com.example.movienativeapp.SingleMovieOption"
     android:weightSum="10"
+    android:id="@+id/test"
      >
 
     <RelativeLayout
@@ -82,6 +83,7 @@
         />
     
      <TextView
+         android:id="@+id/give_review"
          android:gravity="center"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -94,6 +96,8 @@
                 android:textSize="18sp"
         android:textColor="@android:color/white"
         android:padding="3dp"
+         android:onClick="onGiveRevieClick"
+        android:clickable="true"
           />
     
 

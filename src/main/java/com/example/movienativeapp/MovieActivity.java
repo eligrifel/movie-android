@@ -1,6 +1,7 @@
 package com.example.movienativeapp;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -26,6 +27,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 
@@ -48,8 +50,10 @@ public class MovieActivity extends ActionBarActivity{
     private String[] moviesArray;
     private String[] moviesPathArray;
     private String[] TopRatedRating;
+    private String[] movieId;
 	final RequestListenerHolder _serverRec = new RequestListenerHolder();
 	private  RequestInterface _listener;
+    private String category_id;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +70,7 @@ public class MovieActivity extends ActionBarActivity{
         Bundle bundle = getIntent().getExtras();
         
         actionBar.setTitle(bundle.getString("category"));
-        
+        category_id = bundle.getString("category_id");
         
         
         
@@ -78,7 +82,11 @@ public class MovieActivity extends ActionBarActivity{
         connect();
         
 
+
+
+
     }
+
 
 
 
@@ -117,7 +125,10 @@ public class MovieActivity extends ActionBarActivity{
 		context = this;
 
 			//preperMovieArrays("getFMovies");
-       _serverRec.getAllMovies();
+      // _serverRec.getAllMovies();
+        //testing get category movies
+        UserRequest req = new UserRequest();
+        req.getMoviesForCategory(category_id, _listener);
 
 	}
 
@@ -176,15 +187,20 @@ public void getMovieLIst(final String[] movies,final String[] path,final String[
 					
 					myListView1.setOnItemClickListener(new OnItemClickListener() {
 
-						@Override
-						public void onItemClick(AdapterView<?> parent,
-								View view, int position, long id) {
-							
-							Intent movie = new Intent(context , SingleMovieOption.class);
+                                @Override
+                                public void onItemClick(AdapterView<?> parent,
+                                                        View view, int position, long id) {
+
+                                    Intent movie = new Intent(context , SingleMovieOption.class);
 							TextView moviename=(TextView)view.findViewById(R.id.movie_name);
 						String name = moviename.getText().toString();
 						movie.putExtra("name", name);
 						movie.putExtra("path", path[position]);
+                        movie.putExtra("movie_id",movieId[position]);
+                                    RatingBar ratebar = (RatingBar) view.findViewById(R.id.ratingBar1);
+                                    float movie_rating= ratebar.getRating();
+
+                            movie.putExtra("rating",movie_rating);
 						context.startActivity(movie);
 						
 						}
@@ -227,6 +243,17 @@ public void getMovieLIst(final String[] movies,final String[] path,final String[
 
                     }
                     break;
+                    case "movies/categories":
+                    {
+                        JsonToArraylist parcer = new JsonToArraylist();
+                        final String[] movie_name= parcer.getFieldArray(mapList,"movie_name");
+                        final String[] pic_links= parcer.getFieldArray(mapList,"pic_link");
+                        final String[] rating= parcer.getFieldArray(mapList,"rating");
+                        movieId= parcer.getFieldArray(mapList,"id");
+
+                        getMovieLIst(movie_name,pic_links,rating,R.id.general_list_view);
+                    }
+                    break;
                 }
 
 
@@ -236,6 +263,7 @@ public void getMovieLIst(final String[] movies,final String[] path,final String[
 
         _serverRec.addListener(_listener);
     }
+
 
 
 }
