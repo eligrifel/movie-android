@@ -7,7 +7,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONObject;
 
@@ -106,5 +108,35 @@ public void loginCallback(Callback callback){
         this.email.setText("");
     }
 }
+public void RegisterUser(View view)
+{
+//vars
+    String user_name = ((EditText) findViewById(R.id.ET_user_name)).getText().toString();
+    String first_name= ((EditText) findViewById(R.id.ET_first_name)).getText().toString();;
+    String last_name= ((EditText) findViewById(R.id.ET_last_name)).getText().toString();;
+    String password= ((EditText) findViewById(R.id.ET_signin_password)).getText().toString();;
+    if((user_name.isEmpty()) || (first_name.isEmpty())||last_name.isEmpty()|| password.isEmpty())
+    {
+        Toast.makeText(this,"please fill all require field",Toast.LENGTH_LONG).show();
+    }
+else
+    {
 
+        UserRequest req = new UserRequest();
+        HashMap <String,String> postData = new HashMap<>();
+        postData.put("username",user_name);
+        postData.put("password",password);
+        postData.put("firstname",first_name);
+        postData.put("lastname",last_name);
+        req.createUser(postData,new RequestInterface() {
+            @Override
+            public JSONObject onRecive(Callback callback) {
+                //check the response and float success message
+                Toast.makeText(context,"",Toast.LENGTH_LONG).show();
+                return null;
+            }
+        });
+    }
+
+}
 }

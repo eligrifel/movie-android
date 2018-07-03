@@ -18,15 +18,7 @@
             android:textColor="@color/red_background"
             
              />
-	<TextView
-		android:id="@+id/category_id"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:textSize="20sp"
-		android:layout_margin="10dp"
-		android:textColor="@color/red_background"
 
-		/>
 
 
 

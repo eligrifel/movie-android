@@ -1,5 +1,7 @@
 package com.example.movienativeapp;
 
+import android.util.Log;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -142,13 +144,15 @@ return  keys;
     }
 //get list of field params
 public String[] getFieldArray (ArrayList<HashMap<String,String>> hash_list,String field ){
-    int size = hash_list.size();
+    ArrayList<HashMap<String,String>> newhash_list;
+   newhash_list= reduceSizeByField(hash_list,field);
+    int size = newhash_list.size();
     String key=field;
     String [] result = new String[size];
     HashMap<String,String> map ;
     for (int i=0;i<size;i++)
     {
-     map=hash_list.get(i);
+     map=newhash_list.get(i);
                 if(map.get(field)!=null)
             result[i]=map.get(field);
 
@@ -157,6 +161,28 @@ public String[] getFieldArray (ArrayList<HashMap<String,String>> hash_list,Strin
 
     return result;
 }
+
+    private ArrayList<HashMap<String,String>> reduceSizeByField(ArrayList<HashMap<String, String>> hash_list, String field) {
+        int size = hash_list.size();
+        ArrayList tempHash= new ArrayList(hash_list);
+        Log.d("movies","hash list size is "+size);
+        int location=0;
+        for( int i=0;i<size;i++)
+        {
+            HashMap temp = (HashMap) tempHash.get(location);
+            if (temp.size()==0||temp.get(field)==null)
+            {
+                tempHash.remove(location);
+                Log.d("movies","size od array is "+hash_list.size()+"field is "+field+ "removed");
+            }
+            else{
+                location ++;
+            }
+        }
+
+       return tempHash;
+    }
+
     private boolean isJson(String s)
     {
         try {

@@ -1,19 +1,25 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/SV_singleMovie">
+<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
   	android:orientation="vertical"
     tools:context="com.example.movienativeapp.SingleMovieOption"
-    android:weightSum="10"
     android:id="@+id/test"
      >
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="3"
+        android:layout_height="150dp"
         android:background="@color/red_background"
         android:gravity="center" >
+
+
+
+
 
         <TextView
             android:layout_width="match_parent"
@@ -55,7 +61,7 @@
         </LinearLayout>
 
     <LinearLayout 
-        android:weightSum="2"
+
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
@@ -66,7 +72,7 @@
         >
 
     <TextView
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Rent it now" 
         android:layout_weight="1"
@@ -78,14 +84,14 @@
         android:textSize="18sp"
         android:textColor="@android:color/white"
         android:padding="3dp"
-        
-
+        android:id="@+id/TV_rent_it"
+        android:onClick="rentTheMovie"
         />
     
      <TextView
          android:id="@+id/give_review"
          android:gravity="center"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Write a comment"
         android:layout_weight="1"
@@ -105,7 +111,7 @@
 
 <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="0dp"
+    android:layout_height="wrap_content"
     android:layout_weight="7"
     android:orientation="vertical"
     android:layout_gravity="center"
@@ -128,19 +134,53 @@
           android:layout_height="wrap_content"
           android:layout_gravity="center"
           android:layout_marginTop="7dp"
+          android:isIndicator="true"
+
 
            />
+    <TextView
+        android:text="about the movie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/TVabout_movie"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="normal|bold"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        android:padding="7dp"
+        android:gravity="center_horizontal" />
 
-      <ListView
+    <TextView
+        android:text="info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/TV_infoTextBox" />
+
+    <TextView
+        android:text="Reviews"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView4"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="normal|bold"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        android:padding="7dp"
+        android:gravity="center_horizontal" />
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ListView
 
         android:id="@+id/LV_comments"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:dividerHeight="7dp"
+        android:dividerHeight="1dp"
         android:divider="@android:color/transparent"
-        android:elevation="7dp"
-        android:translationZ="7dp"
-
+        android:elevation="1dp"
+        android:translationZ="1dp"
 
 
 
@@ -149,7 +189,8 @@
 
          >
          </ListView>
-
+</ScrollView>
 
 </LinearLayout>
-</LinearLayout>
+</android.support.v7.widget.LinearLayoutCompat>
+</ScrollView>

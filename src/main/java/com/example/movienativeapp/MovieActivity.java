@@ -7,6 +7,7 @@ import java.util.List;
 
 import listAdapters.CommentListAdapter;
 import listAdapters.MoviesListAdapter;
+import listAdapters.MoviesListAdapterObject;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -136,54 +137,18 @@ public class MovieActivity extends ActionBarActivity{
 
 
 
-private void preperMovieArrays(String method) {
 
-		
-		final String [] movies;
-		
-
-	JSONObject json=null;
-	try {
-		 json = restRespond.getJsonFromSerever(method);
-	} catch (JSONException e) {
-		e.printStackTrace();
-	}
-
-				moviesArray=new ParsingJson(json, "m").getElement();
-
-	JSONObject json1=null;
-	try {
-		 json1 = restRespond.getJsonFromSerever("getFMoviesPath");
-	} catch (JSONException e) {
-		e.printStackTrace();
-	}
-//
-						moviesPathArray=new ParsingJson(json1, "p").getElement();
-
-	JSONObject json2=null;
-	try {
-		 json2 = restRespond.getJsonFromSerever("getRating");
-	} catch (JSONException e) {
-		e.printStackTrace();
-	}
-								TopRatedRating=new ParsingJson(json2, "r").getElement();
-								getMovieLIst(moviesArray,moviesPathArray,TopRatedRating,R.id.general_list_view);
-
-		
-		
-		
-	}
-public void getMovieLIst(final String[] movies,final String[] path,final String[] toprating ,final int list)
+public void getMovieLIst(final Movie[] movielist,final int list)
 {
 
-
+    if(movielist!=null&&movielist.length>0){
 			handler.post(new Runnable() {
 				
 				@Override
 				public void run() {						
 					ListView myListView1 = (ListView)findViewById(list);
 					
-					myListView1.setAdapter(new MoviesListAdapter(movies,path,toprating,context));
+					myListView1.setAdapter(new MoviesListAdapterObject(movielist,R.layout.single_row_movie_list,context));
 					
 					myListView1.setOnItemClickListener(new OnItemClickListener() {
 
@@ -192,15 +157,15 @@ public void getMovieLIst(final String[] movies,final String[] path,final String[
                                                         View view, int position, long id) {
 
                                     Intent movie = new Intent(context , SingleMovieOption.class);
-							TextView moviename=(TextView)view.findViewById(R.id.movie_name);
-						String name = moviename.getText().toString();
-						movie.putExtra("name", name);
-						movie.putExtra("path", path[position]);
-                        movie.putExtra("movie_id",movieId[position]);
-                                    RatingBar ratebar = (RatingBar) view.findViewById(R.id.ratingBar1);
-                                    float movie_rating= ratebar.getRating();
+                                    Movie single_movie =movielist[position];
+                                    movie.putExtra("name", single_movie.get_name());
+                                    movie.putExtra("path", single_movie.getUrl());
+                                    movie.putExtra("movie_id",single_movie.getId());
+                                    movie.putExtra("info",single_movie.getInfo());
 
-                            movie.putExtra("rating",movie_rating);
+                                    float movie_rating=Float.parseFloat(movielist[position].getRating()) ;
+
+                                    movie.putExtra("rating",movie_rating);
 						context.startActivity(movie);
 						
 						}
@@ -208,7 +173,7 @@ public void getMovieLIst(final String[] movies,final String[] path,final String[
 					});
 					
 				}
-			});
+			});}
 							 
 		}
 
@@ -230,13 +195,6 @@ public void getMovieLIst(final String[] movies,final String[] path,final String[
 
                     case "movies":
                     {
-                        JsonToArraylist parcer = new JsonToArraylist();
-                        final String[] movie_name= parcer.getFieldArray(mapList,"movie_name");
-                        final String[] pic_links= parcer.getFieldArray(mapList,"pic_link");
-                        final String[] rating= parcer.getFieldArray(mapList,"rating");
-
-                        getMovieLIst(movie_name,pic_links,rating,R.id.general_list_view);
-
 
 
 
@@ -245,13 +203,15 @@ public void getMovieLIst(final String[] movies,final String[] path,final String[
                     break;
                     case "movies/categories":
                     {
-                        JsonToArraylist parcer = new JsonToArraylist();
-                        final String[] movie_name= parcer.getFieldArray(mapList,"movie_name");
-                        final String[] pic_links= parcer.getFieldArray(mapList,"pic_link");
-                        final String[] rating= parcer.getFieldArray(mapList,"rating");
-                        movieId= parcer.getFieldArray(mapList,"id");
+//                        JsonToArraylist parcer = new JsonToArraylist();
+//                        final String[] movie_name= parcer.getFieldArray(mapList,"movie_name");
+//                        final String[] pic_links= parcer.getFieldArray(mapList,"pic_link");
+//                        final String[] rating= parcer.getFieldArray(mapList,"rating");
+//                        movieId= parcer.getFieldArray(mapList,"id");
+//
+//                        getMovieLIst(movie_name,pic_links,rating,R.id.general_list_view);
 
-                        getMovieLIst(movie_name,pic_links,rating,R.id.general_list_view);
+                        getMovieLIst(callback.getMoviesList(),R.id.general_list_view);
                     }
                     break;
                 }

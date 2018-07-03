@@ -9,6 +9,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
+import fragments.Fragment_get_credit;
+import fragments.MovieFrag;
 import fragments.insert_movie_fragment;
 import listAdapters.CommentListAdapter;
 import listAdapters.MoviesListAdapter;
@@ -16,6 +18,7 @@ import listAdapters.MoviesListAdapter;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import listAdapters.MoviesListAdapterObject;
 import listAdapters.category_list_adapter;
 import view.MyPagerAdapter;
 import view.SlidingTabLayout;
@@ -31,6 +34,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
@@ -41,7 +45,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.RatingBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
@@ -51,10 +58,12 @@ import android.widget.AdapterView.OnItemClickListener;
 
 public class Main extends ActionBarActivity implements OncategoryViewListener{
 	//fragment property
-
+    Movie [] movielist;
+    private  UserRequest request;
 	android.support.v4.app.FragmentManager fm ;
 	FragmentTransaction fragmentTransaction ;
     ListView categoryLIst;
+	Button B_returnMovie;
 	private String [] category_array;
 	private  ViewPager mViewPager;
 	//private int[]  picArray ={R.drawable.pic1,R.drawable.pic2,R.drawable.pic3,R.drawable.pic4,R.drawable.pic5,R.drawable.pic6,R.drawable.pic7,R.drawable.pic8,};
@@ -76,13 +85,26 @@ public class Main extends ActionBarActivity implements OncategoryViewListener{
 	private  RequestInterface callback;
 	String method ;
 	ArrayList <HashMap<String ,String>> _ServerArrayList;
+	//private user data
+	private String user_id;
+	private String user_name; TextView TVuser_name;
+	private  String credit  ; TextView TVcredits;
+	private String role;
+	private String NumberRatedMovies; TextView TVnumber_rated_movies;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+		Log.d("movies","on create method!");
+
        handleCallBack();
         serverRec.addListener(callback);
         setContentView(R.layout.main);
-
+		//text view of user personal info
+		TVuser_name= (TextView) findViewById(R.id.TVuser_name);
+		TVcredits = (TextView) findViewById(R.id.TV_number_credit_remains);
+		TVnumber_rated_movies=(TextView) findViewById(R.id.TV_number_rented_movies);
 
         handler = new Handler();
         context = this;
@@ -92,7 +114,7 @@ public class Main extends ActionBarActivity implements OncategoryViewListener{
 
 
 		testmethod();
-        
+
         
         //tabcolorize
         colorizetabsetting();
@@ -128,24 +150,121 @@ public class Main extends ActionBarActivity implements OncategoryViewListener{
 
     }
 
+
+
 	private void testmethod() {
 
-		UserRequest request = new UserRequest();
-		Log.d("test","here in test func");
+		 request = new UserRequest();
+
 		RequestInterface interfaceCallback = new RequestInterface() {
 			@Override
 			public JSONObject onRecive(Callback callback) {
-			ArrayList<HashMap<String,String>> map=callback.get_dataList();
-			//Log.d("test",map.toString());
-		    HashMap user= map.get(0);
-				String user_id= (String) user.get("id");
-				Log.d("test","user id is "+user_id);
+				ArrayList<HashMap<String, String>> map = callback.get_dataList();
+				//Log.d("test",map.toString());
+				HashMap user = map.get(0);
+				user_id = (String) user.get("id");
+				String first_name= (String) user.get("first_name");
+				String last_name= (String) user.get("last_name");
+		//	TVuser_name.setText("kkk");
+//
+//				TVcredits.setText((String) user.get("credits"));
+				role =(String) user.get("role");
+
 				return null;
 			}
 		};
 
 		//request.addListener(interfaceCallback);
 		request.getCurrentUser(interfaceCallback);
+	}
+		//setting fragment for user panel
+		public void getCredit(View view){
+
+			fragments.Fragment_get_credit rfragment;
+
+
+			fm = getSupportFragmentManager();
+			fragmentTransaction = fm.beginTransaction();
+			Fragment f= fm.findFragmentByTag("getCredit");
+			if(f==null) {
+				rfragment = new Fragment_get_credit();
+
+
+			}
+			else
+				rfragment = (Fragment_get_credit) f;
+
+			fragmentTransaction.replace(R.id.layout_personal_page_fragment_container, rfragment, "getCredit").commit();
+			getSupportFragmentManager().executePendingTransactions();
+			Spinner credit_spinner = (Spinner) rfragment.getView().findViewById(R.id.spinner_credit);
+			int min=1;
+			int max=10;
+			String []credit_spinner_value= new String[max+1-min];
+			for (int i=1;i<max+1;i++)
+			{
+			credit_spinner_value[i-1]=Integer.toString(i);
+			}
+			ArrayAdapter<String> spinner_adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,credit_spinner_value);
+			credit_spinner.setAdapter(spinner_adapter);
+
+	}
+
+	public void getCurrentRentedMovies(View view){
+
+		fragments.MovieFrag rfragment;
+
+
+		fm = getSupportFragmentManager();
+		fragmentTransaction = fm.beginTransaction();
+		Fragment f= fm.findFragmentByTag("insert_movie");
+		if(f==null) {
+			rfragment = new MovieFrag();
+
+
+		}
+		else
+			rfragment = (MovieFrag) f;
+		fragmentTransaction.replace(R.id.layout_personal_page_fragment_container, rfragment, "insert_movie").commit();
+		getSupportFragmentManager().executePendingTransactions();
+
+		final ListView LV_current_rented_movies = (ListView) rfragment.getView().findViewById(R.id.movies_listview_list);
+		//put list of rented movies to the adapter
+		request.getRentedMovies(new RequestInterface() {
+			@Override
+			public JSONObject onRecive(Callback callback) {
+				movielist=callback.getMoviesList();
+
+				if(movielist!=null&&movielist.length>0){
+				runOnUiThread(new Runnable() {
+					@Override
+					public void run() {
+						LV_current_rented_movies.setAdapter(new MoviesListAdapterObject(movielist, R.layout.single_row_rented_movie, getApplicationContext()));
+						LV_current_rented_movies.setOnItemClickListener(new OnItemClickListener() {
+							@Override
+							public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+								Intent movie = new Intent(context, SingleMovieOption.class);
+								Movie single_movie = movielist[position];
+								movie.putExtra("name", single_movie.get_name());
+								movie.putExtra("path", single_movie.getUrl());
+								movie.putExtra("movie_id", single_movie.getId());
+								movie.putExtra("info", single_movie.getInfo());
+
+								float movie_rating = Float.parseFloat(movielist[position].getRating());
+
+								movie.putExtra("rating", movie_rating);
+								context.startActivity(movie);
+							}
+						});
+
+					}
+				});}
+
+				return null;
+			}
+		});
+
+
+
 	}
 
     @Override
@@ -206,6 +325,7 @@ return false;
 
 
 
+
 	static class SamplePagerItem {
         private final CharSequence mTitle;
         private final int mIndicatorColor;
@@ -221,7 +341,7 @@ return false;
          mTabs = new ArrayList<SamplePagerItem>();
         mTabs.add(new SamplePagerItem("Category", Color.WHITE,Color.WHITE));
         mTabs.add(new SamplePagerItem("leasedMovies", Color.WHITE,Color.WHITE));
-        mTabs.add(new SamplePagerItem("top Rated", Color.WHITE,Color.WHITE));
+        mTabs.add(new SamplePagerItem("dashboard", Color.WHITE,Color.WHITE));
         mTabs.add(new SamplePagerItem("admin panel", Color.WHITE,Color.WHITE));
 
 
@@ -237,35 +357,10 @@ return false;
 		///getCategoryArray();
         serverRec.getCategoryList();
 
-		getComments(1);
-		preperMovieArrays("getFMovies");
 
-//		myClient = WLClient.createInstance(this);
-//		myClient.connect(new WLResponseListener() {
-//
-//			@Override
-//			public void onSuccess(WLResponse arg0) {
-////			connected=true;
-////			//testing
-////
-////
-////			Tab1 category1  =  (Tab1)(mypageradapter.getActiveFragment(mViewPager, 0));
-////			getCategoryArray();
-////
-////			getComments();
-////			preperMovieArrays("getFMovies");
-//			//getMovieLIst();
-//
-//			}
-//
-//
-//
-//			@Override
-//			public void onFailure(WLFailResponse arg0) {
-//
-//			}
-//		});
-//
+		//preperMovieArrays("getFMovies");
+
+
 	}
     
     
@@ -305,6 +400,7 @@ return false;
 							String name = moviename.getText().toString();
 //							movie.putExtra("name", name);
 //							context.startActivity(movie);
+
 							
 							}
 							
@@ -358,7 +454,6 @@ return false;
 			@Override
 			public void run() {
 				ListView categoryLIst = (ListView) findViewById(R.id.catagory_list);
-
 				categoryLIst.setAdapter(new ArrayAdapter<String>(context, R.layout.single_raw_category, R.id.category_names, category_array));
 
 				categoryLIst.setOnItemClickListener(new OnItemClickListener() {
@@ -486,28 +581,6 @@ return false;
 
                 switch(method)
                 {
-                    case "reviews":
-                    {
-                        JsonToArraylist parcer = new JsonToArraylist();
-                      String[] users= parcer.getFieldArray(mapList,"user_name");
-                       String[] comments= parcer.getFieldArray(mapList,"comment");
-                        final ArrayList<String[]> pairs = new ArrayList<>();
-                        pairs.add(users);
-                        pairs.add(comments);
-                        Log.d("callback","reviews callback method");
-                        handler.post(new Runnable() {
-
-                            @Override
-                            public void run() {
-                                JSONObject json = new JSONObject();
-                                ListView myListView = (ListView) findViewById(R.id.comments_list);
-
-                                myListView.setAdapter(new CommentListAdapter(pairs, context));
-
-                            }
-                        });
-                    }
-                    break;
 					case "movies/categories":
 					{
 						JsonToArraylist parcer = new JsonToArraylist();

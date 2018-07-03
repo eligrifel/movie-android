@@ -27,6 +27,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/button9"
         android:elevation="0dp"
-      />
+        android:textColor="@android:color/white"
+        android:background="@android:color/holo_red_light" />
 
 </LinearLayout>
