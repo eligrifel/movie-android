@@ -2,7 +2,9 @@ package com.example.movienativeapp;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -25,6 +27,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -32,6 +35,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RatingBar;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,8 +46,10 @@ public class SingleMovieOption extends ActionBarActivity {
     private Callback callback;
 	private boolean connected=false;
 //	private WLClient myClient;
+Bundle moviebundle ;
 	String movie_id;
 	TextView _movieName;
+	TextView _movieInfo;
 	String _imagePath;
 	RatingBar _movieRating;
 	private Context context;
@@ -53,6 +59,7 @@ public class SingleMovieOption extends ActionBarActivity {
 	private RequestInterface Interface;
     List<SamplePagerItem> mTabs;
     ActionBar actionBar;
+	UserRequest req;
    
 ///
     private String[] moviesArray;
@@ -71,6 +78,7 @@ public class SingleMovieOption extends ActionBarActivity {
 		setContentView(R.layout.activity_single_movie_option);
         handleCallBack();
 		_movieName=(TextView) findViewById(R.id.TVmovieName);
+		_movieInfo=(TextView) findViewById(R.id.TV_infoTextBox);
 		_movieRating=(RatingBar) findViewById(R.id.ratingBar1);
 		handler = new Handler();
         context = this;
@@ -80,18 +88,24 @@ public class SingleMovieOption extends ActionBarActivity {
         Bundle bundle = getIntent().getExtras();
         ImageView _movieImage = (ImageView) findViewById(R.id.movie_pic);
         actionBar.hide();
-        Bundle moviebundle ;
+
         moviebundle = getIntent().getExtras();
-        String moviename = moviebundle.getString("name");
+        final String moviename = moviebundle.getString("name");
 		movie_id=moviebundle.getString("movie_id");
-        String pathString = moviebundle.getString("path");
-		float rating= moviebundle.getFloat("rating");
-		System.out.println("movie rating is "+ rating);
-		_movieRating.setRating(rating);
+        final String pathString = moviebundle.getString("path");
+		final float rating= moviebundle.getFloat("rating");
         System.out.println("movie choosen is "+ moviename);
-        _movieName.setText(moviename.toString());
         System.out.println("psth of movie is....."+pathString);
         _imagePath = pathString;
+  		runOnUiThread(new Runnable() {
+			@Override
+			public void run() {
+				_movieInfo.setText(moviebundle.getString("info"));
+				_movieName.setText(moviename);
+				_movieRating.setRating(rating);
+			}
+		});
+
         new DownloadAsyncTask().execute(_movieImage);
         connect();
 		setListeners();
@@ -102,11 +116,26 @@ public class SingleMovieOption extends ActionBarActivity {
 
 	}
 	public void onGiveRevieClick(View view) {
-		fragments.write_review rfragment = new write_review();
-	    fm = getSupportFragmentManager();
+
+		fragments.write_review rfragment;
+
+
+		fm = getSupportFragmentManager();
 		fragmentTransaction = fm.beginTransaction();
-		fragmentTransaction.add(R.id.test, rfragment,"review");
-		fragmentTransaction.commit();
+		Fragment f= fm.findFragmentByTag("review");
+		if(f==null) {
+			rfragment = new write_review();
+
+
+		}
+		else
+			rfragment = (write_review) f;
+		fragmentTransaction.replace(R.id.test, rfragment, "review").commit();
+		getSupportFragmentManager().executePendingTransactions();
+
+		ScrollView sv = (ScrollView) rfragment.getView().getRootView().findViewById(R.id.SV_singleMovie);
+		sv.fullScroll(View.FOCUS_DOWN);
+
 	}
 
 	public void updateReview(View view) {
@@ -123,7 +152,17 @@ transaction.remove(fragment);
 		}
 	}
 
-
+public void rentTheMovie(View view)
+{
+	req = new UserRequest();
+	req.rentMovie(movie_id, new RequestInterface() {
+		@Override
+		public JSONObject onRecive(Callback callback) {
+			Toast.makeText(getApplication(),"check return for succesful rent",Toast.LENGTH_LONG).show();
+			return null;
+		}
+	});
+}
 
 
 	@Override
@@ -302,17 +341,29 @@ transaction.remove(fragment);
                     case "reviews":
                     {
                         JsonToArraylist parcer = new JsonToArraylist();
-                        String[] users= parcer.getFieldArray(mapList,"user_name");
-                        String[] comments= parcer.getFieldArray(mapList,"comment");
+						for(int i=0;i<mapList.size();i++)
+						{
+
+							Log.d("movies",mapList.get(i).toString());
+						}
+                        final String[] users= parcer.getFieldArray(mapList,"user_name");System.out.println(Arrays.toString(users));
+                        String[] comments= parcer.getFieldArray(mapList,"comment");System.out.println(Arrays.toString(comments));
                         final ArrayList<String[]> pairs = new ArrayList<>();
                         pairs.add(users);
                         pairs.add(comments);
                         Log.d("callback","reviews callback method");
 
 
-                                ListView myListView = (ListView) findViewById(R.id.LV_comments);
+                                final ListView myListView = (ListView) findViewById(R.id.LV_comments);
+runOnUiThread(new Runnable() {
+				  @Override
+				  public void run() {
+					  if(users!=null && users.length>0)
+					  myListView.setAdapter(new CommentListAdapter(pairs, context));
+				  }
+			  }
+);
 
-                                myListView.setAdapter(new CommentListAdapter(pairs, context));
 
 
 

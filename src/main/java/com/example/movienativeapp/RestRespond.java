@@ -9,15 +9,22 @@ import org.json.JSONObject;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.net.ssl.HttpsURLConnection;
 
 /**
  * Created by eli on 24/07/2015.
@@ -166,6 +173,7 @@ public class RestRespond {
         String auth = username + ":" + password;
         final String basicAuth = "Basic " + Base64.encodeToString(auth.getBytes(), Base64.NO_WRAP);
         String request_method= args[0];
+
         _args[1]=args[1];
         if (args[2]!=null)
         {
@@ -183,6 +191,9 @@ public class RestRespond {
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestProperty("Authorization", basicAuth);
             urlConnection.setRequestMethod(request_method);
+
+
+
             BufferedReader br = new BufferedReader(new InputStreamReader((urlConnection.getInputStream())));
 
             String output;
@@ -211,6 +222,114 @@ public class RestRespond {
             e.printStackTrace();
         }
 
+        callback = new Callback(args,map);
+        return callback;
+    }
+    private String getPostDataString(HashMap<String, String> params) throws UnsupportedEncodingException {
+        StringBuilder result = new StringBuilder();
+        boolean first = true;
+        for(Map.Entry<String, String> entry : params.entrySet()){
+            if (first)
+                first = false;
+            else
+                result.append("&");
+
+            result.append(URLEncoder.encode(entry.getKey(), "UTF-8"));
+            result.append("=");
+            result.append(URLEncoder.encode(entry.getValue(), "UTF-8"));
+        }
+
+        return result.toString();
+    }
+    public Callback getData(String[] args,HashMap<String, String> postDataParams){ //args parms @methodurl,@url,@parameters ,Post Params
+        StringBuilder sb = new StringBuilder();
+       String response =null ;
+        String[] _args = new String[3];
+        String username=_username;
+        String  password=_password;
+        String auth = username + ":" + password;
+        final String basicAuth = "Basic " + Base64.encodeToString(auth.getBytes(), Base64.NO_WRAP);
+        String request_method= args[0];
+
+        _args[1]=args[1];
+        if (args[2]!=null)
+        {
+            _args[2]=args[2];
+        }
+        URL url;;
+
+        Callback callback;
+        String RestUrl= (_args[2]==null)?BaseUrl+_args[1].toString():BaseUrl+_args[1].toString()+"/"+_args[2];
+        Object json = null;
+        ArrayList map = null;
+        try {
+            url = new URL(RestUrl.toString());
+            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+            urlConnection.setRequestProperty("Authorization", basicAuth);
+            urlConnection.setRequestMethod(request_method);
+            urlConnection.setDoInput(true);
+            urlConnection.setDoOutput(true);
+
+
+
+                OutputStream os = urlConnection.getOutputStream();
+                BufferedWriter writer = new BufferedWriter(
+                        new OutputStreamWriter(os, "UTF-8"));
+
+                writer.write(getPostDataString(postDataParams));
+            writer.flush();
+            writer.close();
+            BufferedReader br = new BufferedReader(new InputStreamReader((urlConnection.getInputStream())));
+
+            String output;
+            while ((output = br.readLine()) != null) {
+                sb.append(output);
+
+
+
+            }
+
+         //   BufferedReader br = new BufferedReader(new InputStreamReader((urlConnection.getInputStream())));
+
+            int responseCode=urlConnection.getResponseCode();
+
+            if (responseCode == HttpsURLConnection.HTTP_OK) {
+                String line;
+                while ((line=br.readLine()) != null) {
+                    response+=line;
+                }
+            }
+            else {
+                response="";
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+
+       
+if(response!=null) {
+    Log.d("movies", "respons is" + response);
+    if (response.charAt(0) == '{') {
+        try {
+            json = new JSONObject(response);
+        } catch (JSONException e1) {
+            e1.printStackTrace();
+        }
+    } else {
+        try {
+            json = new JSONArray(response.toString());
+        } catch (JSONException e1) {
+            e1.printStackTrace();
+        }
+    }
+
+    JsonToArraylist jParcer = new JsonToArraylist(json);
+    map = jParcer.JasonToMap();
+
+}
         callback = new Callback(args,map);
         return callback;
     }
