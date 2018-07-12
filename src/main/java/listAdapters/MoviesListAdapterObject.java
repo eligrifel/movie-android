@@ -5,6 +5,10 @@ import android.database.DataSetObserver;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.os.Handler;
+import android.os.Looper;
+
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +25,7 @@ import com.example.movienativeapp.Movie;
 import com.example.movienativeapp.R;
 import com.example.movienativeapp.RequestInterface;
 import com.example.movienativeapp.UserRequest;
+import com.example.movienativeapp.replaceFragment;
 
 import org.json.JSONObject;
 
@@ -32,6 +37,7 @@ import java.net.URL;
  */
 
 public class MoviesListAdapterObject implements ListAdapter {
+    //fragment property
     private Bitmap[] movieImages;
     private Context _context;
     private int counter=-1;
@@ -39,7 +45,7 @@ public class MoviesListAdapterObject implements ListAdapter {
     private Movie[] _movies;
     final int _layout;
 
-
+    private replaceFragment _fragment_replace;
     public MoviesListAdapterObject(Movie[] movies, int layout,Context context)
     {
         _movies = movies;
@@ -48,7 +54,14 @@ public class MoviesListAdapterObject implements ListAdapter {
 
         movieImages= new Bitmap[_movies.length];
     }
-
+    public MoviesListAdapterObject(Movie[] movies, int layout, Context context, replaceFragment  fragment_replace)
+    {
+        _movies = movies;
+        _context=context;
+        _layout=layout;
+        _fragment_replace=fragment_replace;
+        movieImages= new Bitmap[_movies.length];
+    }
     @Override
     public void registerDataSetObserver(DataSetObserver observer) {
         // TODO Auto-generated method stub
@@ -112,7 +125,8 @@ public class MoviesListAdapterObject implements ListAdapter {
             itemView =inflater.inflate(_layout, parent,false);
             viewHolder = new MoviesListAdapterObject.ViewHolder();
             viewHolder.B_return = (Button) itemView.findViewById(R.id.B_return_movie);
-
+            viewHolder.availble = (TextView) itemView.findViewById(R.id.TV_number_of_movies_available);
+            viewHolder.Edit_movie= (Button) itemView.findViewById(R.id.B_edit_movie);
             TextView name = (TextView)itemView.findViewById(R.id.movie_name);
             viewHolder.text=name;
             viewHolder.ratingBar=(RatingBar)itemView.findViewById(R.id.ratingBar1);
@@ -133,10 +147,25 @@ final Movie single_movie = _movies[position];
         viewHolder.text.setText(single_movie.get_name());
         float temp=Float.parseFloat(single_movie.getRating());
         viewHolder.ratingBar.setRating(temp);
+        if(viewHolder.Edit_movie!=null)
+        {
+            final ViewHolder finalViewHolder = viewHolder;
+            viewHolder.Edit_movie.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    _fragment_replace.onAdepterCall(single_movie);
+
+                }
+            });
+        }
         if(movieImages[position]!=null)
             viewHolder.image.setImageBitmap(movieImages[position]);
         else
             new MoviesListAdapterObject.DownloadAsyncTask(position).execute(viewHolder);
+        if(viewHolder.availble!=null)
+        {
+            viewHolder.availble.setText(single_movie.getAvailable());
+        }
         if(viewHolder.B_return!=null) {
             viewHolder.B_return.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -146,7 +175,21 @@ final Movie single_movie = _movies[position];
                     req.returnMovie(movie_id, new RequestInterface() {
                         @Override
                         public JSONObject onRecive(Callback callback) {
-                            Toast.makeText(_context,"you succesfully return the movie",Toast.LENGTH_LONG).show();
+                            String response =callback.getRespondFromServer();
+                            final String message ;
+                            if(response.equals("1")){
+
+                                message ="thank you for returning the movie";
+                            }
+                            else
+                                message =response;
+                            new Handler(Looper.getMainLooper()).post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(_context,message,Toast.LENGTH_LONG).show();
+                                }
+                            });
+
                             return null;
                         }
                     });
@@ -202,7 +245,8 @@ final Movie single_movie = _movies[position];
         public RatingBar ratingBar;
         public Button B_return;
         public String Movie_id;
-
+        public TextView availble;
+        public Button Edit_movie;
     }
     private class DownloadAsyncTask extends AsyncTask<MoviesListAdapterObject.ViewHolder, Void, MoviesListAdapterObject.ViewHolder> {
         private Bitmap bit;
@@ -240,9 +284,13 @@ final Movie single_movie = _movies[position];
             if (bit == null) {
                 //result.image.setImageResource(R.drawable.postthumb_loading);
             } else {
-                result.image.setImageBitmap(bit);
-
-                movieImages[_position]=(bit);
+                try {
+                    result.image.setImageBitmap(bit);
+                }
+                catch (NullPointerException p){
+                Log.d("exception",p.toString());
+                }
+              //  movieImages[_position]=(bit);
             }
         }
     }

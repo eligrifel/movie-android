@@ -21,17 +21,19 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:gravity="right">
 
             <TextView
-                android:text="Hello"
+                android:text="Hello:"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:layout_editor_absoluteY="11dp"
                 tools:layout_editor_absoluteX="0dp"
                 android:padding="8dp"
                 android:id="@+id/TVuser_page_hello"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textSize="24sp" />
 
             <TextView
                 android:padding="8dp"
@@ -40,7 +42,10 @@
                 android:layout_height="wrap_content"
                 tools:layout_editor_absoluteY="14dp"
                 tools:layout_editor_absoluteX="64dp"
-                android:id="@+id/TVuser_name" />
+                android:id="@+id/TVuser_name"
+                android:textSize="24sp"
+                android:textColor="@android:color/black"
+                android:textStyle="normal|bold" />
 
 
         </LinearLayout>
@@ -63,12 +68,13 @@
 
             <TextView
                 android:padding="8dp"
-                android:text="3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:layout_editor_absoluteY="14dp"
                 tools:layout_editor_absoluteX="64dp"
-                android:id="@+id/TV_number_rented_movies" />
+                android:id="@+id/TV_number_rented_movies"
+                android:textColor="@android:color/black"
+                android:textStyle="normal|bold" />
 
 
         </LinearLayout>
@@ -85,7 +91,8 @@
                 tools:layout_editor_absoluteX="0dp"
                 android:padding="8dp"
                 android:id="@+id/TV_credit_remain"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textSize="18sp" />
 
 
             <TextView
@@ -95,7 +102,9 @@
                 android:layout_height="wrap_content"
                 tools:layout_editor_absoluteY="14dp"
                 tools:layout_editor_absoluteX="64dp"
-                android:id="@+id/TV_number_credit_remains" />
+                android:id="@+id/TV_number_credit_remains"
+                android:textColor="@android:color/black"
+                android:textStyle="normal|bold" />
 
             <Button
                 android:text="Get Credit"

@@ -8,11 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
-import com.example.movienativeapp.JsonToArraylist;
 import com.example.movienativeapp.R;
-
-import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * Created by eli on 6/25/2018.

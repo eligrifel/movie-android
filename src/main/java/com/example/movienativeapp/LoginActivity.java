@@ -90,6 +90,17 @@ public class LoginActivity extends Activity {
 public void loginCallback(Callback callback){
     ArrayList<HashMap<String, String>> dataLists = callback.get_dataList();
     String[] _args = callback.get_data();
+    if(callback.get_dataList()==null)
+    {
+runOnUiThread(new Runnable() {
+    @Override
+    public void run() {
+        Toast.makeText(getApplicationContext(),"Wrong user name or password",Toast.LENGTH_LONG).show();
+    }
+});
+
+        return;
+    }
    HashMap<String,String> map = dataLists.get(0);
     String S_username=_args[1];
    // String S_password =_args[2];
@@ -99,23 +110,24 @@ public void loginCallback(Callback callback){
     if((S_username.equals(clientUserName)))
     {
         Intent intent = new Intent(this,Main.class);
-        //String message = "something";
-        //intent.putExtra(EXTRA_MESSAGE, message);
        startActivity(intent);
     }
     else{
         this.password.setText("");
         this.email.setText("");
+
     }
 }
 public void RegisterUser(View view)
 {
 //vars
+    final String[] Tmessage = new String[1];
     String user_name = ((EditText) findViewById(R.id.ET_user_name)).getText().toString();
-    String first_name= ((EditText) findViewById(R.id.ET_first_name)).getText().toString();;
-    String last_name= ((EditText) findViewById(R.id.ET_last_name)).getText().toString();;
-    String password= ((EditText) findViewById(R.id.ET_signin_password)).getText().toString();;
-    if((user_name.isEmpty()) || (first_name.isEmpty())||last_name.isEmpty()|| password.isEmpty())
+    String first_name= ((EditText) findViewById(R.id.ET_first_name)).getText().toString();
+    String last_name= ((EditText) findViewById(R.id.ET_last_name)).getText().toString();
+    String password= ((EditText) findViewById(R.id.ET_signin_password)).getText().toString();
+    String payment_token= ((EditText) findViewById(R.id.ET_paymentToken)).getText().toString();
+    if((user_name.isEmpty()) || (first_name.isEmpty())||last_name.isEmpty()|| password.isEmpty()||payment_token.isEmpty())
     {
         Toast.makeText(this,"please fill all require field",Toast.LENGTH_LONG).show();
     }
@@ -128,11 +140,29 @@ else
         postData.put("password",password);
         postData.put("firstname",first_name);
         postData.put("lastname",last_name);
+        postData.put("payment_token",payment_token);
         req.createUser(postData,new RequestInterface() {
             @Override
             public JSONObject onRecive(Callback callback) {
                 //check the response and float success message
-                Toast.makeText(context,"",Toast.LENGTH_LONG).show();
+            String response =callback.getRespondFromServer();
+                if((response.equals("1"))){
+                    Tmessage[0] ="user added succesfully you can login";
+
+
+
+                }
+                else
+                if(response!=null)
+              Tmessage[0]=response;
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(context,Tmessage[0],Toast.LENGTH_LONG).show();
+                    }
+                });
+
                 return null;
             }
         });

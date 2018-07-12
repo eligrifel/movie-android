@@ -30,7 +30,7 @@ public class MyPagerAdapter extends FragmentPagerAdapter  {
                 _context=context;
         tabName = new ArrayList<>();
         tabName.add("Category");
-        tabName.add("Leased movies");
+        tabName.add("search");
         tabName.add("Top rated");
 
     }
@@ -44,7 +44,7 @@ public MyPagerAdapter(FragmentManager fm,Context context,boolean is_admin) {
     tabName = new ArrayList<>();
     tabName.add("Category");
     tabName.add("Leased movies");
-    tabName.add("Top rated");
+    tabName.add("Dashboard");
     if(is_admin)
     {
         tabName.add("admin panel");

@@ -5,14 +5,12 @@ package com.example.movienativeapp;
 
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
 import fragments.Fragment_get_credit;
 import fragments.MovieFrag;
 import fragments.insert_movie_fragment;
-import listAdapters.CommentListAdapter;
 import listAdapters.MoviesListAdapter;
 
 import org.json.JSONException;
@@ -22,12 +20,11 @@ import listAdapters.MoviesListAdapterObject;
 import listAdapters.category_list_adapter;
 import view.MyPagerAdapter;
 import view.SlidingTabLayout;
-import view.Tab1;
 import view.Tab1.OncategoryViewListener;
 
+import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.FragmentManager;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -38,7 +35,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -47,7 +44,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.RatingBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -56,7 +52,7 @@ import android.widget.AdapterView.OnItemClickListener;
 
 
 
-public class Main extends ActionBarActivity implements OncategoryViewListener{
+public class Main extends AppCompatActivity implements OncategoryViewListener{
 	//fragment property
     Movie [] movielist;
     private  UserRequest request;
@@ -165,9 +161,7 @@ public class Main extends ActionBarActivity implements OncategoryViewListener{
 				user_id = (String) user.get("id");
 				String first_name= (String) user.get("first_name");
 				String last_name= (String) user.get("last_name");
-		//	TVuser_name.setText("kkk");
-//
-//				TVcredits.setText((String) user.get("credits"));
+
 				role =(String) user.get("role");
 
 				return null;
@@ -197,6 +191,7 @@ public class Main extends ActionBarActivity implements OncategoryViewListener{
 			fragmentTransaction.replace(R.id.layout_personal_page_fragment_container, rfragment, "getCredit").commit();
 			getSupportFragmentManager().executePendingTransactions();
 			Spinner credit_spinner = (Spinner) rfragment.getView().findViewById(R.id.spinner_credit);
+
 			int min=1;
 			int max=10;
 			String []credit_spinner_value= new String[max+1-min];
@@ -206,6 +201,8 @@ public class Main extends ActionBarActivity implements OncategoryViewListener{
 			}
 			ArrayAdapter<String> spinner_adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,credit_spinner_value);
 			credit_spinner.setAdapter(spinner_adapter);
+
+
 
 	}
 
@@ -271,7 +268,7 @@ public class Main extends ActionBarActivity implements OncategoryViewListener{
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
-        return true;
+		return true;
     }
 
     @Override
@@ -285,11 +282,18 @@ public class Main extends ActionBarActivity implements OncategoryViewListener{
         if (id == R.id.action_settings) {
             return true;
         }
-if(id==R.id.go_to_admin_panel)
+
+
+
+if(id==R.id.go_to_admin_panel&&role.equals("0"))
 {
 	Intent intent = new Intent(this,AdminActivity.class);
 	startActivity(intent);
 return false;
+}
+		else
+{
+	Toast.makeText(getApplicationContext(),"permition denied, you are not Admin",Toast.LENGTH_LONG).show();
 }
         return super.onOptionsItemSelected(item);
     }
@@ -340,7 +344,7 @@ return false;
     private void colorizetabsetting() {
          mTabs = new ArrayList<SamplePagerItem>();
         mTabs.add(new SamplePagerItem("Category", Color.WHITE,Color.WHITE));
-        mTabs.add(new SamplePagerItem("leasedMovies", Color.WHITE,Color.WHITE));
+        mTabs.add(new SamplePagerItem("search", Color.WHITE,Color.WHITE));
         mTabs.add(new SamplePagerItem("dashboard", Color.WHITE,Color.WHITE));
         mTabs.add(new SamplePagerItem("admin panel", Color.WHITE,Color.WHITE));
 
@@ -464,6 +468,7 @@ return false;
 						System.out.println("pressss " + category_array[position]);
 						Intent category = new Intent(context, MovieActivity.class);
 						category.putExtra("category", category_array[position]);
+						category.putExtra("role", role);
 						context.startActivity(category);
 
 					}
@@ -583,7 +588,7 @@ return false;
                 {
 					case "movies/categories":
 					{
-						JsonToArraylist parcer = new JsonToArraylist();
+						Parcer parcer = new Parcer();
 						final String[] category_array= parcer.getFieldArray(mapList,"category_name");
 						final String []  category_id_array=parcer.getFieldArray(mapList,"id");
 
@@ -603,6 +608,7 @@ runOnUiThread(new Runnable() {
 				System.out.println("pressss " + category_array[position]);
 				Intent category = new Intent(context, MovieActivity.class);
 				category.putExtra("category", category_array[position]);
+				category.putExtra("role", role);
 				category.putExtra("category_id",category_id_array[position]);
 				context.startActivity(category);
 

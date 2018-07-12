@@ -14,16 +14,16 @@ import java.util.Iterator;
  * Created by eli on 11/11/2017.
  */
 
-public class JsonToArraylist {
+public class Parcer {
 
     JSONArray json_a;
 
-public JsonToArraylist()
+public Parcer()
 {
 
 }
 
-    public JsonToArraylist(Object jsonobject) {
+    public Parcer(Object jsonobject) {
 
         if (jsonobject instanceof JSONObject) {
             JSONArray jsonArray = new JSONArray();
@@ -165,7 +165,6 @@ public String[] getFieldArray (ArrayList<HashMap<String,String>> hash_list,Strin
     private ArrayList<HashMap<String,String>> reduceSizeByField(ArrayList<HashMap<String, String>> hash_list, String field) {
         int size = hash_list.size();
         ArrayList tempHash= new ArrayList(hash_list);
-        Log.d("movies","hash list size is "+size);
         int location=0;
         for( int i=0;i<size;i++)
         {
@@ -173,7 +172,6 @@ public String[] getFieldArray (ArrayList<HashMap<String,String>> hash_list,Strin
             if (temp.size()==0||temp.get(field)==null)
             {
                 tempHash.remove(location);
-                Log.d("movies","size od array is "+hash_list.size()+"field is "+field+ "removed");
             }
             else{
                 location ++;

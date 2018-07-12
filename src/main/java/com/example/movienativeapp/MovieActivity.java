@@ -20,6 +20,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -30,12 +31,13 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.example.movienativeapp.Main.SamplePagerItem;
 //import com.worklight.wlclient.api.WLClient;
 
-public class MovieActivity extends ActionBarActivity{
+public class MovieActivity extends AppCompatActivity {
 
 	
 	private boolean connected=false;
@@ -44,6 +46,7 @@ public class MovieActivity extends ActionBarActivity{
 	private Context context;
 	Handler handler;
 	String method;
+    String role;
     List<SamplePagerItem> mTabs;
     ActionBar actionBar;
    
@@ -71,6 +74,7 @@ public class MovieActivity extends ActionBarActivity{
         Bundle bundle = getIntent().getExtras();
         
         actionBar.setTitle(bundle.getString("category"));
+        role=bundle.getString("role");
         category_id = bundle.getString("category_id");
         
         
@@ -110,18 +114,27 @@ public class MovieActivity extends ActionBarActivity{
             return true;
         }
 
+
+
+        if(id==R.id.go_to_admin_panel&&role.equals("0"))
+        {
+            Intent intent = new Intent(this,AdminActivity.class);
+            startActivity(intent);
+            return false;
+        }
+        else
+        {
+            Toast.makeText(getApplicationContext(),"permition denied, you are not Admin",Toast.LENGTH_LONG).show();
+        }
         return super.onOptionsItemSelected(item);
     }
 
     public void act2(View view) {
         actionBar.hide();
-
+//        Intent intent = new Intent(this,Category.class);
+//        startActivity(intent);
 
     }
-
-   
-    
-   
     private void connect() {
 		context = this;
 
@@ -188,7 +201,6 @@ public void getMovieLIst(final Movie[] movielist,final int list)
 
                 method = callback.get_data()[1];
                 mapList = callback.get_dataList();
-                Log.d("callback","here in callback return on main"+ method);
 
                 switch(method)
                 {

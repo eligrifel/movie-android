@@ -45,13 +45,12 @@ final String _command= command;
                 try {
 
                     json = restRespond.getJsonFromSerever(_command);
-                    Log.d("dataTest",_command);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
 
                 // Notify everybody that may be interested.
-            JsonToArraylist jToArray = new JsonToArraylist(json);
+            Parcer jToArray = new Parcer(json);
                ArrayList dataArrayList= jToArray.JasonToMap();
                 //create callback object
                 callback= new Callback(_args,dataArrayList);
@@ -67,7 +66,7 @@ test.start();
         final String _command= _args[0];
         final String _username=_args[1];
        final String _password=_args[2];
-Log.d("listeer",_args[1].toString()+_args[2].toString());
+
         Thread test = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -83,11 +82,13 @@ Log.d("listeer",_args[1].toString()+_args[2].toString());
 //                    Log.d("dataTest","jason is null");
 //                }
 
-                if (json != null) {
+
                     Callback callback = new Callback(_args, json);
                     for (RequestInterface hl : listeners)
                         hl.onRecive(callback);
-                }
+
+
+
             }
         });
 
@@ -108,13 +109,12 @@ Log.d("listeer",_args[1].toString()+_args[2].toString());
                 try {
 
                     json = restRespond.getJsonFromSerever(_command);
-                    Log.d("dataTest",_command);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
 
                 // Notify everybody that may be interested.
-                JsonToArraylist jToArray = new JsonToArraylist(json);
+                Parcer jToArray = new Parcer(json);
                 ArrayList dataArraylist= jToArray.JasonToMap();
                 Callback callback= new Callback(_args,dataArraylist);
                 for (RequestInterface hl : listeners)

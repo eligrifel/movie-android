@@ -1,7 +1,10 @@
 <ScrollView android:layout_height="match_parent"
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/SV_singleMovie">
+    android:id="@+id/SV_singleMovie"
+    android:fillViewport="true"
+    android:nestedScrollingEnabled="true"
+    >
 <android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,29 +13,6 @@
     tools:context="com.example.movienativeapp.SingleMovieOption"
     android:id="@+id/test"
      >
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:background="@color/red_background"
-        android:gravity="center" >
-
-
-
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_margin="20dp"
-            android:textSize="16sp"
-            android:text="comming soon..."
-           
-            />
-        
-        
-    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -169,9 +149,7 @@
         android:textColor="@android:color/black"
         android:padding="7dp"
         android:gravity="center_horizontal" />
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+
     <ListView
 
         android:id="@+id/LV_comments"
@@ -189,7 +167,7 @@
 
          >
          </ListView>
-</ScrollView>
+
 
 </LinearLayout>
 </android.support.v7.widget.LinearLayoutCompat>

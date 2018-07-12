@@ -10,24 +10,39 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:padding="16dp"
+        />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
         android:ems="10"
-        android:id="@+id/editText"
+        android:id="@+id/ET_W_review_content"
         android:layout_weight="0.16"
-        android:contentDescription="please write you comment" />
+        android:contentDescription="please write you comment"
+        android:padding="16dp"/>
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/RB_new_ratingBar"
+        android:layout_gravity="center"
+        android:numStars="5"
+        android:rating="0"
+        android:stepSize="0.5" />
 
     <Button
         android:text="add review"
-        android:layout_width="138dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/button9"
         android:elevation="0dp"
         android:textColor="@android:color/white"
-        android:background="@android:color/holo_red_light" />
+        android:background="@android:color/holo_red_light"
+        android:padding="16dp"
+        android:onClick="updateReview" />
 
 </LinearLayout>

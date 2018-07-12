@@ -7,11 +7,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
@@ -24,13 +22,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.net.ssl.HttpsURLConnection;
-
 /**
  * Created by eli on 24/07/2015.
  */
 public class RestRespond {
-    private String BaseUrl="http://192.168.2.8:8080/";
+    private String BaseUrl="http://10.111.223.163:8080/";
     static String _username;
     static String _password;
     public RestRespond() {
@@ -110,7 +106,6 @@ public class RestRespond {
 
         }
 
-        System.out.println("here in so no json sssssssssssssssss");
         return json;
     }
 
@@ -119,7 +114,6 @@ public class RestRespond {
     }
 
     public void sendReview(String userName, int reviewRating) {
-        Log.d("review sends", "review sends by:" + userName);
     }
 
     public ArrayList connctToServer(String username, String password) {
@@ -156,12 +150,12 @@ public class RestRespond {
         JSONObject json=null;
         try {
             json = new JSONObject(sb.toString());
-            JsonToArraylist jParcer= new JsonToArraylist(json);
+            Parcer jParcer= new Parcer(json);
            map= jParcer.JasonToMap();
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Log.d("auth",sb.toString()+"here");
+
         return map;
     }
 
@@ -212,7 +206,7 @@ public class RestRespond {
                 json=new JSONArray(sb.toString());
             }
             // json = new JSONObject(sb.toString());
-            JsonToArraylist jParcer= new JsonToArraylist(json);
+            Parcer jParcer= new Parcer(json);
             map= jParcer.JasonToMap();
         } catch (MalformedURLException e) {
             e.printStackTrace();
@@ -243,7 +237,6 @@ public class RestRespond {
     }
     public Callback getData(String[] args,HashMap<String, String> postDataParams){ //args parms @methodurl,@url,@parameters ,Post Params
         StringBuilder sb = new StringBuilder();
-       String response =null ;
         String[] _args = new String[3];
         String username=_username;
         String  password=_password;
@@ -279,7 +272,15 @@ public class RestRespond {
                 writer.write(getPostDataString(postDataParams));
             writer.flush();
             writer.close();
-            BufferedReader br = new BufferedReader(new InputStreamReader((urlConnection.getInputStream())));
+            BufferedReader br;
+            if (urlConnection.getResponseCode() < HttpURLConnection.HTTP_BAD_REQUEST) {
+                br = new BufferedReader(new InputStreamReader((urlConnection.getInputStream())));
+            } else {
+     /* error from server */
+                br = new BufferedReader(new InputStreamReader((urlConnection.getErrorStream())));
+            }
+
+
 
             String output;
             while ((output = br.readLine()) != null) {
@@ -289,20 +290,8 @@ public class RestRespond {
 
             }
 
-         //   BufferedReader br = new BufferedReader(new InputStreamReader((urlConnection.getInputStream())));
 
-            int responseCode=urlConnection.getResponseCode();
 
-            if (responseCode == HttpsURLConnection.HTTP_OK) {
-                String line;
-                while ((line=br.readLine()) != null) {
-                    response+=line;
-                }
-            }
-            else {
-                response="";
-
-            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -310,23 +299,23 @@ public class RestRespond {
 
 
        
-if(response!=null) {
-    Log.d("movies", "respons is" + response);
-    if (response.charAt(0) == '{') {
+if(sb!=null) {
+
+    if (sb.charAt(0) == '{') {
         try {
-            json = new JSONObject(response);
+            json = new JSONObject(sb.toString());
         } catch (JSONException e1) {
             e1.printStackTrace();
         }
     } else {
         try {
-            json = new JSONArray(response.toString());
+            json = new JSONArray(sb.toString());
         } catch (JSONException e1) {
             e1.printStackTrace();
         }
     }
 
-    JsonToArraylist jParcer = new JsonToArraylist(json);
+    Parcer jParcer = new Parcer(json);
     map = jParcer.JasonToMap();
 
 }

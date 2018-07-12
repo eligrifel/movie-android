@@ -293,4 +293,104 @@ public class UserRequest {
 
         returnMovie.start();
     }
+
+    public  void updateRating(String movie_id,String comment,String newRating,final RequestInterface returninter){
+        _args = new String[3];
+        _args[0]="POST";
+        _args[1]="reviews";
+        _args[2]=movie_id;
+        final HashMap <String,String>postData=new HashMap <String,String>();
+postData.put("comment",comment);
+postData.put("rating",newRating);
+
+
+        Thread createUser = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                RestRespond restRespond = new RestRespond();
+                ArrayList<HashMap<String, String>> map = null;
+                Callback callback;
+
+
+                callback = restRespond.getData(_args,postData);
+                map=callback.get_dataList();
+
+
+
+                if (map != null) {
+
+                    returninter.onRecive(callback);
+                }
+            }
+        });
+
+        createUser.start();
+    }
+
+    public  void buyCredit(String NumberOfCredits,final RequestInterface returninter){
+        _args = new String[3];
+        _args[0]="POST";
+        _args[1]="credits";
+
+        final HashMap <String,String>postData=new HashMap <String,String>();
+        postData.put("amount",NumberOfCredits);
+
+
+
+        Thread buyCredit = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                RestRespond restRespond = new RestRespond();
+                ArrayList<HashMap<String, String>> map = null;
+                Callback callback;
+
+
+                callback = restRespond.getData(_args,postData);
+                map=callback.get_dataList();
+
+
+
+                if (map != null) {
+
+                    returninter.onRecive(callback);
+                }
+            }
+        });
+
+        buyCredit.start();
+    }
+
+    public  void getPurchaseHistory(final RequestInterface returninter){
+        _args = new String[3];
+        _args[0]="GET";
+        _args[1]="credits";
+
+
+        Thread getHistory = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                RestRespond restRespond = new RestRespond();
+                ArrayList<HashMap<String, String>> map = null;
+                Callback callback;
+                callback = restRespond.getData(_args);
+                map=callback.get_dataList();
+                Parcer parcer= new  Parcer();
+               String [] amounts= parcer.getFieldArray(map,"amount");
+               String [] date= parcer.getFieldArray(map,"date");
+                String [] PurchaseRows = new String[amounts.length];
+                for(int i=0;i<amounts.length;i++)
+                {
+                    PurchaseRows[i]="date: "+date[i]+" "+amounts[i]+" credits";
+                }
+                callback.setList(PurchaseRows);
+                if (map != null) {
+                    returninter.onRecive(callback);
+                }
+
+            }
+        });
+
+        getHistory.start();
+    }
+
 }

@@ -7,22 +7,14 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/header_get_credit"
-        android:gravity="center"
-        android:layout_gravity="center"
-        android:textSize="18sp" />
-
     <LinearLayout
         android:layout_marginTop="16dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <TextView
-            android:text="put card number"
+            android:text="choose number of credit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView10"
@@ -36,12 +28,43 @@
             android:gravity="center_vertical|center_horizontal" />
 
         <Button
-            android:text="Button"
+            android:text="Buy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/button"
-            android:layout_weight="1" />
+            android:id="@+id/B_getCredit"
+            android:layout_weight="1"
+
+            />
 
     </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="get Purches history"
+            android:gravity="left|center"
+            android:layout_gravity="top"
+            android:textSize="18sp"
+            android:layout_weight="1" />
+
+        <Button
+            android:text="Show"
+            android:id="@+id/B_show_purchase_history"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/LV_purchase_history"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </LinearLayout>

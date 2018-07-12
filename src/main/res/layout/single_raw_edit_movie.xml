@@ -6,10 +6,6 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:background="@drawable/border"
-
-
-
-
     >
 
 
@@ -63,14 +59,15 @@
         android:gravity="right">
 
         <Button
-            android:text="return movie"
+            android:text="edit_movie"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/B_return_movie"
-
+            android:id="@+id/B_edit_movie"
+            android:layout_marginRight="16dp"
             android:textColor="@android:color/black"
             android:gravity="center"
-            android:layout_gravity="right" />
+            android:layout_gravity="right"
+            android:elevation="0dp" />
     </LinearLayout>
 
 

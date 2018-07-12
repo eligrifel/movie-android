@@ -8,18 +8,15 @@ import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
-import com.example.movienativeapp.JsonToArraylist;
+import com.example.movienativeapp.Parcer;
 import com.example.movienativeapp.R;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class CommentListAdapter implements ListAdapter {
 	private Context _context;
-	JsonToArraylist jToArray;
+	Parcer jToArray;
 	private HashMap<String,String> _map;
     String[] users;
    String[] comments;

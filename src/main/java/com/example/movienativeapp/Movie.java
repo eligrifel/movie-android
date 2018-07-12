@@ -10,16 +10,23 @@ public class Movie {
     private String _url;
     private String _rating;
     private String _info;
+    private String _available;
+    private String _year;
+    private String _category;
 
 
 
-    public Movie(String id,String name, String url, String rating,String info) {
+    public Movie(String id,String name, String url, String rating,String info,String available,String year,String category) {
 
         this._rating = rating;
         this._url = url;
         this._name = name;
         this._id=id;
         this._info=info;
+        this._available=available;
+        this._year=year;
+        this._category=category;
+
 
     }
 
@@ -41,8 +48,17 @@ public class Movie {
     public String getInfo() {
         return _info;
     }
+    public String getYear() {
+        return _year;
+    }
+    public String getAvailable() {
+        return _available;
+    }
     public String getId() {
         return _id;
+    }
+    public String get_category() {
+        return _category;
     }
 
 @Override
