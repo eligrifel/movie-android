@@ -86,7 +86,7 @@ public class MoviesListAdapter implements ListAdapter{
 		 View itemView = convertView;
 		  ViewHolder viewHolder = null;
 		  boolean firsttime = false;
-		  System.out.println("position is" +position);
+
 
 		  if(position>=counter)
 		  {
@@ -197,7 +197,6 @@ public class MoviesListAdapter implements ListAdapter{
 			//load image directly
 			ViewHolder viewHolder = params[0];
 			try {
-				System.out.println("positions url is"+_paths[_position]);
 				URL imageURL = new URL(_paths[_position]);
 				bit = BitmapFactory.decodeStream(imageURL.openStream());
 				

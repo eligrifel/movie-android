@@ -26,7 +26,7 @@ import java.util.Map;
  * Created by eli on 24/07/2015.
  */
 public class RestRespond {
-    private String BaseUrl="http://10.111.223.163:8080/";
+    private String BaseUrl="http://192.168.2.8:8080/";
     static String _username;
     static String _password;
     public RestRespond() {
@@ -39,7 +39,6 @@ public class RestRespond {
         switch (command) {
             case "getData": {
 
-                System.out.println("here in " + command);
                 String js = "{\"efjks@gmail.com\":\"this movie is great, good action " +
                         "and lots of effects\",\"sharon@gmail.com\":\"Eli\",\"dorit@gmail.com\":\"comment2\",\"amos@gmail.com\":\"Eli i\",\"hag@gmail.com\":\"comment3\",\"harry@gmail.com\":\"Eli is te best\",\"thegoal@gmail.com\":\"commen32\"}";
                 try {
@@ -51,7 +50,7 @@ public class RestRespond {
             return json;
 
             case "getCat": {
-                System.out.println("here in " + command);
+
                 String js = "{\"cat0\":\"Horor\",\"cat1\":\"Advanture\",\"cat2\":\"Action\",\"cat3\":\"Drama\",\"cat4\":\"doco\"}";
                 try {
                     json = new JSONObject(js);
@@ -62,7 +61,7 @@ public class RestRespond {
             return json;
 
             case "getFMovies": {
-                System.out.println("here in " + command);
+
                 //getting movvies array of maps
 
                 String js = "{\"m0\":\"first movie\",\"m1\":\"2first movie\",\"m2\":" +
@@ -77,7 +76,7 @@ public class RestRespond {
             return json;
 
             case "getRating": {
-                System.out.println("here in " + command);
+
                 String js = "{\"r0\":\"5\",\"r1\":\"3.5\",\"r2\":\"5\",\"r3\":\"3.5\",\"r4\":\"5\",\"r5\":\"4.0\",\"r6\":\"4.5\"}";
                 try {
                     json = new JSONObject(js);
@@ -88,8 +87,7 @@ public class RestRespond {
             return json;
 
             case "getFMoviesPath": {
-                System.out.println("here in " + command);
-                String js = "{\"p0\":\"http://ia.media-imdb.com/images/M/MV5BMTQ5MTE0MTk3Nl5BMl5BanBnXkFtZTgwMjczMzk2NTE@._V1._SY140_.jpg\",\n" +
+                                String js = "{\"p0\":\"http://ia.media-imdb.com/images/M/MV5BMTQ5MTE0MTk3Nl5BMl5BanBnXkFtZTgwMjczMzk2NTE@._V1._SY140_.jpg\",\n" +
                         "\t\t\"p1\":\"http://farm4.staticflickr.com/3777/9049174610_bf51be8a07_s.jpg\",\n" +
                         "\t\t\"p2\":\"http://farm4.staticflickr.com/3810/9046947167_3a51fffa0b_s.jpg\",\n" +
                         "\t\t\"p3\":\"http://farm8.staticflickr.com/7324/9046946887_d96a28376c_s.jpg\",\n" +

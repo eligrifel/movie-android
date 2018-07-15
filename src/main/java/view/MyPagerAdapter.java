@@ -43,7 +43,7 @@ public MyPagerAdapter(FragmentManager fm,Context context,boolean is_admin) {
     _context=context;
     tabName = new ArrayList<>();
     tabName.add("Category");
-    tabName.add("Leased movies");
+    tabName.add("Search");
     tabName.add("Dashboard");
     if(is_admin)
     {

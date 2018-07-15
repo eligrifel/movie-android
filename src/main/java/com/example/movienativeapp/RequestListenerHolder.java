@@ -36,7 +36,6 @@ public RequestListenerHolder(String args[]){
 
     public void getJson(String command) {
 final String _command= command;
-        System.out.println("getting json from server!!");
         Thread test = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -100,7 +99,6 @@ test.start();
     }
     public void severRequest(String command) {
         final String _command= command;
-        System.out.println("getting json from server!!");
         Thread test = new Thread(new Runnable() {
             @Override
             public void run() {

@@ -1,5 +1,7 @@
 package com.example.movienativeapp;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -114,6 +116,12 @@ public class UserRequest {
         _args[0]="GET";
         _args[1]="movies/categories";
         _args[2]=movie_id;
+        if(movie_id.equals("0"))
+        {
+            _args[2]="";
+            _args[1]="movies";
+        }
+
 
 
 
@@ -393,4 +401,40 @@ postData.put("rating",newRating);
         getHistory.start();
     }
 
+    public  void getMoviesSearchResults(String search_patern,final RequestInterface returninter){
+        _args = new String[3];
+        _args[0]="GET";
+        _args[1]="search";
+        _args[2]="";
+        String [] expres= search_patern.split("\\s+");
+        for (int i=0;i<expres.length;i++)
+        {
+            if(i==0)
+            _args[2]+=expres[i];
+            else
+                _args[2]+=","+expres[i];
+        }
+
+
+
+
+        Thread getmovies = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                RestRespond restRespond = new RestRespond();
+                ArrayList<HashMap<String, String>> map = null;
+                Callback callback;
+                callback = restRespond.getData(_args);
+                map=callback.get_dataList();
+
+                if (map != null) {
+                    Movie movies[]=callback.getMoviesList();
+                    callback.setList(movies);
+                    returninter.onRecive(callback);
+                }
+            }
+        });
+
+        getmovies.start();
+    }
 }

@@ -95,8 +95,7 @@ Bundle moviebundle ;
 		movie_id=moviebundle.getString("movie_id");
         final String pathString = moviebundle.getString("path");
 		final float rating= moviebundle.getFloat("rating");
-        System.out.println("movie choosen is "+ moviename);
-        System.out.println("psth of movie is....."+pathString);
+
         _imagePath = pathString;
   		runOnUiThread(new Runnable() {
 			@Override
@@ -279,7 +278,7 @@ runOnUiThread(new Runnable() {
 	
 	 public void getComments()
 		{
-			System.out.println("comment has being pressed");
+
 			serverRec.addListener(new RequestInterface() {
 				@Override
 				public JSONObject onRecive(final Callback myJsonObject) {
@@ -300,60 +299,15 @@ runOnUiThread(new Runnable() {
 			});
 			serverRec.getJson("getData");
 	    	
-//			myClient.invokeProcedure(new WLProcedureInvocationData("adapter", "getData"), new WLResponseListener() {
-//
-//				@Override
-//				public void onSuccess(final WLResponse arg0) {
-//					System.out.println("in success");
-//					//manage json pbject
-//					final JSONObject myjason = arg0.getResponseJSON();
-//
-//					for(int i=0;i<myjason.length()-1;i++)
-//					{
-//						try {
-//							System.out.println(" this is the json array "+myjason.names().getString(i).toString()+" "+ myjason.get(myjason.names().getString(i)));
-//						} catch (JSONException e) {
-//							// TODO Auto-generated catch block
-//							e.printStackTrace();
-//						}
-//
-//					}
-//					handler.post(new Runnable() {
-//
-//						@Override
-//						public void run() {
-//							ListView myListView = (ListView)findViewById(R.id.LV_comments);
-//							myListView.setAdapter(new CommentListAdapter(myjason,context));
-//						}
-//					});
-//
-//				}
-//
-//				@Override
-//				public void onFailure(WLFailResponse arg0) {
-////
-//					System.out.println("in fail");
-//				}
-//			});
-			
-			
+
 			
 			
 		}
 	  private void connect() {
 			context = this;
-			//myClient = WLClient.createInstance(this);
-			//myClient.connect(new WLResponseListener() {
 
-			//	@Override
-		//		public void onSuccess(WLResponse arg0) {
 				connected=true;
-				//testing 
-				
-				
-				
-				
-				//getComments();
+
                getComments(Integer.parseInt(movie_id));
 
 
@@ -390,8 +344,8 @@ runOnUiThread(new Runnable() {
                     {
                         Parcer parcer = new Parcer();
 
-                        final String[] users= parcer.getFieldArray(mapList,"user_name");System.out.println(Arrays.toString(users));
-                        String[] comments= parcer.getFieldArray(mapList,"comment");System.out.println(Arrays.toString(comments));
+                        final String[] users= parcer.getFieldArray(mapList,"user_name");
+                        String[] comments= parcer.getFieldArray(mapList,"comment");
                         final ArrayList<String[]> pairs = new ArrayList<>();
                         pairs.add(users);
                         pairs.add(comments);

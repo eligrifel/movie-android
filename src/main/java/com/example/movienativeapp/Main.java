@@ -36,6 +36,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -44,6 +45,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -398,7 +400,6 @@ return false;
 							@Override
 							public void onItemClick(AdapterView<?> parent,
 									View view, int position, long id) {
-								System.out.println("herrreeeeeee");
 //								Intent movie = new Intent(context , SingleMovieOption.class);
 								TextView moviename=(TextView)view.findViewById(R.id.movie_name);
 							String name = moviename.getText().toString();
@@ -430,7 +431,7 @@ return false;
 //
 //			@Override
 //			public void onSuccess(final WLResponse arg0) {
-		System.out.println("herrrrrrrrrrrrrrrrr");
+
 //
 //			//	Tab1 category1  =  (Tab1)(mypageradapter.getActiveFragment(mViewPager, 0));
 //
@@ -445,7 +446,6 @@ return false;
 		category_array = new String[myjason.length() ];
 		for (int i = 0; i < myjason.length() ; i++) {
 			try {
-				//System.out.println(" this is the json array "+myjason.names().getString(i).toString()+" "+ myjason.get(myjason.names().getString(i)));
 				category_array[i] = "" + myjason.getString("cat" + i);
 			} catch (JSONException e) {
 				e.printStackTrace();
@@ -465,7 +465,6 @@ return false;
 					@Override
 					public void onItemClick(AdapterView<?> parent, View view,
 											int position, long id) {
-						System.out.println("pressss " + category_array[position]);
 						Intent category = new Intent(context, MovieActivity.class);
 						category.putExtra("category", category_array[position]);
 						category.putExtra("role", role);
@@ -481,8 +480,6 @@ return false;
 //
 //			@Override
 //			public void onFailure(WLFailResponse arg0) {
-////
-//				System.out.println("GET CATEGORY FAILE fail faillllllllll");
 //			}
 //		});
 
@@ -605,7 +602,6 @@ runOnUiThread(new Runnable() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 									int position, long id) {
-				System.out.println("pressss " + category_array[position]);
 				Intent category = new Intent(context, MovieActivity.class);
 				category.putExtra("category", category_array[position]);
 				category.putExtra("role", role);
@@ -630,5 +626,48 @@ runOnUiThread(new Runnable() {
         };
     }
 
+    public void search(View view){
+		SearchView searchView = (SearchView) view.getRootView().findViewById(R.id.search_box);
+		String search_input=searchView.getQuery().toString();
 
+		if(request==null)
+			request = new UserRequest();
+		final ListView movie_list= (ListView) view.getRootView().findViewById(R.id.LV_search);
+		request.getMoviesSearchResults(search_input, new RequestInterface() {
+			@Override
+			public JSONObject onRecive(final Callback callback) {
+			final Movie [] movies = (Movie[]) callback.getList();
+				runOnUiThread(new Runnable() {
+					@Override
+					public void run() {
+						if(movies.length>0)
+						{
+						movie_list.setAdapter(new MoviesListAdapterObject(movies, R.layout.single_row_movie_list, context));
+						movie_list.setOnItemClickListener(new OnItemClickListener() {
+							@Override
+							public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+								Intent movie = new Intent(context, SingleMovieOption.class);
+								Movie single_movie = movies[position];
+								movie.putExtra("name", single_movie.get_name());
+								movie.putExtra("path", single_movie.getUrl());
+								movie.putExtra("movie_id", single_movie.getId());
+								movie.putExtra("info", single_movie.getInfo());
+
+								float movie_rating = Float.parseFloat(movies[position].getRating());
+
+								movie.putExtra("rating", movie_rating);
+								context.startActivity(movie);
+							}
+						});
+					}
+						else
+							Toast.makeText(context,"no search result",Toast.LENGTH_LONG).show();
+					}
+				});
+
+
+				return null;
+			}
+		});
+	}
 }

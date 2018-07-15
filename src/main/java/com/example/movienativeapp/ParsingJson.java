@@ -34,7 +34,6 @@ public class ParsingJson {
     }
     public String []getElement()
     {
-        System.out.println(_Element.toString());
         return _Element;
     }
 }

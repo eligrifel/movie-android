@@ -3,7 +3,6 @@ package fragments;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,14 +12,14 @@ import com.example.movienativeapp.R;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link Fragment_rented_movies.OnFragmentInteractionListener} interface
+ * {@link LIstViewFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
  */
-public class Fragment_rented_movies extends Fragment {
+public class LIstViewFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public Fragment_rented_movies() {
+    public LIstViewFragment() {
         // Required empty public constructor
     }
 
@@ -28,7 +27,7 @@ public class Fragment_rented_movies extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.admin_rented_movies_layout, container, false);
+        return inflater.inflate(R.layout.list_view_layout, container, false);
 
     }
 

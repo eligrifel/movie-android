@@ -139,7 +139,9 @@ public class MovieListActivity extends FragmentActivity {
 		fragmentTransaction.commit();
 
 		if(connected)
-			getMovieLIst();
+		{
+
+		}
 		else
 		{
 			toast = Toast.makeText(context, "try later you are offline " ,Toast.LENGTH_SHORT );
@@ -148,84 +150,8 @@ public class MovieListActivity extends FragmentActivity {
 
 	}
 
-	public void getComments()
-	{
-//		myClient.invokeProcedure(new WLProcedureInvocationData("adapter", "getData"), new WLResponseListener() {
-//
-//			@Override
-//			public void onSuccess(final WLResponse arg0) {
-//				System.out.println("in success");
-//				//manage json pbject
-//				JSONObject myjason = arg0.getResponseJSON();
-//				json=myjason;
-//				for(int i=0;i<myjason.length()-1;i++)
-//				{
-//					try {
-//						System.out.println(" this is the json array "+myjason.names().getString(i).toString()+" "+ myjason.get(myjason.names().getString(i)));
-//					} catch (JSONException e) {
-//						// TODO Auto-generated catch block
-//						e.printStackTrace();
-//					}
-//
-//				}
-//				handler.post(new Runnable() {
-//
-//					@Override
-//					public void run() {
-//						ListView myListView = (ListView)findViewById(R.id.comments_list);
-//						//myListView.setAdapter(new CommentListAdapter(json,context));
-//					}
-//				});
-//
-//			}
-//
-//			@Override
-//			public void onFailure(WLFailResponse arg0) {
-////
-//
-//			}
-//		});
 
-	}
 
-	public void getMovieLIst()
-	{
-//myClient.invokeProcedure(new WLProcedureInvocationData("adapter", "getData"), new WLResponseListener() {
-//
-//			@Override
-//			public void onSuccess(final WLResponse arg0) {
-//				System.out.println("in success");
-//				//manage json pbject
-//				JSONObject myjason = arg0.getResponseJSON();
-//				json=myjason;
-//				for(int i=0;i<myjason.length()-1;i++)
-//				{
-//					try {
-//						System.out.println(" this is the json array "+myjason.names().getString(i).toString()+" "+ myjason.get(myjason.names().getString(i)));
-//					} catch (JSONException e) {
-//						// TODO Auto-generated catch block
-//						e.printStackTrace();
-//					}
-//
-//				}
-//				handler.post(new Runnable() {
-//
-//					@Override
-//					public void run() {
-//						ListView myListView1 = (ListView)findViewById(R.id.movies_listview_list);
-////						myListView1.setAdapter(new MoviesListAdapter(json,context));
-//					}
-//				});
-//
-//			}
-//
-//			@Override
-//			public void onFailure(WLFailResponse arg0) {
-//
-//
-//			}
-//		});
 
-	}
 
 }

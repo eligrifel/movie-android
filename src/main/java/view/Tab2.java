@@ -30,7 +30,7 @@ public class Tab2 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(layout.admin_panel, container, false);
+        View rootView = inflater.inflate(layout.search_movie, container, false);
 
 
 

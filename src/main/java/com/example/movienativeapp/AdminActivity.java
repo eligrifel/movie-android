@@ -1,34 +1,29 @@
 package com.example.movienativeapp;
 
-import android.app.Activity;
-import android.app.ActivityManager;
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import fragments.EditMovieFragment;
-import fragments.Fragment_rented_movies;
+import fragments.LIstViewFragment;
 import fragments.insert_movie_fragment;
-import listAdapters.MoviesListAdapter;
+import listAdapters.AdminLeaserListAdapter;
 import listAdapters.MoviesListAdapterObject;
+import listAdapters.category_list_adapter;
 
 /**
  * Created by eli on 6/24/2018.
@@ -131,16 +126,16 @@ public class AdminActivity extends AppCompatActivity implements View.OnClickList
 
 
     public void getLeasedMovies(View view) {
-        fragments.Fragment_rented_movies rented_movies_fragment;
+        LIstViewFragment rented_movies_fragment;
         fm = getSupportFragmentManager();
         fragmentTransaction = fm.beginTransaction();
         Fragment f= fm.findFragmentByTag("rented_movies");
         if (f==null)
         {
-            rented_movies_fragment = new Fragment_rented_movies();
+            rented_movies_fragment = new LIstViewFragment();
         }
         else {
-            rented_movies_fragment = (Fragment_rented_movies) f;
+            rented_movies_fragment = (LIstViewFragment) f;
 
         }
 
@@ -153,9 +148,15 @@ public class AdminActivity extends AppCompatActivity implements View.OnClickList
         Areq.getAllLeaserMovies(new RequestInterface() {
             @Override
             public JSONObject onRecive(Callback callback) {
-                Movie[] movie_list = (Movie[]) callback.getList();
-                MoviesListAdapterObject movieAdapter = new MoviesListAdapterObject(movie_list,R.layout.admin_single_raw_rented_movie,_context);
-                rentedMovies.setAdapter(movieAdapter);
+                HashMap h = (HashMap) callback.getList();
+                final AdminLeaserListAdapter movieAdapter = new AdminLeaserListAdapter(h,R.layout.admin_single_raw_rented_movie,_context);
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        rentedMovies.setAdapter(movieAdapter);
+                    }
+                });
+
                 return null;
             }
         });
@@ -164,16 +165,16 @@ public class AdminActivity extends AppCompatActivity implements View.OnClickList
 
     //go to edit mode
     public void editMovies(View view) {
-        final fragments.Fragment_rented_movies rented_movies_fragment;
+        final LIstViewFragment rented_movies_fragment;
         fm = getSupportFragmentManager();
         fragmentTransaction = fm.beginTransaction();
         Fragment f= fm.findFragmentByTag("EditMovies");
         if (f==null)
         {
-            rented_movies_fragment = new Fragment_rented_movies();
+            rented_movies_fragment = new LIstViewFragment();
         }
         else {
-            rented_movies_fragment = (Fragment_rented_movies) f;
+            rented_movies_fragment = (LIstViewFragment) f;
 
         }
 
@@ -306,8 +307,47 @@ public class AdminActivity extends AppCompatActivity implements View.OnClickList
 
 
 
-    {
+  public void purchaseHistory(View v)
+  {
+      final LIstViewFragment purcahses_list;
+      fm = getSupportFragmentManager();
+      fragmentTransaction = fm.beginTransaction();
+      Fragment f= fm.findFragmentByTag("purchase_history");
+      if (f==null)
+      {
+          purcahses_list = new LIstViewFragment();
+      }
+      else {
+          purcahses_list = (LIstViewFragment) f;
 
-    }
+      }
 
+      fragmentTransaction.replace(R.id.admin_container,purcahses_list,"purchase_history").commit();
+      getSupportFragmentManager().executePendingTransactions();
+      if (Areq==null)
+          Areq = new AdminRequest();
+      Areq.getPurchases(new RequestInterface() {
+          @Override
+          public JSONObject onRecive(Callback callback) {
+              String [] purchases = (String[]) callback.getList();
+              final ListView list = (ListView) purcahses_list.getView().findViewById(R.id.LV_rentedMovies);
+              final category_list_adapter adapter = new category_list_adapter(purchases,purchases,R.layout.single_raw_category,_context);
+              runOnUiThread(new Runnable() {
+                  @Override
+                  public void run() {
+                      list.setAdapter(adapter);
+                  }
+              });
+
+              return null;
+          }
+      });
+
+
+  }
+public void searchMovie(View view)
+{
+ListView list = (ListView) view.findViewById(R.id.LV_search);
+
+}
 }

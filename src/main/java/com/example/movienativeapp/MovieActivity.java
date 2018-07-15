@@ -208,7 +208,7 @@ public void getMovieLIst(final Movie[] movielist,final int list)
                     case "movies":
                     {
 
-
+                        getMovieLIst(callback.getMoviesList(),R.id.general_list_view);
 
 
                     }

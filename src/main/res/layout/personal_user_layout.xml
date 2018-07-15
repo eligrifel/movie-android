@@ -107,7 +107,7 @@
                 android:textStyle="normal|bold" />
 
             <Button
-                android:text="Get Credit"
+                android:text="manage credits"
                 android:layout_width="wrap_content"
                 android:layout_height="33dp"
                 tools:layout_editor_absoluteY="11dp"

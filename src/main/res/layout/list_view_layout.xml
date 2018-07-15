@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="fragments.Fragment_rented_movies">
+    tools:context="fragments.LIstViewFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
@@ -14,19 +14,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:text="movie list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView3"
-            android:layout_weight="0.09"
-            android:textSize="24sp"
-            android:textAlignment="viewEnd"
-             />
-
         <ListView
             android:layout_width="match_parent"
-            android:layout_height="419dp"
+            android:layout_height="match_parent"
             android:layout_weight="0.05"
             android:id="@+id/LV_rentedMovies" />
     </LinearLayout>

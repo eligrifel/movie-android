@@ -105,7 +105,6 @@ public class MoviesListAdapterObject implements ListAdapter {
         View itemView = convertView;
         MoviesListAdapterObject.ViewHolder viewHolder = null;
         boolean firsttime = false;
-        System.out.println("position is" +position);
 
         if(position>=counter)
         {
