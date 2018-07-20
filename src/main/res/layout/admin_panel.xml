@@ -37,6 +37,28 @@
         android:layout_height="match_parent">
 
         <Button
+            android:text="users"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/B_users"
+            android:layout_weight="1"
+            android:onClick="getUsersList" />
+
+        <Button
+            android:text="Add user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/B_add_user"
+            android:layout_weight="1"
+            android:onClick="adduser" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
             android:text="leased history"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

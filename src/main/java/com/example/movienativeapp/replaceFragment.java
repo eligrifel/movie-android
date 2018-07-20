@@ -5,5 +5,5 @@ package com.example.movienativeapp;
  */
 
 public interface replaceFragment {
-    public void onAdepterCall(Movie movie);
+    public void onAdepterCall(Object object);
 }

@@ -14,15 +14,15 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:padding="8dp"
             android:text="choose number of credit"
-            android:layout_width="wrap_content"
+            android:layout_width="167dp"
             android:layout_height="wrap_content"
             android:id="@+id/textView10"
-            android:layout_weight="1"
             android:textSize="18sp" />
 
         <Spinner
-            android:layout_width="138dp"
+            android:layout_width="64dp"
             android:layout_height="wrap_content"
             android:id="@+id/spinner_credit"
             android:gravity="center_vertical|center_horizontal" />
@@ -32,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/B_getCredit"
-            android:layout_weight="1"
+            android:layout_weight="0.34"
 
             />
 
@@ -52,7 +52,9 @@
             android:gravity="left|center"
             android:layout_gravity="top"
             android:textSize="18sp"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:padding="8dp"
+            />
 
         <Button
             android:text="Show"

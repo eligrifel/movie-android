@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * Created by lionel on 20/10/2017.
+ * Created by eli levi on 20/10/2017.
  */
 
 public class LoginActivity extends Activity {
@@ -136,10 +136,10 @@ else
 
         UserRequest req = new UserRequest();
         HashMap <String,String> postData = new HashMap<>();
-        postData.put("username",user_name);
+        postData.put("user_name",user_name);
         postData.put("password",password);
-        postData.put("firstname",first_name);
-        postData.put("lastname",last_name);
+        postData.put("first_name",first_name);
+        postData.put("last_name",last_name);
         postData.put("payment_token",payment_token);
         req.createUser(postData,new RequestInterface() {
             @Override

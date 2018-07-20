@@ -215,13 +215,7 @@ public void getMovieLIst(final Movie[] movielist,final int list)
                     break;
                     case "movies/categories":
                     {
-//                        JsonToArraylist parcer = new JsonToArraylist();
-//                        final String[] movie_name= parcer.getFieldArray(mapList,"movie_name");
-//                        final String[] pic_links= parcer.getFieldArray(mapList,"pic_link");
-//                        final String[] rating= parcer.getFieldArray(mapList,"rating");
-//                        movieId= parcer.getFieldArray(mapList,"id");
 //
-//                        getMovieLIst(movie_name,pic_links,rating,R.id.general_list_view);
 
                         getMovieLIst(callback.getMoviesList(),R.id.general_list_view);
                     }

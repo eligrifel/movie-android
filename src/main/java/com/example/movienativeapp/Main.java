@@ -64,7 +64,6 @@ public class Main extends AppCompatActivity implements OncategoryViewListener{
 	Button B_returnMovie;
 	private String [] category_array;
 	private  ViewPager mViewPager;
-	//private int[]  picArray ={R.drawable.pic1,R.drawable.pic2,R.drawable.pic3,R.drawable.pic4,R.drawable.pic5,R.drawable.pic6,R.drawable.pic7,R.drawable.pic8,};
 	private boolean connected=false;
 	//private WLClient myClient;
 	private Toast toast;
@@ -170,7 +169,7 @@ public class Main extends AppCompatActivity implements OncategoryViewListener{
 			}
 		};
 
-		//request.addListener(interfaceCallback);
+
 		request.getCurrentUser(interfaceCallback);
 	}
 		//setting fragment for user panel
@@ -302,8 +301,6 @@ return false;
 
     public void act2(View view) {
         actionBar.hide();
-//        Intent intent = new Intent(this,Category.class);
-//        startActivity(intent);
 
     }
 
@@ -359,15 +356,9 @@ return false;
 		//testing
 
 
-	//	Tab1 category1  =  (Tab1)(mypageradapter.getActiveFragment(mViewPager, 0));
-		///getCategoryArray();
+
         serverRec.getCategoryList();
-
-
-		//preperMovieArrays("getFMovies");
-
-
-	}
+		}
     
     
     
@@ -400,11 +391,10 @@ return false;
 							@Override
 							public void onItemClick(AdapterView<?> parent,
 									View view, int position, long id) {
-//								Intent movie = new Intent(context , SingleMovieOption.class);
+
 								TextView moviename=(TextView)view.findViewById(R.id.movie_name);
 							String name = moviename.getText().toString();
-//							movie.putExtra("name", name);
-//							context.startActivity(movie);
+
 
 							
 							}
@@ -423,153 +413,8 @@ return false;
 
 
 
-	public void getCategoryArray() {
+	
 
-        RestRespond restRespond = new RestRespond();
-		JSONObject myjason = null;
-//myClient.invokeProcedure(new WLProcedureInvocationData("adapter", "getCat"), new WLResponseListener() {
-//
-//			@Override
-//			public void onSuccess(final WLResponse arg0) {
-
-//
-//			//	Tab1 category1  =  (Tab1)(mypageradapter.getActiveFragment(mViewPager, 0));
-//
-//
-//				//manage json pbject
-		try {
-			myjason = restRespond.getJsonFromSerever("getCat");
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
-
-		category_array = new String[myjason.length() ];
-		for (int i = 0; i < myjason.length() ; i++) {
-			try {
-				category_array[i] = "" + myjason.getString("cat" + i);
-			} catch (JSONException e) {
-				e.printStackTrace();
-			}
-
-		}
-
-		runOnUiThread(new Runnable() {
-
-			@Override
-			public void run() {
-				ListView categoryLIst = (ListView) findViewById(R.id.catagory_list);
-				categoryLIst.setAdapter(new ArrayAdapter<String>(context, R.layout.single_raw_category, R.id.category_names, category_array));
-
-				categoryLIst.setOnItemClickListener(new OnItemClickListener() {
-
-					@Override
-					public void onItemClick(AdapterView<?> parent, View view,
-											int position, long id) {
-						Intent category = new Intent(context, MovieActivity.class);
-						category.putExtra("category", category_array[position]);
-						category.putExtra("role", role);
-						context.startActivity(category);
-
-					}
-				});
-
-			}
-//				});
-
-//			}
-//
-//			@Override
-//			public void onFailure(WLFailResponse arg0) {
-//			}
-//		});
-
-
-		});
-	}
-
-
-	public void preperMovieArrays(String method) {
-		
-		
-		final String [] movies;
-		RestRespond restRespond = new RestRespond();
-		
-//		myClient.invokeProcedure(new WLProcedureInvocationData("adapter", method), new WLResponseListener(){
-//
-//			@Override
-//			public void onFailure(WLFailResponse arg0) {
-//
-//			}
-//
-//			@Override
-//			public void onSuccess(WLResponse arg0) {
-				//JSONObject json = arg0.getResponseJSON();
-		JSONObject json=null;
-		try {
-
-			 json = restRespond.getJsonFromSerever(method);
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
-			//	final String [] movies;
-
-				moviesArray=new ParsingJson(json, "m").getElement();
-//
-//
-//				myClient.invokeProcedure(new WLProcedureInvocationData("adapter", "getFMoviesPath"), new WLResponseListener(){
-//
-//					@Override
-//					public void onFailure(WLFailResponse arg0) {
-//						// TODO Auto-generated method stub
-//
-//					}
-//
-//					@Override
-//					public void onSuccess(WLResponse arg0) {
-//						JSONObject json1 = arg0.getResponseJSON();
-		JSONObject json1=null;
-		try {
-			 json1 = restRespond.getJsonFromSerever("getFMoviesPath");
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
-//
-						moviesPathArray=new ParsingJson(json1, "p").getElement();
-//						myClient.invokeProcedure(new WLProcedureInvocationData("adapter", "getRating"), new WLResponseListener()
-//						{
-//
-//							@Override
-//							public void onFailure(WLFailResponse arg0) {
-//								// TODO Auto-generated method stub
-//
-//							}
-//
-//							@Override
-//							public void onSuccess(WLResponse arg0) {
-//								JSONObject json1 = arg0.getResponseJSON();
-		JSONObject json2=null;
-		try {
-			 json2 = restRespond.getJsonFromSerever("getRating");
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
-								TopRatedRating=new ParsingJson(json2, "r").getElement();
-								getMovieLIst(moviesArray,moviesPathArray,TopRatedRating,R.id.movies_listview_list);
-//							}
-//
-//						});
-//
-//
-//					}
-//
-//				});
-//			}
-//
-//		});
-		
-		
-		
-	}
     private void handleCallBack() {
 
         callback= new RequestInterface() {
@@ -594,8 +439,7 @@ runOnUiThread(new Runnable() {
 	@Override
 	public void run() {
 
-		//categoryLIst.setAdapter(new ArrayAdapter<String>(context, R.layout.single_raw_category, R.id.category_names, category_array));
-		categoryLIst.setAdapter(new category_list_adapter( category_array,category_id_array,R.layout.single_raw_category,context));
+			categoryLIst.setAdapter(new category_list_adapter( category_array,category_id_array,R.layout.single_raw_category,context));
 
 		categoryLIst.setOnItemClickListener(new OnItemClickListener() {
 

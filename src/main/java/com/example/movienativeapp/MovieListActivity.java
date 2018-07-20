@@ -89,45 +89,13 @@ public class MovieListActivity extends FragmentActivity {
 
 	private void connect() {
 		context = this;
-//		myClient = WLClient.createInstance(this);
-//		myClient.connect(new WLResponseListener() {
-//
-//			@Override
-//			public void onSuccess(WLResponse arg0) {
-//				// TODO Auto-generated method stub
-//			connected=true;
-//
-//			}
-//
-//			@Override
-//			public void onFailure(WLFailResponse arg0) {
-//				// TODO Auto-generated method stub
-//
-//			}
-//		});
+
 
 	}
 
 
 
-//	public void loadF1(View view) {
-//		fragmentManager = getSupportFragmentManager();
-//		FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//		CommentFrag fragment = new CommentFrag();
-//		fragmentTransaction.replace(R.id.fragment, fragment);
-//
-//		fragmentTransaction.addToBackStack("tag1");
-//		fragmentTransaction.commit();
-//		if(connected)
-//			getComments();
-//		else
-//		{
-//			toast = Toast.makeText(context, "try later you are offline " ,Toast.LENGTH_SHORT );
-//			toast.show();
-//		}
-//
-//
-//	}
+
 
 	public void loadF2(View view) {
 		fragmentManager = getSupportFragmentManager();

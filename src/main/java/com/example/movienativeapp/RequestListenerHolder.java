@@ -34,32 +34,7 @@ public RequestListenerHolder(String args[]){
         listeners.clear();
     }
 
-    public void getJson(String command) {
-final String _command= command;
-        Thread test = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                RestRespond restRespond = new RestRespond();
-                JSONObject json = null;
-                try {
 
-                    json = restRespond.getJsonFromSerever(_command);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-                // Notify everybody that may be interested.
-            Parcer jToArray = new Parcer(json);
-               ArrayList dataArrayList= jToArray.JasonToMap();
-                //create callback object
-                callback= new Callback(_args,dataArrayList);
-                for (RequestInterface hl : listeners)
-                    hl.onRecive( callback);
-            }
-        });
-
-test.start();
-    }
 
     public void getLogin(String[] args) {
         final String _command= _args[0];
@@ -97,31 +72,7 @@ test.start();
 
         return _args;
     }
-    public void severRequest(String command) {
-        final String _command= command;
-        Thread test = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                RestRespond restRespond = new RestRespond();
-                JSONObject json = null;
-                try {
 
-                    json = restRespond.getJsonFromSerever(_command);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-                // Notify everybody that may be interested.
-                Parcer jToArray = new Parcer(json);
-                ArrayList dataArraylist= jToArray.JasonToMap();
-                Callback callback= new Callback(_args,dataArraylist);
-                for (RequestInterface hl : listeners)
-                    hl.onRecive(callback);
-            }
-        });
-
-        test.start();
-    }
 
     public void getComments(final String[] args) {
         final String _command= _args[0];

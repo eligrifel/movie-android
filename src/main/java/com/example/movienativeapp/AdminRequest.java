@@ -230,4 +230,155 @@ public class AdminRequest {
 
         getpurchases.start();
     }
+
+    public  void AddUser(final HashMap postData,final RequestInterface returninter){
+        _args = new String[3];
+        _args[0]="POST";
+        _args[1]="admin/user";
+
+
+
+
+
+        Thread createUser = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                RestRespond restRespond = new RestRespond();
+                ArrayList<HashMap<String, String>> map = null;
+                Callback callback;
+
+
+                callback = restRespond.getData(_args,postData);
+                map=callback.get_dataList();
+
+
+
+                if (map != null) {
+
+                    returninter.onRecive(callback);
+                }
+            }
+        });
+
+        createUser.start();
+    }
+
+
+    public  void deleteUser(String user_id,final RequestInterface returninter){
+        _args = new String[3];
+        _args[0]="DELETE";
+        _args[1]="admin/user";
+
+
+final HashMap<String,String> postData = new HashMap<>();
+        postData.put("user_id",user_id);
+
+        Thread deleteUser = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                RestRespond restRespond = new RestRespond();
+                ArrayList<HashMap<String, String>> map = null;
+                Callback callback;
+
+
+                callback = restRespond.getData(_args,postData);
+                map=callback.get_dataList();
+
+
+
+                if (map != null) {
+
+                    returninter.onRecive(callback);
+                }
+            }
+        });
+
+        deleteUser.start();
+    }
+    public  void getUsers(final RequestInterface returninter){
+        _args = new String[3];
+        _args[0]="GET";
+        _args[1]="admin/users";
+        final String controller_path= _args[1];
+
+
+        Thread getUsers = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                RestRespond restRespond = new RestRespond();
+                ArrayList<HashMap<String, String>> map = null;
+                Callback callback;
+                callback = restRespond.getData(_args);
+                map=callback.get_dataList();
+                User [] users =getUserList(map);
+                callback.setList(users);
+
+                if (map != null) {
+                    returninter.onRecive(callback);
+                }
+
+            }
+        });
+
+        getUsers.start();
+    }
+
+
+
+
+
+
+
+
+
+    private User[] getUserList(ArrayList<HashMap<String, String>> map) {
+        Parcer parcer= new Parcer();
+        String [] user_names =parcer.getFieldArray(map,"user_name");
+        String [] user_id =parcer.getFieldArray(map,"id");
+        String [] first_names =parcer.getFieldArray(map,"first_name");
+        String [] last_names =parcer.getFieldArray(map,"last_name");
+        String [] payment_token =parcer.getFieldArray(map,"payment_token");
+        String [] role =parcer.getFieldArray(map,"role");
+        String [] credits =parcer.getFieldArray(map,"credits");
+
+        User[] users = new User[user_names.length];
+        for (int i=0;i<users.length;i++)
+        {
+            users[i]=new User(user_id[i],user_names[i],first_names[i],last_names[0],payment_token[i],role[i],credits[i]);
+        }
+        return users;
+    }
+
+
+    public  void editUser(final HashMap postData,final RequestInterface returninter){
+        _args = new String[3];
+        _args[0]="PUT";
+        _args[1]="admin/user";
+
+
+
+
+
+        Thread editUser = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                RestRespond restRespond = new RestRespond();
+                ArrayList<HashMap<String, String>> map = null;
+                Callback callback;
+
+
+                callback = restRespond.getData(_args,postData);
+                map=callback.get_dataList();
+
+
+
+                if (map != null) {
+
+                    returninter.onRecive(callback);
+                }
+            }
+        });
+
+        editUser.start();
+    }
 }

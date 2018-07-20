@@ -276,33 +276,7 @@ runOnUiThread(new Runnable() {
 		}
 	}
 	
-	 public void getComments()
-		{
 
-			serverRec.addListener(new RequestInterface() {
-				@Override
-				public JSONObject onRecive(final Callback myJsonObject) {
-
-					handler.post(new Runnable() {
-
-						@Override
-						public void run() {
-
-							ListView myListView = (ListView) findViewById(R.id.LV_comments);
-
-
-						}
-					});
-
-					return null;
-				}
-			});
-			serverRec.getJson("getData");
-	    	
-
-			
-			
-		}
 	  private void connect() {
 			context = this;
 
