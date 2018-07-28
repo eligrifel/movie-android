@@ -72,7 +72,7 @@ public class AdminActivity extends AppCompatActivity implements View.OnClickList
                 currentFragment = rfragment;
                 final Spinner categories_spinner = (Spinner) rfragment.getView().findViewById(R.id.Spinner_category);
                 Button B_addmovie=(Button)rfragment.getView().findViewById(R.id.B_addmovie);
-                //add listener to add new movie in admin panel
+
                 B_addmovie.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

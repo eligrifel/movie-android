@@ -9,18 +9,13 @@ import android.view.ViewGroup;
 
 import com.example.movienativeapp.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link LIstViewFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- */
+
 public class FragmentEdit_user extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
     public FragmentEdit_user() {
-        // Required empty public constructor
+
     }
 
     @Override

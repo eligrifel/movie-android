@@ -29,38 +29,38 @@ public class category_list_adapter implements ListAdapter {
 
     @Override
     public void registerDataSetObserver(DataSetObserver observer) {
-        // TODO Auto-generated method stub
+      
 
     }
 
     @Override
     public void unregisterDataSetObserver(DataSetObserver observer) {
-        // TODO Auto-generated method stub
+      
 
     }
 
     @Override
     public int getCount() {
-        // TODO Auto-generated method stub
+        
         return _categories.length;
 
     }
 
     @Override
     public Object getItem(int position) {
-        // TODO Auto-generated method stub
+        
         return null;
     }
 
     @Override
     public long getItemId(int position) {
-        // TODO Auto-generated method stub
+       
         return 0;
     }
 
     @Override
     public boolean hasStableIds() {
-        // TODO Auto-generated method stub
+     
         return false;
     }
 
@@ -81,9 +81,7 @@ public class category_list_adapter implements ListAdapter {
 
             TextView category_name = (TextView)itemView.findViewById(R.id.category_names);
             viewHolder.category_name = category_name;
-            //TextView category_id = (TextView)itemView.findViewById(R.id.category_id);
-
-          //  viewHolder.category_id=category_id;
+       
 
             itemView.setTag(viewHolder);
 
@@ -93,7 +91,7 @@ public class category_list_adapter implements ListAdapter {
         }
         viewHolder.category_name.setText(_categories[position]);
 
-       // viewHolder.category_id.setText(_categories_id[position]);
+      
 
 
 
@@ -103,31 +101,31 @@ public class category_list_adapter implements ListAdapter {
 
     @Override
     public int getItemViewType ( int position){
-        // TODO Auto-generated method stub
+        
         return 0;
     }
 
     @Override
     public int getViewTypeCount () {
-        // TODO Auto-generated method stub
+        
         return _categories.length;
     }
 
     @Override
     public boolean isEmpty () {
-        // TODO Auto-generated method stub
+        
         return false;
     }
 
     @Override
     public boolean areAllItemsEnabled () {
-        // TODO Auto-generated method stub
+        
         return true;
     }
 
     @Override
     public boolean isEnabled ( int position){
-        // TODO Auto-generated method stub
+        
         return true;
     }
 

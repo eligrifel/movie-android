@@ -58,21 +58,21 @@ public MyPagerAdapter(FragmentManager fm,Context context,boolean is_admin) {
 
         switch (position) {
             case 0:
-                // Top Rated fragment activity
+                
 
                 return new Tab1();
 
             case 1:
-                // Top Rated fragment activity
+                
                 return new Tab2();
             case 2:
-                // Games fragment activity
+
                 return new Tab3();
             case 3:
-                // Movies fragment activity
+
                 return new AdminFragmentTab();
             case 4:
-                // Movies fragment activity
+
                 return new AdminFragmentTab();
         }
         return null;

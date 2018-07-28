@@ -29,38 +29,38 @@ public class CommentListAdapter implements ListAdapter {
 
 	@Override
 	public void registerDataSetObserver(DataSetObserver observer) {
-		// TODO Auto-generated method stub
+		
 
 	}
 
 	@Override
 	public void unregisterDataSetObserver(DataSetObserver observer) {
-		// TODO Auto-generated method stub
+		
 
 	}
 
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
+		
 		return users.length;
 
 	}
 
 	@Override
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
 	@Override
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
+		
 		return 0;
 	}
 
 	@Override
 	public boolean hasStableIds() {
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
 
@@ -103,31 +103,31 @@ public class CommentListAdapter implements ListAdapter {
 
 		@Override
 		public int getItemViewType ( int position){
-			// TODO Auto-generated method stub
+			
 			return 0;
 		}
 
 		@Override
 		public int getViewTypeCount () {
-			// TODO Auto-generated method stub
+			
 			return users.length;
 		}
 
 		@Override
 		public boolean isEmpty () {
-			// TODO Auto-generated method stub
+			
 			return false;
 		}
 
 		@Override
 		public boolean areAllItemsEnabled () {
-			// TODO Auto-generated method stub
+			
 			return true;
 		}
 
 		@Override
 		public boolean isEnabled ( int position){
-			// TODO Auto-generated method stub
+			
 			return true;
 		}
 

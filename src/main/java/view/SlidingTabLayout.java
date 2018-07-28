@@ -47,7 +47,7 @@ import android.widget.TextView;
  * {@link #setViewPager(ViewPager)} providing it the ViewPager this layout is being used for.
  * <p>
  * The colors can be customized in two ways. The first and simplest is to provide an array of colors
- * via {@link #setSelectedIndicatorColors(int...)} and {@link #setDividerColors(int...)}. The
+ * via {@link #setSelectedIndicatorColors(int...)} and {@link #//setDividerColors(int...)}. The
  * alternative is via the {@link TabColorizer} interface which provides you complete control over
  * which color is used for any individual position.
  * <p>
@@ -207,7 +207,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
                 final float scale = getResources().getDisplayMetrics().density;
                 int padding_in_px = (int) (padding_in_dp * scale + 0.5f);
                 tabView.setPadding(0, padding_in_px, 0, padding_in_px);
-                
+
                 tabTitleView = (TextView) tabView.findViewById(mTabViewTextViewId);
             }
 
@@ -237,8 +237,8 @@ public class SlidingTabLayout extends HorizontalScrollView {
                 tabView.setSelected(true);
             }
             //style of tabs text color
-            tabTitleView.setTextColor(getResources().getColorStateList(drawable.selector));
-           
+            tabTitleView.setTextColor(getResources().getColorStateList(android.R.color.white));
+
         }
 
     }

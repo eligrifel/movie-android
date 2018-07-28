@@ -50,13 +50,6 @@ public RequestListenerHolder(String args[]){
                 json = restRespond.connctToServer(_username, _password);
 
 
-                // Notify everybody that may be interested.
-//                if(json==null)
-//                {
-//                    Log.d("dataTest","jason is null");
-//                }
-
-
                     Callback callback = new Callback(_args, json);
                     for (RequestInterface hl : listeners)
                         hl.onRecive(callback);
@@ -84,7 +77,6 @@ public RequestListenerHolder(String args[]){
                 Callback callback;
                 callback = restRespond.getData(args);
                 map=callback.get_dataList();
-
 
 
                 if (map != null) {

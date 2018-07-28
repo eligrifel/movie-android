@@ -1,7 +1,6 @@
 package com.example.movienativeapp;
 
 import android.util.Base64;
-import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,7 +25,7 @@ import java.util.Map;
  * Created by eli on 24/07/2015.
  */
 public class RestRespond {
-    private String BaseUrl="http://192.168.14.128:8080/";
+    private String BaseUrl="http://192.168.2.8:8080/";
     static String _username;
     static String _password;
     public RestRespond() {
@@ -131,7 +130,6 @@ public class RestRespond {
             {
                 json=new JSONArray(sb.toString());
             }
-            // json = new JSONObject(sb.toString());
             Parcer jParcer= new Parcer(json);
             map= jParcer.JasonToMap();
         } catch (MalformedURLException e) {

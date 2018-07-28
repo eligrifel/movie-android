@@ -37,17 +37,10 @@ public class LoginActivity extends Activity {
         password = (TextView) findViewById(R.id.password);
         email = (TextView) findViewById(R.id.email);
         login = (Button) findViewById(R.id.loginButton);
-        login.setVisibility(View.INVISIBLE);
 
 
-        password.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!password.getText().equals("") && !email.getText().equals("")) {
-                    login.setVisibility(View.VISIBLE);
-                }
-            }
-        });
+
+
 
 
         login.setOnClickListener(new View.OnClickListener() {
@@ -73,9 +66,6 @@ public class LoginActivity extends Activity {
             @Override
             public JSONObject onRecive(Callback callback) {
 
-
-               //JSONObject myJsonObject=json;
-              //  Log.d("printArray",a.get("user_name").toString());
                 loginCallback(callback);
                 return null;
             }
