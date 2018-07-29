@@ -115,20 +115,24 @@ public class AdminLeaserListAdapter implements ListAdapter {
         viewHolder.movie_name.setText(_movieName[position]);
         viewHolder.rented_day.setText(_rentedDay[position]);
         viewHolder.returned_day.setText(_returnDay[position]);
-        viewHolder.B_returnMovie.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                UserRequest req = new UserRequest();
-                req.returnMovie(_movieId[position], new RequestInterface() {
-                    @Override
-                    public JSONObject onRecive(Callback callback) {
-                        callback.ShowResponse(_context, "movie successfully returned");
-                        return null;
-                    }
-                });
-            }
-        });
-
+        if(!(_returnDay[position].equals("null"))){
+          viewHolder.B_returnMovie.setVisibility(View.INVISIBLE);
+        }
+        else {
+            viewHolder.B_returnMovie.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    UserRequest req = new UserRequest();
+                    req.returnMovie(_movieId[position], new RequestInterface() {
+                        @Override
+                        public JSONObject onRecive(Callback callback) {
+                            callback.ShowResponse(_context, "movie successfully returned");
+                            return null;
+                        }
+                    });
+                }
+            });
+        }
         return itemView;
 
     }
