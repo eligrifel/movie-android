@@ -2,6 +2,8 @@ package com.example.movienativeapp;
 
 /**
  * Created by eli on 6/28/2018.
+ *
+ * movie class holding single movie info
  */
 
 public class Movie {

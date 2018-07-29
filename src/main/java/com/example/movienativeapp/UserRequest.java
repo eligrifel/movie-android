@@ -9,6 +9,8 @@ import java.util.Map;
 
 /**
  * Created by eli on 6/23/2018.
+ *
+ * this class holds user request method from the server
  */
 //this classs responsible for all user request
 public class UserRequest {

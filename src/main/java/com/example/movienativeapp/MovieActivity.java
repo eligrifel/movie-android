@@ -36,7 +36,7 @@ import android.widget.Toast;
 
 import com.example.movienativeapp.Main.SamplePagerItem;
 //import com.worklight.wlclient.api.WLClient;
-
+// movie activity class is an activity for displaying list of movies
 public class MovieActivity extends AppCompatActivity {
 
 
@@ -51,10 +51,7 @@ public class MovieActivity extends AppCompatActivity {
     ActionBar actionBar;
 
     ///
-    private String[] moviesArray;
-    private String[] moviesPathArray;
-    private String[] TopRatedRating;
-    private String[] movieId;
+
     final RequestListenerHolder _serverRec = new RequestListenerHolder();
     private RequestInterface _listener;
     private String category_id;
@@ -124,9 +121,7 @@ public class MovieActivity extends AppCompatActivity {
     private void connect() {
         context = this;
 
-        //preperMovieArrays("getFMovies");
-        // _serverRec.getAllMovies();
-        //testing get category movies
+
         UserRequest req = new UserRequest();
         req.getMoviesForCategory(category_id, _listener);
 
@@ -179,10 +174,10 @@ public class MovieActivity extends AppCompatActivity {
         _listener = new RequestInterface() {
             @Override
             public JSONObject onRecive(Callback callback) {
-                final ArrayList<HashMap<String, String>> mapList;
+
 
                 method = callback.get_data()[1];
-                mapList = callback.get_dataList();
+
 
                 switch (method) {
 

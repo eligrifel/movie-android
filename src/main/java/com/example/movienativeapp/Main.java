@@ -10,7 +10,6 @@ import fragments.MovieFrag;
 import fragments.insert_movie_fragment;
 import listAdapters.MoviesListAdapter;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import listAdapters.MoviesListAdapterObject;
@@ -48,6 +47,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
+//this activity is for is the main activity resposibe for the tab view aand the action bar
 
 public class Main extends AppCompatActivity implements OncategoryViewListener {
     //fragment property
@@ -56,23 +56,18 @@ public class Main extends AppCompatActivity implements OncategoryViewListener {
     android.support.v4.app.FragmentManager fm;
     FragmentTransaction fragmentTransaction;
     ListView categoryLIst;
-    Button B_returnMovie;
-    private String[] category_array;
     private ViewPager mViewPager;
     private boolean connected = false;
-    //private WLClient myClient;
     private Toast toast;
     private Context context;
     Handler handler;
-    //private JSONObject json;
+
     private FragmentManager fragmentManager;
     private MyPagerAdapter mypageradapter;
     List<SamplePagerItem> mTabs;
     ActionBar actionBar;
     ///movies arrays 
-    private String[] moviesArray;
-    private String[] moviesPathArray;
-    private String[] TopRatedRating;
+
     final RequestListenerHolder serverRec = new RequestListenerHolder();
     private RequestInterface callback;
     String method;
@@ -96,7 +91,7 @@ public class Main extends AppCompatActivity implements OncategoryViewListener {
         handleCallBack();
         serverRec.addListener(callback);
         setContentView(R.layout.main);
-        //text view of user personal info
+
         TVuser_name = (TextView) findViewById(R.id.TVuser_name);
         TVcredits = (TextView) findViewById(R.id.TV_number_credit_remains);
         TVnumber_rated_movies = (TextView) findViewById(R.id.TV_number_rented_movies);

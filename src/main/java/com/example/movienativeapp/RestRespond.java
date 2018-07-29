@@ -23,6 +23,8 @@ import java.util.Map;
 
 /**
  * Created by eli on 24/07/2015.
+ *
+ * this class responsible for connecting to the server and retrieve the response as json and convert it to map
  */
 public class RestRespond {
     private String BaseUrl = "http://192.168.2.8:8080/";

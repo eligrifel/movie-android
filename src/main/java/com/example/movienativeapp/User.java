@@ -2,6 +2,8 @@ package com.example.movienativeapp;
 
 /**
  * Created by eli on 7/19/2018.
+ *
+ * this class hold user info
  */
 
 public class User {
