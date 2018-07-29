@@ -119,6 +119,7 @@ public class AdminLeaserListAdapter implements ListAdapter {
           viewHolder.B_returnMovie.setVisibility(View.INVISIBLE);
         }
         else {
+            viewHolder.B_returnMovie.setVisibility(View.VISIBLE);
             viewHolder.B_returnMovie.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
