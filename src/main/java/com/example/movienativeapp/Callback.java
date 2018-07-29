@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * Created by eli on 11/11/2017.
  *
  * this is a callback object holding information returned from te server
  */

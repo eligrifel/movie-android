@@ -33,7 +33,6 @@ import java.io.IOException;
 import java.net.URL;
 
 /**
- * Created by eli on 6/28/2018.
  */
 
 public class MoviesListAdapterObject implements ListAdapter {

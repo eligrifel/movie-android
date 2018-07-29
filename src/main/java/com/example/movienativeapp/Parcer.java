@@ -11,7 +11,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 /**
- * Created by eli on 11/11/2017.
  *
  * this class responsible  for parsing the data from json object and array to a specific to arraylist of map  or to arrays of of strings by field name
  */

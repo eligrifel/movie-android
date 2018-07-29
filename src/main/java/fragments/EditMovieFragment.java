@@ -10,7 +10,7 @@ import com.example.movienativeapp.R;
 
 
 /**
- * Created by eli on 03/06/2015.
+
  */
 public class EditMovieFragment extends Fragment {
     @Override

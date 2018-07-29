@@ -31,7 +31,6 @@ import listAdapters.UserListAdapter;
 import listAdapters.category_list_adapter;
 
 /**
- * Created by eli levi on 6/24/2018.
  */
 
 public class AdminActivity extends AppCompatActivity implements View.OnClickListener {

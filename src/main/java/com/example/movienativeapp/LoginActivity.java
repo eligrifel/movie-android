@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * Created by eli levi on 20/10/2017.
  *
  * login activity first page on the appp use for login and registration
  */

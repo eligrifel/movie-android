@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * Created by eli on 6/23/2018.
  *
  * this class is for all admin method request
  */

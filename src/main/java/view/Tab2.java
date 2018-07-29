@@ -2,7 +2,7 @@ package view;
 
 
 /**
- * Created by eli on 5/30/2015.
+
  */
 
 import com.example.movienativeapp.Callback;

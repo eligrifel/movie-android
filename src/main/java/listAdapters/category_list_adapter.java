@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.example.movienativeapp.R;
 
 /**
- * Created by eli on 6/25/2018.
+
  */
 
 public class category_list_adapter implements ListAdapter {

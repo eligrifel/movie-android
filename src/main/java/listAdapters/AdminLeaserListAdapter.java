@@ -21,7 +21,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 
 /**
- * Created by eli on 6/25/2018.
+
  */
 
 public class AdminLeaserListAdapter implements ListAdapter {

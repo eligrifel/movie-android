@@ -22,7 +22,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by eli on 24/07/2015.
  *
  * this class responsible for connecting to the server and retrieve the response as json and convert it to map
  */

@@ -11,7 +11,6 @@ import android.support.v4.view.ViewPager;
 
 
 /**
- * Created by eli on 5/30/2015.
  */
 public class MyPagerAdapter extends FragmentPagerAdapter {
     private ArrayList<String> tabName;
