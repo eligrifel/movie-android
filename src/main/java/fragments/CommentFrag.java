@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-
 /**
  * Created by eli on 03/06/2015.
  */
@@ -19,7 +18,7 @@ public class CommentFrag extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-  
+
         return inflater.inflate(R.layout.comment_fragment, container, false);
     }
 

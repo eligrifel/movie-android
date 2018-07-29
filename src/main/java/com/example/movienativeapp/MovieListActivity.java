@@ -39,87 +39,72 @@ import android.widget.Toast;
 
 
 public class MovieListActivity extends FragmentActivity {
-	//private int[]  picArray ={R.drawable.pic1,R.drawable.pic2,R.drawable.pic3,R.drawable.pic4,R.drawable.pic5,R.drawable.pic6,R.drawable.pic7,R.drawable.pic8,};
-	private boolean connected=false;
-	//	private WLClient myClient;
-	private Toast toast;
-	private Context context;
-	Handler handler;
-	private JSONObject json;
-	private android.support.v4.app.FragmentManager fragmentManager;
+    //private int[]  picArray ={R.drawable.pic1,R.drawable.pic2,R.drawable.pic3,R.drawable.pic4,R.drawable.pic5,R.drawable.pic6,R.drawable.pic7,R.drawable.pic8,};
+    private boolean connected = false;
+    //	private WLClient myClient;
+    private Toast toast;
+    private Context context;
+    Handler handler;
+    private JSONObject json;
+    private android.support.v4.app.FragmentManager fragmentManager;
 
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        //create action bar tabs
+        setContentView(R.layout.activity_main);
+        handler = new Handler(getMainLooper());
+        connect();
+
+    }
 
 
-
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		//create action bar tabs
-		setContentView(R.layout.activity_main);
-		handler = new Handler(getMainLooper());
-		connect();
-
-	}
-
-
-
-
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
 //		Looper.prepare();
 
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
-	}
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
-	private void connect() {
-		context = this;
-
-
-	}
+    private void connect() {
+        context = this;
 
 
+    }
 
 
+    public void loadF2(View view) {
+        fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        MovieFrag fragment = new MovieFrag();
+        fragmentTransaction.replace(R.id.fragment, fragment);
 
-	public void loadF2(View view) {
-		fragmentManager = getSupportFragmentManager();
-		FragmentTransaction fragmentTransaction  = fragmentManager.beginTransaction();
-		MovieFrag fragment = new MovieFrag();
-		fragmentTransaction.replace(R.id.fragment, fragment);
+        fragmentTransaction.addToBackStack("tag2");
+        fragmentTransaction.commit();
 
-		fragmentTransaction.addToBackStack("tag2");
-		fragmentTransaction.commit();
+        if (connected) {
 
-		if(connected)
-		{
+        } else {
+            toast = Toast.makeText(context, "try later you are offline ", Toast.LENGTH_SHORT);
+            toast.show();
+        }
 
-		}
-		else
-		{
-			toast = Toast.makeText(context, "try later you are offline " ,Toast.LENGTH_SHORT );
-			toast.show();
-		}
-
-	}
-
-
-
+    }
 
 
 }

@@ -27,56 +27,56 @@ import java.util.HashMap;
  * Created by eli on 6/25/2018.
  */
 
-public class UserListAdapter  implements ListAdapter {
+public class UserListAdapter implements ListAdapter {
     private Context _context;
     private User[] _users;
     int _resource;
     ListAdapter _adapter;
     private replaceFragment _fragment_replace;
 
-    public UserListAdapter(User[] users, final int resource, replaceFragment fragment_replace ,Context context) {
-        _resource=resource;
+    public UserListAdapter(User[] users, final int resource, replaceFragment fragment_replace, Context context) {
+        _resource = resource;
         _context = context;
         this._users = users;
-        _adapter=this;
-        _fragment_replace=fragment_replace;
+        _adapter = this;
+        _fragment_replace = fragment_replace;
 
     }
 
     @Override
     public void registerDataSetObserver(DataSetObserver observer) {
-      
+
 
     }
 
     @Override
     public void unregisterDataSetObserver(DataSetObserver observer) {
-      
+
 
     }
 
     @Override
     public int getCount() {
-      
+
         return _users.length;
 
     }
 
     @Override
     public Object getItem(int position) {
-      
+
         return null;
     }
 
     @Override
     public long getItemId(int position) {
-      
+
         return 0;
     }
 
     @Override
     public boolean hasStableIds() {
-      
+
         return false;
     }
 
@@ -94,10 +94,10 @@ public class UserListAdapter  implements ListAdapter {
             itemView = inflater.inflate(_resource, parent, false);
             viewHolder = new UserListAdapter.ViewHolder();
 
-            viewHolder.user_name  = (TextView)itemView.findViewById(R.id.TV_user_name);
+            viewHolder.user_name = (TextView) itemView.findViewById(R.id.TV_user_name);
 
-            viewHolder.B_edit_user=(Button)itemView.findViewById(R.id.B_edit_user);
-            viewHolder.B_delete_user=(Button)itemView.findViewById(R.id.B_delete_user);
+            viewHolder.B_edit_user = (Button) itemView.findViewById(R.id.B_edit_user);
+            viewHolder.B_delete_user = (Button) itemView.findViewById(R.id.B_delete_user);
 
 
             itemView.setTag(viewHolder);
@@ -113,7 +113,7 @@ public class UserListAdapter  implements ListAdapter {
         viewHolder.B_edit_user.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            _fragment_replace.onAdepterCall(_users[position]);
+                _fragment_replace.onAdepterCall(_users[position]);
             }
         });
         final ViewHolder finalViewHolder = viewHolder;
@@ -124,7 +124,7 @@ public class UserListAdapter  implements ListAdapter {
                 req.deleteUser(_users[position].getUser_id(), new RequestInterface() {
                     @Override
                     public JSONObject onRecive(Callback callback) {
-                        callback.ShowResponse(_context,"user successfully deleted");
+                        callback.ShowResponse(_context, "user successfully deleted");
 
                         return null;
                     }
@@ -137,33 +137,33 @@ public class UserListAdapter  implements ListAdapter {
     }
 
     @Override
-    public int getItemViewType ( int position){
-      
+    public int getItemViewType(int position) {
+
         return 0;
     }
 
     @Override
-    public int getViewTypeCount () {
-      
+    public int getViewTypeCount() {
+
         return _users.length;
     }
 
     @Override
-    public boolean isEmpty () {
-      
+    public boolean isEmpty() {
+
         return false;
     }
 
     @Override
-    public boolean areAllItemsEnabled () {
+    public boolean areAllItemsEnabled() {
 
-      
+
         return true;
     }
 
     @Override
-    public boolean isEnabled ( int position){
-      
+    public boolean isEnabled(int position) {
+
         return true;
     }
 

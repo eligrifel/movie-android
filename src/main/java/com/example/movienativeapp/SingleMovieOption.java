@@ -45,41 +45,41 @@ import listAdapters.CommentListAdapter;
 
 public class SingleMovieOption extends AppCompatActivity {
     private Callback callback;
-	private boolean connected=false;
-//	private WLClient myClient;
-Bundle moviebundle ;
-	String movie_id;
-	TextView _movieName;
-	TextView _movieInfo;
-	String _imagePath;
-	RatingBar _movieRating;
-	private Context context;
-	Handler handler;
-	final RequestListenerHolder serverRec = new RequestListenerHolder();
-	private JSONObject json;
-	private RequestInterface Interface;
+    private boolean connected = false;
+    //	private WLClient myClient;
+    Bundle moviebundle;
+    String movie_id;
+    TextView _movieName;
+    TextView _movieInfo;
+    String _imagePath;
+    RatingBar _movieRating;
+    private Context context;
+    Handler handler;
+    final RequestListenerHolder serverRec = new RequestListenerHolder();
+    private JSONObject json;
+    private RequestInterface Interface;
     List<SamplePagerItem> mTabs;
     ActionBar actionBar;
-	UserRequest req;
-   
+    UserRequest req;
+
 ///
 
 
-	//fragment property
+    //fragment property
 
-	FragmentManager fm ;
-	FragmentTransaction fragmentTransaction ;
+    FragmentManager fm;
+    FragmentTransaction fragmentTransaction;
 
-	
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_single_movie_option);
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_single_movie_option);
         handleCallBack();
-		_movieName=(TextView) findViewById(R.id.TVmovieName);
-		_movieInfo=(TextView) findViewById(R.id.TV_infoTextBox);
-		_movieRating=(RatingBar) findViewById(R.id.ratingBar1);
-		handler = new Handler();
+        _movieName = (TextView) findViewById(R.id.TVmovieName);
+        _movieInfo = (TextView) findViewById(R.id.TV_infoTextBox);
+        _movieRating = (RatingBar) findViewById(R.id.ratingBar1);
+        handler = new Handler();
         context = this;
         actionBar = getSupportActionBar();
         actionBar.setElevation(0);
@@ -90,270 +90,258 @@ Bundle moviebundle ;
 
         moviebundle = getIntent().getExtras();
         final String moviename = moviebundle.getString("name");
-		movie_id=moviebundle.getString("movie_id");
+        movie_id = moviebundle.getString("movie_id");
         final String pathString = moviebundle.getString("path");
-		final float rating= moviebundle.getFloat("rating");
+        final float rating = moviebundle.getFloat("rating");
 
         _imagePath = pathString;
-  		runOnUiThread(new Runnable() {
-			@Override
-			public void run() {
-				_movieInfo.setText(moviebundle.getString("info"));
-				_movieName.setText(moviename);
-				_movieRating.setRating(rating);
-			}
-		});
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                _movieInfo.setText(moviebundle.getString("info"));
+                _movieName.setText(moviename);
+                _movieRating.setRating(rating);
+            }
+        });
 
         new DownloadAsyncTask().execute(_movieImage);
         connect();
-		setListeners();
-	}
+        setListeners();
+    }
 
-	private void setListeners() {
-		findViewById(R.id.give_review);
+    private void setListeners() {
+        findViewById(R.id.give_review);
 
-	}
-	public void onGiveRevieClick(View view) {
+    }
 
-		fragments.write_review rfragment;
+    public void onGiveRevieClick(View view) {
 
-
-		fm = getSupportFragmentManager();
-		fragmentTransaction = fm.beginTransaction();
-		Fragment f= fm.findFragmentByTag("review");
-		if(f==null) {
-			rfragment = new write_review();
+        fragments.write_review rfragment;
 
 
-		}
-		else
-			rfragment = (write_review) f;
-		fragmentTransaction.replace(R.id.test, rfragment, "review").commit();
-		getSupportFragmentManager().executePendingTransactions();
+        fm = getSupportFragmentManager();
+        fragmentTransaction = fm.beginTransaction();
+        Fragment f = fm.findFragmentByTag("review");
+        if (f == null) {
+            rfragment = new write_review();
 
-		ScrollView sv = (ScrollView) rfragment.getView().getRootView().findViewById(R.id.SV_singleMovie);
-		sv.fullScroll(View.FOCUS_DOWN);
 
-	}
+        } else
+            rfragment = (write_review) f;
+        fragmentTransaction.replace(R.id.test, rfragment, "review").commit();
+        getSupportFragmentManager().executePendingTransactions();
 
-	public void updateReview(View view) {
+        ScrollView sv = (ScrollView) rfragment.getView().getRootView().findViewById(R.id.SV_singleMovie);
+        sv.fullScroll(View.FOCUS_DOWN);
+
+    }
+
+    public void updateReview(View view) {
 
 
 //remove fragment
-		fragments.write_review fragment = (fragments.write_review)fm.findFragmentByTag("review");
-		FragmentTransaction transaction= fm.beginTransaction();
-		RatingBar newRatingBar= (RatingBar) fragment.getView().findViewById(R.id.RB_new_ratingBar);
-		EditText ET_review_content = (EditText) fragment.getView().findViewById(R.id.ET_W_review_content);
-		String newReviewContent=ET_review_content.getText().toString();
-		Float new_Float_rating= newRatingBar.getRating(); new_Float_rating= new_Float_rating*2;
-		int new_rating =Math.round(new_Float_rating);
+        fragments.write_review fragment = (fragments.write_review) fm.findFragmentByTag("review");
+        FragmentTransaction transaction = fm.beginTransaction();
+        RatingBar newRatingBar = (RatingBar) fragment.getView().findViewById(R.id.RB_new_ratingBar);
+        EditText ET_review_content = (EditText) fragment.getView().findViewById(R.id.ET_W_review_content);
+        String newReviewContent = ET_review_content.getText().toString();
+        Float new_Float_rating = newRatingBar.getRating();
+        new_Float_rating = new_Float_rating * 2;
+        int new_rating = Math.round(new_Float_rating);
 
-		if(new_rating==0) {
-			Toast.makeText(getApplication(), "you must rate it too", Toast.LENGTH_LONG).show();
-			return;
-		}
-		if(fragment!=null)
-		{
-transaction.remove(fragment);
+        if (new_rating == 0) {
+            Toast.makeText(getApplication(), "you must rate it too", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if (fragment != null) {
+            transaction.remove(fragment);
 
-		transaction.commit();
+            transaction.commit();
 
-		}
-		//send new comment to server
-		if(req==null)
-			req = new UserRequest();
-		req.updateRating(movie_id, newReviewContent, Integer.toString(new_rating), new RequestInterface() {
-			@Override
-			public JSONObject onRecive(Callback callback) {
-				String response =callback.getRespondFromServer();
-				final String message ;
-				if(response.equals("1")){
-
-					message ="thank you for your review";
-				}
-				else
-					message =response;
-				runOnUiThread(new Runnable() {
-					@Override
-					public void run() {
-						Toast.makeText(context,message,Toast.LENGTH_LONG).show();
-					}
-				});
-				return null;
-			}
-		});
-	}
-
-public void rentTheMovie(View view)
-{
-
-	req = new UserRequest();
-	req.rentMovie(movie_id, new RequestInterface() {
-		@Override
-		public JSONObject onRecive(Callback callback) {
-			final String response =callback.getRespondFromServer();
-
-runOnUiThread(new Runnable() {
-	@Override
-	public void run() {
-		if(response.equals("1")){
-			Toast.makeText(context,"you successfully rented the movie. enjoy!  ",Toast.LENGTH_LONG).show();
-		}
-		else
-
-			Toast.makeText(context,response,Toast.LENGTH_LONG).show();
-	}
-});
-
-			return null;
-		}
-	});
-}
-
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.single_movie_option, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
-
-
-	private class DownloadAsyncTask extends AsyncTask<ImageView, Void, ImageView> {
-		private Bitmap bit;
-		
-		public DownloadAsyncTask()
-		{
-			
-			super();
-			
-			
-		}
-		
-		@Override
-		protected ImageView doInBackground(ImageView... params) {
-			// TODO Auto-generated method stub
-			//load image directly
-			ImageView viewHolder = params[0];
-			try {
-				
-				URL imageURL = new URL(_imagePath);
-				bit = BitmapFactory.decodeStream(imageURL.openStream());
-				
-			} catch (IOException e) {
-				// TODO: handle exception
-				Log.e("error", "Downloading Image Failed");
-				
-			}
-			
-			return viewHolder;
-		}
-		
-		@Override
-		protected void onPostExecute(ImageView result) {
-			// TODO Auto-generated method stub
-			if (bit == null) {
-				//result.image.setImageResource(R.drawable.postthumb_loading);
-			} else {
-				result.setImageBitmap(bit);
-				
-				
-			}
-		}
-	}
-	
-
-	  private void connect() {
-			context = this;
-
-				connected=true;
-
-               getComments(Integer.parseInt(movie_id));
-
-
-				
-
-
-		}
-	public void getComments(int movieId)
-	{
-		String[] args = new String[3];
-		args[0]="GET";
-		args[1]= "reviews";
-		args[2]= String.valueOf(movieId);
-		serverRec.addListener(Interface);
-		serverRec.getReviewByMovieId(args);
-
-
-
-	}
-    private void handleCallBack() {
-
-        Interface= new RequestInterface() {
+        }
+        //send new comment to server
+        if (req == null)
+            req = new UserRequest();
+        req.updateRating(movie_id, newReviewContent, Integer.toString(new_rating), new RequestInterface() {
             @Override
             public JSONObject onRecive(Callback callback) {
-                final ArrayList<HashMap<String,String>> mapList;
+                String response = callback.getRespondFromServer();
+                final String message;
+                if (response.equals("1")) {
 
-               String method = callback.get_data()[1];
+                    message = "thank you for your review";
+                } else
+                    message = response;
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(context, message, Toast.LENGTH_LONG).show();
+                    }
+                });
+                return null;
+            }
+        });
+    }
+
+    public void rentTheMovie(View view) {
+
+        req = new UserRequest();
+        req.rentMovie(movie_id, new RequestInterface() {
+            @Override
+            public JSONObject onRecive(Callback callback) {
+                final String response = callback.getRespondFromServer();
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (response.equals("1")) {
+                            Toast.makeText(context, "you successfully rented the movie. enjoy!  ", Toast.LENGTH_LONG).show();
+                        } else
+
+                            Toast.makeText(context, response, Toast.LENGTH_LONG).show();
+                    }
+                });
+
+                return null;
+            }
+        });
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.single_movie_option, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
+    private class DownloadAsyncTask extends AsyncTask<ImageView, Void, ImageView> {
+        private Bitmap bit;
+
+        public DownloadAsyncTask() {
+
+            super();
+
+
+        }
+
+        @Override
+        protected ImageView doInBackground(ImageView... params) {
+            // TODO Auto-generated method stub
+            //load image directly
+            ImageView viewHolder = params[0];
+            try {
+
+                URL imageURL = new URL(_imagePath);
+                bit = BitmapFactory.decodeStream(imageURL.openStream());
+
+            } catch (IOException e) {
+                // TODO: handle exception
+                Log.e("error", "Downloading Image Failed");
+
+            }
+
+            return viewHolder;
+        }
+
+        @Override
+        protected void onPostExecute(ImageView result) {
+            // TODO Auto-generated method stub
+            if (bit == null) {
+                //result.image.setImageResource(R.drawable.postthumb_loading);
+            } else {
+                result.setImageBitmap(bit);
+
+
+            }
+        }
+    }
+
+
+    private void connect() {
+        context = this;
+
+        connected = true;
+
+        getComments(Integer.parseInt(movie_id));
+
+
+    }
+
+    public void getComments(int movieId) {
+        String[] args = new String[3];
+        args[0] = "GET";
+        args[1] = "reviews";
+        args[2] = String.valueOf(movieId);
+        serverRec.addListener(Interface);
+        serverRec.getReviewByMovieId(args);
+
+
+    }
+
+    private void handleCallBack() {
+
+        Interface = new RequestInterface() {
+            @Override
+            public JSONObject onRecive(Callback callback) {
+                final ArrayList<HashMap<String, String>> mapList;
+
+                String method = callback.get_data()[1];
                 mapList = callback.get_dataList();
 
 
-                switch(method)
-                {
-                    case "reviews":
-                    {
+                switch (method) {
+                    case "reviews": {
                         Parcer parcer = new Parcer();
 
-                        final String[] users= parcer.getFieldArray(mapList,"user_name");
-                        String[] comments= parcer.getFieldArray(mapList,"comment");
+                        final String[] users = parcer.getFieldArray(mapList, "user_name");
+                        String[] comments = parcer.getFieldArray(mapList, "comment");
                         final ArrayList<String[]> pairs = new ArrayList<>();
                         pairs.add(users);
                         pairs.add(comments);
 
 
+                        final ListView myListView = (ListView) findViewById(R.id.LV_comments);
+                        runOnUiThread(new Runnable() {
+                                          @Override
+                                          public void run() {
+                                              if (users != null && users.length > 0)
+                                                  myListView.setAdapter(new CommentListAdapter(pairs, context));
+                                              myListView.setOnTouchListener(new View.OnTouchListener() {
+                                                  @Override
+                                                  public boolean onTouch(View v, MotionEvent event) {
+                                                      int action = event.getAction();
+                                                      switch (action) {
+                                                          case MotionEvent.ACTION_DOWN:
+                                                              // Disallow ScrollView to intercept touch events.
+                                                              v.getParent().requestDisallowInterceptTouchEvent(true);
+                                                              break;
 
-                                final ListView myListView = (ListView) findViewById(R.id.LV_comments);
-runOnUiThread(new Runnable() {
-				  @Override
-				  public void run() {
-					  if(users!=null && users.length>0)
-					  myListView.setAdapter(new CommentListAdapter(pairs, context));
-					  myListView.setOnTouchListener(new View.OnTouchListener() {
-						  @Override
-						  public boolean onTouch(View v, MotionEvent event) {
-							  int action = event.getAction();
-							  switch (action) {
-								  case MotionEvent.ACTION_DOWN:
-									  // Disallow ScrollView to intercept touch events.
-									  v.getParent().requestDisallowInterceptTouchEvent(true);
-									  break;
+                                                          case MotionEvent.ACTION_UP:
+                                                              // Allow ScrollView to intercept touch events.
+                                                              v.getParent().requestDisallowInterceptTouchEvent(false);
+                                                              break;
+                                                      }
 
-								  case MotionEvent.ACTION_UP:
-									  // Allow ScrollView to intercept touch events.
-									  v.getParent().requestDisallowInterceptTouchEvent(false);
-									  break;
-							  }
-
-							  // Handle ListView touch events.
-							  v.onTouchEvent(event);
-							  return true;
-						  }
-					  });
-				  }
-			  }
-);
-
-
+                                                      // Handle ListView touch events.
+                                                      v.onTouchEvent(event);
+                                                      return true;
+                                                  }
+                                              });
+                                          }
+                                      }
+                        );
 
 
                     }
@@ -361,7 +349,7 @@ runOnUiThread(new Runnable() {
                 }
 
 
-              return  null;
+                return null;
             }
         };
     }

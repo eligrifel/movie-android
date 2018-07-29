@@ -2,23 +2,23 @@
 
 package listAdapters;
 
-        import android.content.Context;
-        import android.database.DataSetObserver;
-        import android.view.LayoutInflater;
-        import android.view.View;
-        import android.view.ViewGroup;
-        import android.widget.Button;
-        import android.widget.ListAdapter;
-        import android.widget.TextView;
+import android.content.Context;
+import android.database.DataSetObserver;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ListAdapter;
+import android.widget.TextView;
 
-        import com.example.movienativeapp.Callback;
-        import com.example.movienativeapp.R;
-        import com.example.movienativeapp.RequestInterface;
-        import com.example.movienativeapp.UserRequest;
+import com.example.movienativeapp.Callback;
+import com.example.movienativeapp.R;
+import com.example.movienativeapp.RequestInterface;
+import com.example.movienativeapp.UserRequest;
 
-        import org.json.JSONObject;
+import org.json.JSONObject;
 
-        import java.util.HashMap;
+import java.util.HashMap;
 
 /**
  * Created by eli on 6/25/2018.
@@ -34,9 +34,8 @@ public class AdminLeaserListAdapter implements ListAdapter {
     int _resource;
 
 
-
-    public AdminLeaserListAdapter(HashMap<String,String[]> data, final int resource, Context context) {
-        _resource=resource;
+    public AdminLeaserListAdapter(HashMap<String, String[]> data, final int resource, Context context) {
+        _resource = resource;
         _context = context;
         this._movieId = data.get("movies_id");
         this._movieName = data.get("movie_names");
@@ -98,11 +97,11 @@ public class AdminLeaserListAdapter implements ListAdapter {
             itemView = inflater.inflate(_resource, parent, false);
             viewHolder = new AdminLeaserListAdapter.ViewHolder();
 
-            viewHolder.user_name  = (TextView)itemView.findViewById(R.id.TV_user_name);
-            viewHolder.movie_name = (TextView)itemView.findViewById(R.id.TV_movie_name);
-            viewHolder.rented_day = (TextView)itemView.findViewById(R.id.TV_rented_day);
-            viewHolder.returned_day = (TextView)itemView.findViewById(R.id.TV_return_day);
-            viewHolder.B_returnMovie=(Button)itemView.findViewById(R.id.B_admin_return_movie);
+            viewHolder.user_name = (TextView) itemView.findViewById(R.id.TV_user_name);
+            viewHolder.movie_name = (TextView) itemView.findViewById(R.id.TV_movie_name);
+            viewHolder.rented_day = (TextView) itemView.findViewById(R.id.TV_rented_day);
+            viewHolder.returned_day = (TextView) itemView.findViewById(R.id.TV_return_day);
+            viewHolder.B_returnMovie = (Button) itemView.findViewById(R.id.B_admin_return_movie);
 
 
             itemView.setTag(viewHolder);
@@ -123,7 +122,7 @@ public class AdminLeaserListAdapter implements ListAdapter {
                 req.returnMovie(_movieId[position], new RequestInterface() {
                     @Override
                     public JSONObject onRecive(Callback callback) {
-                        callback.ShowResponse(_context,"movie successfully returned");
+                        callback.ShowResponse(_context, "movie successfully returned");
                         return null;
                     }
                 });
@@ -135,31 +134,31 @@ public class AdminLeaserListAdapter implements ListAdapter {
     }
 
     @Override
-    public int getItemViewType ( int position){
+    public int getItemViewType(int position) {
         // TODO Auto-generated method stub
         return 0;
     }
 
     @Override
-    public int getViewTypeCount () {
+    public int getViewTypeCount() {
         // TODO Auto-generated method stub
         return _movieId.length;
     }
 
     @Override
-    public boolean isEmpty () {
+    public boolean isEmpty() {
         // TODO Auto-generated method stub
         return false;
     }
 
     @Override
-    public boolean areAllItemsEnabled () {
+    public boolean areAllItemsEnabled() {
         // TODO Auto-generated method stub
         return true;
     }
 
     @Override
-    public boolean isEnabled ( int position){
+    public boolean isEnabled(int position) {
         // TODO Auto-generated method stub
         return true;
     }

@@ -34,7 +34,6 @@ public class FragmentEdit_user extends Fragment {
     }
 
 
-
     @Override
     public void onDetach() {
         super.onDetach();

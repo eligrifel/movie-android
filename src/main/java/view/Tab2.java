@@ -1,10 +1,10 @@
 package view;
 
 
-
 /**
  * Created by eli on 5/30/2015.
  */
+
 import com.example.movienativeapp.Callback;
 import com.example.movienativeapp.R;
 import com.example.movienativeapp.R.layout;
@@ -31,7 +31,6 @@ public class Tab2 extends Fragment {
                              Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(layout.search_movie, container, false);
-
 
 
         return rootView;

@@ -63,7 +63,6 @@ public class write_review extends Fragment {
     }
 
 
-
     @Override
     public void onDetach() {
         super.onDetach();

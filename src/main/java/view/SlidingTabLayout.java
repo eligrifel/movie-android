@@ -17,7 +17,6 @@ package view;
  */
 
 
-
 import com.example.movienativeapp.R.drawable;
 
 import android.R;
@@ -35,7 +34,6 @@ import android.view.ViewGroup;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 
 
 /**
@@ -109,7 +107,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
 
     /**
      * Set the custom {@link TabColorizer} to be used.
-     *
+     * <p>
      * If you only require simple custmisation then you can use
      * {@link #setSelectedIndicatorColors(int...)} to achieve
      * similar effects.
@@ -145,7 +143,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
      * Set the custom layout to be inflated for the tab views.
      *
      * @param layoutResId Layout id to be inflated
-     * @param textViewId id of the {@link TextView} in the inflated view
+     * @param textViewId  id of the {@link TextView} in the inflated view
      */
     public void setCustomTabView(int layoutResId, int textViewId) {
         mTabViewLayoutId = layoutResId;

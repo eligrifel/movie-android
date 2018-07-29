@@ -28,10 +28,11 @@ import listAdapters.category_list_adapter;
  * {@link Fragment_get_credit.OnFragmentInteractionListener} interface
  * to handle interaction events.
  */
-public class Fragment_get_credit extends Fragment implements  View.OnClickListener {
-    private  View mView;
+public class Fragment_get_credit extends Fragment implements View.OnClickListener {
+    private View mView;
     private OnFragmentInteractionListener mListener;
     private UserRequest request;
+
     public Fragment_get_credit() {
         // Required empty public constructor
     }
@@ -41,12 +42,12 @@ public class Fragment_get_credit extends Fragment implements  View.OnClickListen
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-         mView= inflater.inflate(R.layout.layout_fragment_get_credit, container, false);
+        mView = inflater.inflate(R.layout.layout_fragment_get_credit, container, false);
         Button buyCredit = (Button) mView.findViewById(R.id.B_getCredit);
         Button showPurchases = (Button) mView.findViewById(R.id.B_show_purchase_history);
         showPurchases.setOnClickListener(this);
         buyCredit.setOnClickListener(this);
-return mView;
+        return mView;
 
     }
 
@@ -57,9 +58,7 @@ return mView;
         }
 
 
-
     }
-
 
 
     @Override
@@ -71,43 +70,40 @@ return mView;
     @Override
     public void onClick(View v) {
         final String[] Tmessage = new String[1];
-        if (request==null) request = new UserRequest();
-        switch ((v.getId())){
-            case  R.id.B_getCredit :
-               final String numberOfCredits=((Spinner)(v.getRootView().findViewById(R.id.spinner_credit))).getSelectedItem().toString();
+        if (request == null) request = new UserRequest();
+        switch ((v.getId())) {
+            case R.id.B_getCredit:
+                final String numberOfCredits = ((Spinner) (v.getRootView().findViewById(R.id.spinner_credit))).getSelectedItem().toString();
                 request.buyCredit(numberOfCredits, new RequestInterface() {
                     @Override
                     public JSONObject onRecive(Callback callback) {
 
-                        String response =callback.getRespondFromServer();
-                        if((response.equals("1"))){
-                            Tmessage[0] ="credit was added successfully";
+                        String response = callback.getRespondFromServer();
+                        if ((response.equals("1"))) {
+                            Tmessage[0] = "credit was added successfully";
 
 
+                        } else if (response != null)
+                            Tmessage[0] = response;
 
-                        }
-                        else
-                        if(response!=null)
-                            Tmessage[0]=response;
-
-                       getActivity().runOnUiThread(new Runnable() {
+                        getActivity().runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                Toast.makeText(getActivity(),Tmessage[0],Toast.LENGTH_LONG).show();
+                                Toast.makeText(getActivity(), Tmessage[0], Toast.LENGTH_LONG).show();
                             }
                         });
                         return null;
                     }
                 });
-break;
+                break;
             case R.id.B_show_purchase_history:
                 final ListView purchaaseList = (ListView) v.getRootView().findViewById(R.id.LV_purchase_history);
-                if (request==null)
-                    request= new UserRequest();
+                if (request == null)
+                    request = new UserRequest();
                 request.getPurchaseHistory(new RequestInterface() {
                     @Override
                     public JSONObject onRecive(Callback callback) {
-                        final String [] purchase_history = (String[])callback.getList();
+                        final String[] purchase_history = (String[]) callback.getList();
                         getActivity().runOnUiThread(new Runnable() {
                             @Override
                             public void run() {

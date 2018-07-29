@@ -62,7 +62,6 @@ public class insert_movie_fragment extends Fragment {
     }
 
 
-
     @Override
     public void onDetach() {
         super.onDetach();

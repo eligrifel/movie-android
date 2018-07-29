@@ -34,7 +34,6 @@ public class LIstViewFragment extends Fragment {
     }
 
 
-
     @Override
     public void onDetach() {
         super.onDetach();

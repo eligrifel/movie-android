@@ -12,7 +12,7 @@ import com.example.movienativeapp.R;
 
 public class FragmentAddUser extends Fragment {
 
-    public static FragmentAddUser newInstance( final int layout) {
+    public static FragmentAddUser newInstance(final int layout) {
         Bundle bundle = new Bundle();
         bundle.putInt("layout", layout);
 
@@ -34,11 +34,11 @@ public class FragmentAddUser extends Fragment {
                              Bundle savedInstanceState) {
 
 
-        if(getArguments()!=null)
+        if (getArguments() != null)
             return inflater.inflate(getArguments().getInt("layout"), container, false);
         else
 
-        return inflater.inflate(R.layout.user_add, container, false);
+            return inflater.inflate(R.layout.user_add, container, false);
 
     }
 
@@ -48,7 +48,6 @@ public class FragmentAddUser extends Fragment {
             mListener.onFragmentInteraction(uri);
         }
     }
-
 
 
     @Override

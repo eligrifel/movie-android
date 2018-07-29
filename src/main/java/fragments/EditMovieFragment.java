@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import com.example.movienativeapp.R;
 
 
-
 /**
  * Created by eli on 03/06/2015.
  */

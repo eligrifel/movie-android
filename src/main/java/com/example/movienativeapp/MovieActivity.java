@@ -39,60 +39,49 @@ import com.example.movienativeapp.Main.SamplePagerItem;
 
 public class MovieActivity extends AppCompatActivity {
 
-	
-	private boolean connected=false;
-//	private WLClient myClient;
-	private RestRespond restRespond;
-	private Context context;
-	Handler handler;
-	String method;
+
+    private boolean connected = false;
+    //	private WLClient myClient;
+    private RestRespond restRespond;
+    private Context context;
+    Handler handler;
+    String method;
     String role;
     List<SamplePagerItem> mTabs;
     ActionBar actionBar;
-   
-///
+
+    ///
     private String[] moviesArray;
     private String[] moviesPathArray;
     private String[] TopRatedRating;
     private String[] movieId;
-	final RequestListenerHolder _serverRec = new RequestListenerHolder();
-	private  RequestInterface _listener;
+    final RequestListenerHolder _serverRec = new RequestListenerHolder();
+    private RequestInterface _listener;
     private String category_id;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         handleCallBack();
         restRespond = new RestRespond();
-       
+
         handler = new Handler();
         context = this;
         actionBar = getSupportActionBar();
         actionBar.setElevation(0);
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffFF2E2E")));
         Bundle bundle = getIntent().getExtras();
-        
+
         actionBar.setTitle(bundle.getString("category"));
-        role=bundle.getString("role");
+        role = bundle.getString("role");
         category_id = bundle.getString("category_id");
-        
-        
-        
-        
-       
-        
 
-        
+
         connect();
-        
-
-
 
 
     }
-
-
 
 
     @Override
@@ -115,16 +104,12 @@ public class MovieActivity extends AppCompatActivity {
         }
 
 
-
-        if(id==R.id.go_to_admin_panel&&role.equals("0"))
-        {
-            Intent intent = new Intent(this,AdminActivity.class);
+        if (id == R.id.go_to_admin_panel && role.equals("0")) {
+            Intent intent = new Intent(this, AdminActivity.class);
             startActivity(intent);
             return false;
-        }
-        else
-        {
-            Toast.makeText(getApplicationContext(),"permition denied, you are not Admin",Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(getApplicationContext(), "permition denied, you are not Admin", Toast.LENGTH_LONG).show();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -135,89 +120,83 @@ public class MovieActivity extends AppCompatActivity {
 //        startActivity(intent);
 
     }
-    private void connect() {
-		context = this;
 
-			//preperMovieArrays("getFMovies");
-      // _serverRec.getAllMovies();
+    private void connect() {
+        context = this;
+
+        //preperMovieArrays("getFMovies");
+        // _serverRec.getAllMovies();
         //testing get category movies
         UserRequest req = new UserRequest();
         req.getMoviesForCategory(category_id, _listener);
 
-	}
+    }
 
 
+    public void getMovieLIst(final Movie[] movielist, final int list) {
 
+        if (movielist != null && movielist.length > 0) {
+            handler.post(new Runnable() {
 
+                @Override
+                public void run() {
+                    ListView myListView1 = (ListView) findViewById(list);
 
+                    myListView1.setAdapter(new MoviesListAdapterObject(movielist, R.layout.single_row_movie_list, context));
 
-public void getMovieLIst(final Movie[] movielist,final int list)
-{
+                    myListView1.setOnItemClickListener(new OnItemClickListener() {
 
-    if(movielist!=null&&movielist.length>0){
-			handler.post(new Runnable() {
-				
-				@Override
-				public void run() {						
-					ListView myListView1 = (ListView)findViewById(list);
-					
-					myListView1.setAdapter(new MoviesListAdapterObject(movielist,R.layout.single_row_movie_list,context));
-					
-					myListView1.setOnItemClickListener(new OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent,
+                                                View view, int position, long id) {
 
-                                @Override
-                                public void onItemClick(AdapterView<?> parent,
-                                                        View view, int position, long id) {
+                            Intent movie = new Intent(context, SingleMovieOption.class);
+                            Movie single_movie = movielist[position];
+                            movie.putExtra("name", single_movie.get_name());
+                            movie.putExtra("path", single_movie.getUrl());
+                            movie.putExtra("movie_id", single_movie.getId());
+                            movie.putExtra("info", single_movie.getInfo());
 
-                                    Intent movie = new Intent(context , SingleMovieOption.class);
-                                    Movie single_movie =movielist[position];
-                                    movie.putExtra("name", single_movie.get_name());
-                                    movie.putExtra("path", single_movie.getUrl());
-                                    movie.putExtra("movie_id",single_movie.getId());
-                                    movie.putExtra("info",single_movie.getInfo());
+                            float movie_rating = Float.parseFloat(movielist[position].getRating());
 
-                                    float movie_rating=Float.parseFloat(movielist[position].getRating()) ;
+                            movie.putExtra("rating", movie_rating);
+                            context.startActivity(movie);
 
-                                    movie.putExtra("rating",movie_rating);
-						context.startActivity(movie);
-						
-						}
-						
-					});
-					
-				}
-			});}
-							 
-		}
+                        }
+
+                    });
+
+                }
+            });
+        }
+
+    }
 
     private void handleCallBack() {
-        final ArrayList<HashMap<String,String>> mapList;
+        final ArrayList<HashMap<String, String>> mapList;
 
 
-        _listener= new RequestInterface() {
+        _listener = new RequestInterface() {
             @Override
             public JSONObject onRecive(Callback callback) {
-                final ArrayList<HashMap<String,String>> mapList;
+                final ArrayList<HashMap<String, String>> mapList;
 
                 method = callback.get_data()[1];
                 mapList = callback.get_dataList();
 
-                switch(method)
-                {
+                switch (method) {
 
-                    case "movies":
-                    {
+                    case "movies": {
 
-                        getMovieLIst(callback.getMoviesList(),R.id.general_list_view);
+                        getMovieLIst(callback.getMoviesList(), R.id.general_list_view);
 
 
                     }
                     break;
-                    case "movies/categories":
-                    {
+                    case "movies/categories": {
 //
 
-                        getMovieLIst(callback.getMoviesList(),R.id.general_list_view);
+                        getMovieLIst(callback.getMoviesList(), R.id.general_list_view);
                     }
                     break;
                 }
@@ -229,7 +208,6 @@ public void getMovieLIst(final Movie[] movielist,final int list)
 
         _serverRec.addListener(_listener);
     }
-
 
 
 }

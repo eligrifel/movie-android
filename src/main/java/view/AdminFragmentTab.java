@@ -1,10 +1,10 @@
 package view;
 
 
-
 /**
  * Created by eli on 5/30/2015.
  */
+
 import com.example.movienativeapp.R;
 import com.example.movienativeapp.R.layout;
 
@@ -20,8 +20,9 @@ import android.view.ViewGroup;
 import fragments.insert_movie_fragment;
 
 public class AdminFragmentTab extends Fragment {
-   FragmentManager fm ;
-    FragmentTransaction fragmentTransaction ;
+    FragmentManager fm;
+    FragmentTransaction fragmentTransaction;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

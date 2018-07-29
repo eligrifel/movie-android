@@ -18,10 +18,10 @@ public class category_list_adapter implements ListAdapter {
     private Context _context;
     String[] _categories;
     String[] _categories_id;
-     int _resource;
+    int _resource;
 
-    public category_list_adapter(String[] categories,String[] category_id,final int resource, Context context) {
-        _resource=resource;
+    public category_list_adapter(String[] categories, String[] category_id, final int resource, Context context) {
+        _resource = resource;
         _context = context;
         _categories = categories;
         _categories_id = category_id;
@@ -29,38 +29,38 @@ public class category_list_adapter implements ListAdapter {
 
     @Override
     public void registerDataSetObserver(DataSetObserver observer) {
-      
+
 
     }
 
     @Override
     public void unregisterDataSetObserver(DataSetObserver observer) {
-      
+
 
     }
 
     @Override
     public int getCount() {
-        
+
         return _categories.length;
 
     }
 
     @Override
     public Object getItem(int position) {
-        
+
         return null;
     }
 
     @Override
     public long getItemId(int position) {
-       
+
         return 0;
     }
 
     @Override
     public boolean hasStableIds() {
-     
+
         return false;
     }
 
@@ -79,9 +79,9 @@ public class category_list_adapter implements ListAdapter {
             itemView = inflater.inflate(_resource, parent, false);
             viewHolder = new category_list_adapter.ViewHolder();
 
-            TextView category_name = (TextView)itemView.findViewById(R.id.category_names);
+            TextView category_name = (TextView) itemView.findViewById(R.id.category_names);
             viewHolder.category_name = category_name;
-       
+
 
             itemView.setTag(viewHolder);
 
@@ -91,41 +91,38 @@ public class category_list_adapter implements ListAdapter {
         }
         viewHolder.category_name.setText(_categories[position]);
 
-      
-
-
 
         return itemView;
 
     }
 
     @Override
-    public int getItemViewType ( int position){
-        
+    public int getItemViewType(int position) {
+
         return 0;
     }
 
     @Override
-    public int getViewTypeCount () {
-        
+    public int getViewTypeCount() {
+
         return _categories.length;
     }
 
     @Override
-    public boolean isEmpty () {
-        
+    public boolean isEmpty() {
+
         return false;
     }
 
     @Override
-    public boolean areAllItemsEnabled () {
-        
+    public boolean areAllItemsEnabled() {
+
         return true;
     }
 
     @Override
-    public boolean isEnabled ( int position){
-        
+    public boolean isEnabled(int position) {
+
         return true;
     }
 

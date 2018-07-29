@@ -40,37 +40,38 @@ public class MoviesListAdapterObject implements ListAdapter {
     //fragment property
     private Bitmap[] movieImages;
     private Context _context;
-    private int counter=-1;
+    private int counter = -1;
     //private String[] _elements;
     private Movie[] _movies;
     final int _layout;
 
     private replaceFragment _fragment_replace;
-    public MoviesListAdapterObject(Movie[] movies, int layout,Context context)
-    {
-        _movies = movies;
-        _context=context;
-        _layout=layout;
 
-        movieImages= new Bitmap[_movies.length];
-    }
-    public MoviesListAdapterObject(Movie[] movies, int layout, Context context, replaceFragment  fragment_replace)
-    {
+    public MoviesListAdapterObject(Movie[] movies, int layout, Context context) {
         _movies = movies;
-        _context=context;
-        _layout=layout;
-        _fragment_replace=fragment_replace;
-        movieImages= new Bitmap[_movies.length];
+        _context = context;
+        _layout = layout;
+
+        movieImages = new Bitmap[_movies.length];
     }
+
+    public MoviesListAdapterObject(Movie[] movies, int layout, Context context, replaceFragment fragment_replace) {
+        _movies = movies;
+        _context = context;
+        _layout = layout;
+        _fragment_replace = fragment_replace;
+        movieImages = new Bitmap[_movies.length];
+    }
+
     @Override
     public void registerDataSetObserver(DataSetObserver observer) {
-        
+
 
     }
 
     @Override
     public void unregisterDataSetObserver(DataSetObserver observer) {
-        
+
 
     }
 
@@ -102,48 +103,41 @@ public class MoviesListAdapterObject implements ListAdapter {
         MoviesListAdapterObject.ViewHolder viewHolder = null;
         boolean firsttime = false;
 
-        if(position>=counter)
-        {
-            firsttime=true;
+        if (position >= counter) {
+            firsttime = true;
             counter++;
-        }
-        else
-            firsttime=false;
+        } else
+            firsttime = false;
 
 
         // make sure we have view to work with
-        if (itemView==null)
-        {
+        if (itemView == null) {
 
 
             LayoutInflater inflater = LayoutInflater.from(_context);
-            itemView =inflater.inflate(_layout, parent,false);
+            itemView = inflater.inflate(_layout, parent, false);
             viewHolder = new MoviesListAdapterObject.ViewHolder();
             viewHolder.B_return = (Button) itemView.findViewById(R.id.B_return_movie);
             viewHolder.availble = (TextView) itemView.findViewById(R.id.TV_number_of_movies_available);
-            viewHolder.Edit_movie= (Button) itemView.findViewById(R.id.B_edit_movie);
-            TextView name = (TextView)itemView.findViewById(R.id.movie_name);
-            viewHolder.text=name;
-            viewHolder.ratingBar=(RatingBar)itemView.findViewById(R.id.ratingBar1);
-            ImageView image = (ImageView)itemView.findViewById(R.id.movie_graphic);
+            viewHolder.Edit_movie = (Button) itemView.findViewById(R.id.B_edit_movie);
+            TextView name = (TextView) itemView.findViewById(R.id.movie_name);
+            viewHolder.text = name;
+            viewHolder.ratingBar = (RatingBar) itemView.findViewById(R.id.ratingBar1);
+            ImageView image = (ImageView) itemView.findViewById(R.id.movie_graphic);
             viewHolder.image = image;
 
             itemView.setTag(viewHolder);
 
 
+        } else {
+            viewHolder = (MoviesListAdapterObject.ViewHolder) itemView.getTag();
         }
 
-        else
-        {
-            viewHolder =(MoviesListAdapterObject.ViewHolder)itemView.getTag();
-        }
-
-final Movie single_movie = _movies[position];
+        final Movie single_movie = _movies[position];
         viewHolder.text.setText(single_movie.get_name());
-        float temp=Float.parseFloat(single_movie.getRating());
+        float temp = Float.parseFloat(single_movie.getRating());
         viewHolder.ratingBar.setRating(temp);
-        if(viewHolder.Edit_movie!=null)
-        {
+        if (viewHolder.Edit_movie != null) {
             final ViewHolder finalViewHolder = viewHolder;
             viewHolder.Edit_movie.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -153,35 +147,33 @@ final Movie single_movie = _movies[position];
                 }
             });
         }
-        if(movieImages[position]!=null)
+        if (movieImages[position] != null)
             viewHolder.image.setImageBitmap(movieImages[position]);
         else
             new MoviesListAdapterObject.DownloadAsyncTask(position).execute(viewHolder);
-        if(viewHolder.availble!=null)
-        {
+        if (viewHolder.availble != null) {
             viewHolder.availble.setText(single_movie.getAvailable());
         }
-        if(viewHolder.B_return!=null) {
+        if (viewHolder.B_return != null) {
             viewHolder.B_return.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                String movie_id = single_movie.getId();
+                    String movie_id = single_movie.getId();
                     UserRequest req = new UserRequest();
                     req.returnMovie(movie_id, new RequestInterface() {
                         @Override
                         public JSONObject onRecive(Callback callback) {
-                            String response =callback.getRespondFromServer();
-                            final String message ;
-                            if(response.equals("1")){
+                            String response = callback.getRespondFromServer();
+                            final String message;
+                            if (response.equals("1")) {
 
-                                message ="thank you for returning the movie";
-                            }
-                            else
-                                message =response;
+                                message = "thank you for returning the movie";
+                            } else
+                                message = response;
                             new Handler(Looper.getMainLooper()).post(new Runnable() {
                                 @Override
                                 public void run() {
-                                    Toast.makeText(_context,message,Toast.LENGTH_LONG).show();
+                                    Toast.makeText(_context, message, Toast.LENGTH_LONG).show();
                                 }
                             });
 
@@ -192,13 +184,6 @@ final Movie single_movie = _movies[position];
             });
 
         }
-
-
-
-
-
-
-
 
 
         return itemView;
@@ -234,7 +219,7 @@ final Movie single_movie = _movies[position];
         return true;
     }
 
-    static class ViewHolder{
+    static class ViewHolder {
         public TextView text;
         public ImageView image;
         public RatingBar ratingBar;
@@ -243,11 +228,12 @@ final Movie single_movie = _movies[position];
         public TextView availble;
         public Button Edit_movie;
     }
+
     private class DownloadAsyncTask extends AsyncTask<MoviesListAdapterObject.ViewHolder, Void, MoviesListAdapterObject.ViewHolder> {
         private Bitmap bit;
         private int _position;
-        public DownloadAsyncTask(int position)
-        {
+
+        public DownloadAsyncTask(int position) {
 
             super();
             _position = position;
@@ -281,11 +267,10 @@ final Movie single_movie = _movies[position];
             } else {
                 try {
                     result.image.setImageBitmap(bit);
+                } catch (NullPointerException p) {
+                    Log.d("exception", p.toString());
                 }
-                catch (NullPointerException p){
-                Log.d("exception",p.toString());
-                }
-              //  movieImages[_position]=(bit);
+                //  movieImages[_position]=(bit);
             }
         }
     }
